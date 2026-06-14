@@ -1,73 +1,134 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import StatCard from '@components/ui/StatCard'
-import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import Badge from '@components/ui/Badge'
-import Button from '@components/ui/Button'
-import Tabs from '@components/ui/Tabs'
 import { useSearch } from '@hooks/useSearch'
 import { MOCK_ARRESTS } from '@utils/mockData'
 
-const TABS = [{id:'all',label:'Zote'},{id:'pending',label:'Zinasubiri'},{id:'detained',label:'Kizuizini'},{id:'court',label:'Mahakamani'},{id:'completed',label:'Zilizokamilika'}]
+const TABS = [
+  {id:'all',      label:'Zote',         count:47},
+  {id:'pending',  label:'Zinasubiri',   count:18},
+  {id:'detained', label:'Kizuizini',    count:23},
+  {id:'court',    label:'Mahakamani',   count:4},
+  {id:'completed',label:'Zilizokamilika',count:2},
+]
 
 export default function Arrests() {
-  const navigate = useNavigate()
+  const nav = useNavigate()
   const [tab, setTab] = useState('all')
   const { query, setQuery, results } = useSearch(MOCK_ARRESTS, ['suspect','charges','officer','station','id'])
-  const filtered = tab==='all' ? results : results.filter(a => a.status===tab)
+  const filtered = tab === 'all' ? results : results.filter(a => a.status === tab)
+
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kukamatwa</div>
-      <div className="ph">
-        <div><h1>⛓️ Kukamatwa / Arrests</h1><p>Rekodi za kukamatwa zote · Leo: 47 · Mwezi huu: 1,284</p></div>
-        <div className="flex g8">
-          <Button variant="o">⬇ Pakua PDF</Button>
-          <Button variant="g" onClick={() => navigate('/enforcement/arrests/new')}>+ Rekodi ya Kukamata</Button>
+      {/* Stats */}
+      <div style={{display:'flex',alignItems:'flex-start',justifyContent:'space-between',marginBottom:16}}>
+        <div>
+          <h1 style={{fontSize:19,fontWeight:800,color:'var(--tw)'}}>⛓️ Kukamatwa / Arrests</h1>
+          <p style={{fontSize:11.5,color:'var(--tm)',marginTop:2}}>Rekodi za kukamatwa zote · Leo: 47 · Mwezi huu: 1,284</p>
+        </div>
+        <div style={{display:'flex',gap:8}}>
+          <button className="btn btn-gh btn-sm">⬇ Pakua PDF</button>
+          <button className="btn btn-g" onClick={()=>nav('/enforcement/arrests/new')}>+ Rekodi ya Kukamata</button>
         </div>
       </div>
+
       <div className="stats-row s4 mb-sec">
-        <StatCard icon="⛓️" value={47}   label="Kukamata Leo"     delta="8%" color="amber" />
-        <StatCard icon="🔒" value={23}   label="Kizuizini Sasa"   color="red" />
-        <StatCard icon="⚖️" value={18}   label="Mahakamani"       color="blue" />
-        <StatCard icon="✅" value={1284} label="Jumla Mwezi Huu"  delta="12%" color="green" />
-      </div>
-      <Card>
-        <CardHeader
-          action={
-            <div className="flex g8" style={{flexWrap:'wrap'}}>
-              <Tabs tabs={TABS} active={tab} onChange={setTab} />
-              <input className="fi" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." value={query} onChange={e=>setQuery(e.target.value)} />
+        {[
+          {ic:'⛓️', cls:'ic-amber',  n:47,   lbl:'Kukamata Leo',    delta:'↑ 8%', dcls:'up'},
+          {ic:'🔒', cls:'ic-red',    n:23,   lbl:'Kizuizini Sasa',  delta:'↓ 2',  dcls:'down'},
+          {ic:'⚖️', cls:'ic-blue',   n:18,   lbl:'Mahakamani',      delta:'↑ 3',  dcls:'up'},
+          {ic:'✅', cls:'ic-green',  n:1284, lbl:'Jumla Mwezi Huu', delta:'↑ 12%',dcls:'up'},
+        ].map(c => (
+          <div key={c.lbl} className="scard">
+            <div className="scard-top">
+              <div className={`scard-icon ${c.cls}`}>{c.ic}</div>
+              <div className={`scard-delta ${c.dcls}`}>{c.delta}</div>
             </div>
-          }
-        />
-        <CardBody noPadding>
-          <div className="tw">
-            <table>
-              <thead><tr><th>Namba</th><th>Mtuhumiwa</th><th>Makosa</th><th>Aina</th><th>Afisa</th><th>Kituo</th><th>Tarehe</th><th>Haki Zilisomwa</th><th>Hali</th><th></th></tr></thead>
-              <tbody>
-                {filtered.map(a => (
-                  <tr key={a.id}>
-                    <td className="td-mo">{a.id}</td>
-                    <td><div className="td-nm">{a.suspect}</div><div className="td-sub">NIDA: {a.nida}</div></td>
-                    <td style={{fontSize:11}}>{a.charges}</td>
-                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.08)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{a.category}</span></td>
-                    <td style={{fontSize:11}}>{a.officer}</td>
-                    <td style={{fontSize:11}}>{a.station}</td>
-                    <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{a.date} {a.time}</td>
-                    <td style={{textAlign:'center'}}>{a.rights_read ? <span style={{color:'#66BB6A',fontSize:12}}>✓</span> : <span style={{color:'#EF5350'}}>✗</span>}</td>
-                    <td><Badge status={a.status} /></td>
-                    <td><Button variant="o" size="sm">Angalia</Button></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="scard-num">{c.n.toLocaleString()}</div>
+            <div className="scard-lbl">{c.lbl}</div>
           </div>
-          <div style={{padding:'10px 14px',display:'flex',justifyContent:'space-between',borderTop:'1px solid var(--border)'}}>
-            <span style={{fontSize:11,color:'var(--text-muted)'}}>Inaonyesha {filtered.length} ya {MOCK_ARRESTS.length}</span>
-            <span style={{fontSize:11,color:'var(--text-muted)'}}>Ukurasa 1 ya 1</span>
+        ))}
+      </div>
+
+      <div className="card">
+        {/* Toolbar */}
+        <div style={{padding:'10px 14px',borderBottom:'1px solid var(--b)',display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+          <div className="tabs">
+            {TABS.map(t => (
+              <button key={t.id} className={`tab ${tab===t.id?'on':''}`} onClick={()=>setTab(t.id)}>
+                {t.label}
+                <span style={{marginLeft:3,fontSize:9,opacity:.6}}>({t.count})</span>
+              </button>
+            ))}
           </div>
-        </CardBody>
-      </Card>
+          <div style={{marginLeft:'auto',display:'flex',gap:8}}>
+            <input className="fi" style={{width:200,fontSize:11,padding:'6px 10px',borderRadius:20}}
+              placeholder="🔍 Tafuta..." value={query} onChange={e=>setQuery(e.target.value)} />
+            <select className="fs" style={{width:'auto',fontSize:11,padding:'6px 10px'}}>
+              <option>Aina: Zote</option><option>Criminal</option><option>Traffic</option><option>Narcotics</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Table */}
+        <div style={{overflowX:'auto'}}>
+          <table>
+            <thead><tr>
+              <th>Namba</th><th>Mtuhumiwa</th><th>Makosa</th><th>Aina</th>
+              <th>Afisa</th><th>Kituo</th><th>Tarehe</th><th>Haki</th><th>Hali</th><th></th>
+            </tr></thead>
+            <tbody>
+              {filtered.map(a => (
+                <tr key={a.id}>
+                  <td className="td-id">{a.id}</td>
+                  <td>
+                    <div style={{display:'flex',alignItems:'center',gap:8}}>
+                      <div style={{width:28,height:28,borderRadius:'50%',background:'var(--g600)',border:'1.5px solid var(--bl)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:12,flexShrink:0}}>👤</div>
+                      <div>
+                        <div className="td-nm">{a.suspect}</div>
+                        <div className="td-sub">NIDA: {a.nida}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td style={{fontSize:11}}>{a.charges}</td>
+                  <td>
+                    <span style={{fontSize:9.5,background:'rgba(255,255,255,.06)',border:'1px solid var(--b)',padding:'2px 7px',borderRadius:6,color:'var(--tm)'}}>
+                      {a.category}
+                    </span>
+                  </td>
+                  <td style={{fontSize:11}}>{a.officer}</td>
+                  <td style={{fontSize:11}}>{a.station}</td>
+                  <td>
+                    <div className="td-mo" style={{fontSize:10.5}}>{a.date}</div>
+                    <div style={{fontSize:9.5,color:'var(--td)'}}>{a.time}</div>
+                  </td>
+                  <td>
+                    <span style={{fontSize:11}}>{a.rights_read ? '✅' : '⏳'}</span>
+                  </td>
+                  <td><Badge status={a.status} /></td>
+                  <td>
+                    <button className="btn btn-gh btn-sm">Angalia</button>
+                  </td>
+                </tr>
+              ))}
+              {filtered.length === 0 && (
+                <tr><td colSpan={10} style={{textAlign:'center',padding:32,color:'var(--tm)'}}>Hakuna matokeo</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="pag">
+          <div className="pag-info">Inaonyesha {filtered.length} ya {MOCK_ARRESTS.length} matokeo</div>
+          <div style={{display:'flex',gap:6}}>
+            <div className="pag-btns">
+              {['‹',1,2,'›'].map((p,i) => (
+                <button key={i} className={`pag-btn ${p===1?'on':''}`}>{p}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
