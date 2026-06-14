@@ -1,14 +1,12 @@
 import { Outlet } from 'react-router-dom'
-import Sidebar from '@components/layout/Sidebar'
-import Topbar  from '@components/layout/Topbar'
-import Toast   from '@components/ui/Toast'
-import { useToast } from '@hooks/useToast'
+import Sidebar  from '@components/layout/Sidebar'
+import Topbar   from '@components/layout/Topbar'
+import { useApp } from '@context/AppContext'
 
 export default function MainLayout() {
-  const { toast } = useToast()
-
+  const { sidebarOpen } = useApp()
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ display:'flex', height:'100vh', overflow:'hidden' }}>
       <Sidebar />
       <div style={{
         marginLeft: 'var(--sidebar-w)',
@@ -17,13 +15,13 @@ export default function MainLayout() {
         flexDirection: 'column',
         height: '100vh',
         overflow: 'hidden',
+        background: 'var(--clr-dark)',
       }}>
         <Topbar />
-        <main style={{ flex: 1, overflowY: 'auto', padding: 20 }}>
+        <main style={{ flex:1, overflowY:'auto', padding:'18px 20px' }}>
           <Outlet />
         </main>
       </div>
-      <Toast toast={toast} />
     </div>
   )
 }

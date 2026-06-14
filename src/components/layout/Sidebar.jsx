@@ -3,11 +3,11 @@ import { useApp } from '@context/AppContext'
 import { getNavItems } from '@utils/rbac'
 
 export default function Sidebar() {
-  const { currentOfficer } = useApp()
+  const { currentOfficer, lang } = useApp()
   const location = useLocation()
-  const navItems = getNavItems(currentOfficer.role)
+  const navItems  = getNavItems(currentOfficer.role)
 
-  // Group by section
+  // group items by section
   const sections = navItems.reduce((acc, item) => {
     if (!acc[item.section]) acc[item.section] = []
     acc[item.section].push(item)
@@ -15,9 +15,16 @@ export default function Sidebar() {
   }, {})
 
   return (
-    <aside style={{ width:'var(--sidebar-w)', height:'100vh', background:'var(--clr-surface)', borderRight:'1px solid var(--clr-border)', display:'flex', flexDirection:'column', position:'fixed', left:0, top:0, zIndex:100, overflowY:'auto' }}>
+    <aside style={{
+      width:'var(--sidebar-w)', height:'100vh',
+      background:'var(--clr-surface)',
+      borderRight:'1px solid var(--clr-border)',
+      display:'flex', flexDirection:'column',
+      position:'fixed', left:0, top:0, zIndex:100,
+      overflowY:'auto',
+    }}>
       {/* Logo */}
-      <NavLink to="/" style={{ padding:'18px 16px 14px', borderBottom:'1px solid var(--clr-border)', display:'flex', alignItems:'center', gap:10, textDecoration:'none' }}>
+      <NavLink to="/" style={{ padding:'15px 14px 12px', borderBottom:'1px solid var(--clr-border)', display:'flex', alignItems:'center', gap:10, textDecoration:'none', flexShrink:0 }}>
         <div className="police-badge">🛡️</div>
         <div className="logo-text">
           <strong>JESHI LA POLISI</strong>
@@ -25,7 +32,12 @@ export default function Sidebar() {
         </div>
       </NavLink>
 
-      {/* Nav by section */}
+      {/* Role chip */}
+      <div style={{ padding:'6px 12px', borderBottom:'1px solid var(--clr-border)' }}>
+        <div className="role-chip">{currentOfficer.role.replace(/_/g,' ').toUpperCase()} · {currentOfficer.station.replace(' Police Station','')}</div>
+      </div>
+
+      {/* Dynamic RBAC nav */}
       <nav style={{ flex:1 }}>
         {Object.entries(sections).map(([section, items]) => (
           <div key={section} className="nav-section">
@@ -39,7 +51,7 @@ export default function Sidebar() {
                   className={`nav-item ${isActive ? 'active' : ''}`}
                   style={{ textDecoration:'none' }}>
                   <span className="nav-icon">{item.icon}</span>
-                  <span style={{ flex:1 }}>{item.label}</span>
+                  <span style={{ flex:1, fontSize:11.5 }}>{item.label}</span>
                   {item.badge && <span className="nav-badge">{item.badge}</span>}
                 </NavLink>
               )
@@ -49,18 +61,14 @@ export default function Sidebar() {
       </nav>
 
       {/* Officer footer */}
-      <div style={{ padding:'12px 16px', borderTop:'1px solid var(--clr-border)' }}>
-        {/* Role badge */}
-        <div style={{ fontSize:9, fontWeight:700, color:'var(--clr-accent)', textTransform:'uppercase', letterSpacing:1, marginBottom:8, textAlign:'center', background:'rgba(255,193,7,.1)', padding:'3px 8px', borderRadius:10 }}>
-          {currentOfficer.role.replace('_',' ').toUpperCase()} · {currentOfficer.scope || 'STATION'}
-        </div>
+      <div style={{ padding:'10px 12px', borderTop:'1px solid var(--clr-border)', flexShrink:0 }}>
         <div className="officer-card">
           <div className="officer-avatar">👮</div>
           <div className="officer-info" style={{ flex:1, minWidth:0 }}>
-            <strong style={{ fontSize:10 }}>{currentOfficer.name}</strong>
+            <strong>{currentOfficer.name}</strong>
             <span>Badge: {currentOfficer.badge}</span>
           </div>
-          <div className="online-dot" title="Online" />
+          <div className="online-dot" />
         </div>
       </div>
     </aside>

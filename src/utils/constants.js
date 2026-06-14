@@ -158,3 +158,9 @@ export const DB_TABLES = [
   'officer_locations','firearms','firearm_licenses','prisoners','cells','transfers',
   'court_cases','hearings','audit_logs',
 ]
+
+export const SCOPE_LABELS = {national:'Taifa',regional:'Mkoa',district:'Wilaya',station:'Kituo',post:'Kituo cha Doria'}
+export const PRIORITY_LEVELS = ['critical','high','medium','low']
+export const CASE_TYPES = ['Criminal','Fraud','Narcotics','Murder','Assault','Theft','Cyber','Financial','Terrorism']
+export const INCIDENT_TYPES = ['Wizi wa Gari','Wizi wa Nyumba','Mapigano','Ubakaji','Mauaji','Ajali ya Gari','Uvunjaji wa Mali','Ulaghai','Madawa ya Kulevya','Ugaidi']
+export const VEHICLE_TYPES = ['Toyota Noah','Toyota Corolla','Toyota Land Cruiser','Toyota Hilux','Nissan X-Trail','Honda Fit','Mitsubishi Pajero','Suzuki Alto','Toyota Hiace','Bajaj Boxer']

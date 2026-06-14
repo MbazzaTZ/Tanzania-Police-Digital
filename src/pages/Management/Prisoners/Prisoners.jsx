@@ -1,29 +1,50 @@
-import Breadcrumb from '@components/ui/Breadcrumb'
 import StatCard from '@components/ui/StatCard'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
+import Badge from '@components/ui/Badge'
 import Button from '@components/ui/Button'
-export default function Page() {
+import { MOCK_PRISONERS } from '@utils/mockData'
+export default function Prisoners() {
   return (
     <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Wafungwa / Prisoners</div>
+      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Wafungwa</div>
       <div className="page-header">
-        <div><h1>🔒 Wafungwa / Prisoners</h1><p>Watu waliofungwa na muda wao</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Mpya</Button></div>
+        <div><h1>🔒 Wafungwa / Prisoners</h1><p>Wafungwa walioko vituo vya polisi sasa hivi</p></div>
+        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Ingiza Mfungwa</Button></div>
       </div>
       <div className="stat-grid stat-grid-4 section-gap">
-        <StatCard icon="📊" value={0} label="Jumla" delta="5%" color="green" />
-        <StatCard icon="⏳" value={0} label="Hai" delta="3%" color="amber" />
-        <StatCard icon="🚨" value={0} label="Muhimu" color="red" />
-        <StatCard icon="✅" value={0} label="Imekamilika" delta="8%" />
+        <StatCard icon="🔒" value={MOCK_PRISONERS.length} label="Wafungwa Jumla"     color="red" />
+        <StatCard icon="⚠️" value={0}                     label="Seli Zimejaa"        color="amber" />
+        <StatCard icon="🔄" value={0}                     label="Uhamisho wa Leo"      color="blue" />
+        <StatCard icon="✅" value={0}                     label="Walioachiwa Leo"      color="green" />
       </div>
-      <Card><CardHeader title="🔒 Wafungwa / Prisoners" /><CardBody>
-        <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Muundo kamili wa database uko tayari.</div>
-        <div style={{textAlign:'center',padding:40,color:'var(--clr-muted)'}}>
-          <div style={{fontSize:48,marginBottom:12}}>🔒</div>
-          <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Wafungwa / Prisoners</div>
-          <div style={{fontSize:12,maxWidth:400,margin:'0 auto'}}>Watu waliofungwa na muda wao</div>
-        </div>
-      </CardBody></Card>
+      <div className="info-box section-gap">⚠️ Wafungwa wanaostahili kuachiwa leo: 0. Mfumo unaangalia muda wa kizuizini moja kwa moja.</div>
+      <Card>
+        <CardHeader title="🔒 Orodha ya Wafungwa" action={<Button variant="outline" size="sm">🔄 Uhamisho</Button>} />
+        <CardBody noPadding>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Namba</th><th>Jina</th><th>NIDA</th><th>Seli</th><th>Kituo</th><th>Sababu</th><th>Afisa</th><th>Kuingia</th><th>Muda Upeo</th><th>Hali</th><th></th></tr></thead>
+              <tbody>
+                {MOCK_PRISONERS.map(p=>(
+                  <tr key={p.id}>
+                    <td className="td-mono">{p.id}</td>
+                    <td className="td-name">{p.name}</td>
+                    <td className="td-mono">{p.nida}</td>
+                    <td className="td-mono">{p.cell}</td>
+                    <td style={{fontSize:11}}>{p.station}</td>
+                    <td style={{fontSize:11}}>{p.reason}</td>
+                    <td style={{fontSize:11}}>{p.officer}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{p.checkin}</td>
+                    <td style={{textAlign:'center'}}><span style={{fontFamily:'var(--font-mono)',color:'var(--clr-accent)'}}>{p.maxHours}h</span></td>
+                    <td><Badge status={p.status} /></td>
+                    <td className="flex gap-8"><Button variant="success" size="sm">Achia</Button><Button variant="outline" size="sm">🔄 Hamisha</Button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </CardBody>
+      </Card>
     </div>
   )
 }

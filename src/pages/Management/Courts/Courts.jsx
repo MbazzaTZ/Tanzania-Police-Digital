@@ -1,29 +1,49 @@
-import Breadcrumb from '@components/ui/Breadcrumb'
 import StatCard from '@components/ui/StatCard'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
+import Badge from '@components/ui/Badge'
 import Button from '@components/ui/Button'
-export default function Page() {
+const MOCK_COURT_CASES=[
+  {id:'CC-2024-001',case:'CASE-2024-00128',title:'Wizi wa Benki ya CRDB',court:'Mahakama ya Wilaya – Kinondoni',judge:'Mhe. J. Msigwa',prosecutor:'DPP Mwangi',next_hearing:'25/05/2024',status:'pending'},
+  {id:'CC-2024-002',case:'CASE-2024-00125',title:'Mauaji ya Temeke',court:'Mahakama ya Mkoa – DSM',judge:'Mhe. A. Kazimoto',prosecutor:'DPP Hassan',next_hearing:'20/05/2024',status:'active'},
+]
+export default function Courts() {
   return (
     <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Mahakama / Courts</div>
+      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Mahakama</div>
       <div className="page-header">
-        <div><h1>🏛️ Mahakama / Courts</h1><p>Kesi za mahakama na vikao</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Mpya</Button></div>
+        <div><h1>🏛️ Mahakama / Court Management</h1><p>Kesi zinazoendelea mahakamani na ratiba ya vikao</p></div>
+        <Button variant="accent">+ Ongeza Kesi ya Mahakama</Button>
       </div>
       <div className="stat-grid stat-grid-4 section-gap">
-        <StatCard icon="📊" value={0} label="Jumla" delta="5%" color="green" />
-        <StatCard icon="⏳" value={0} label="Hai" delta="3%" color="amber" />
-        <StatCard icon="🚨" value={0} label="Muhimu" color="red" />
-        <StatCard icon="✅" value={0} label="Imekamilika" delta="8%" />
+        <StatCard icon="🏛️" value={234}  label="Kesi Mahakamani"   color="blue" />
+        <StatCard icon="📅" value={12}   label="Vikao Wiki Hii"     color="amber" />
+        <StatCard icon="✅" value={56}   label="Zilizofungwa Mwezi" delta="8%"  color="green" />
+        <StatCard icon="⏳" value={178}  label="Zinasubiri Hukumu"             color="red" />
       </div>
-      <Card><CardHeader title="🏛️ Mahakama / Courts" /><CardBody>
-        <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Muundo kamili wa database uko tayari.</div>
-        <div style={{textAlign:'center',padding:40,color:'var(--clr-muted)'}}>
-          <div style={{fontSize:48,marginBottom:12}}>🏛️</div>
-          <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Mahakama / Courts</div>
-          <div style={{fontSize:12,maxWidth:400,margin:'0 auto'}}>Kesi za mahakama na vikao</div>
-        </div>
-      </CardBody></Card>
+      <Card>
+        <CardHeader title="🏛️ Kesi za Mahakama" />
+        <CardBody noPadding>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Namba</th><th>Kesi</th><th>Mahakama</th><th>Jaji</th><th>Mwendesha Mashtaka</th><th>Kikao Kinachofuata</th><th>Hali</th><th></th></tr></thead>
+              <tbody>
+                {MOCK_COURT_CASES.map(c=>(
+                  <tr key={c.id}>
+                    <td className="td-mono">{c.id}</td>
+                    <td><div className="td-name">{c.title}</div><div className="td-sub">{c.case}</div></td>
+                    <td style={{fontSize:11}}>{c.court}</td>
+                    <td style={{fontSize:11}}>{c.judge}</td>
+                    <td style={{fontSize:11}}>{c.prosecutor}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10,color:'var(--clr-accent)'}}>{c.next_hearing}</td>
+                    <td><Badge status={c.status} /></td>
+                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </CardBody>
+      </Card>
     </div>
   )
 }
