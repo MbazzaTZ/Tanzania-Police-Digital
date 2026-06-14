@@ -22,7 +22,7 @@ export default function Intelligence() {
       </div>
       <div className="stat-grid stat-grid-4 section-gap">
         <StatCard icon="🧠" value={47}  label="Faili Amilifu"      color="red" />
-        <StatCard icon="👁️" value={12}  label:"Zinafuatiliwa"      color="amber" />
+        <StatCard icon="👁️" value={12}  label="Zinafuatiliwa"      color="amber" />
         <StatCard icon="⚠️" value={4}   label="Vitisho Vya Juu"    color="red" />
         <StatCard icon="✅" value={234} label="Zilizofungwa Mwaka"  color="green" />
       </div>

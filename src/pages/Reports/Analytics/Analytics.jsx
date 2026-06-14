@@ -13,7 +13,7 @@ export default function Analytics() {
         <StatCard icon="📊" value={2847291} label="Rekodi Zilizochambuliwa"  delta="8%" color="blue" />
         <StatCard icon="🔮" value={94}      label="Usahihi wa Utabiri (%)"   delta="3%" color="green" />
         <StatCard icon="🗺️" value={26}      label="Mikoa Inayochunguzwa"                color="amber" />
-        <StatCard icon="⚡" value={12}      label:"Maeneo Hatari Yaliyogunduliwa" color="red" />
+        <StatCard icon="⚡" value={12}      label="Maeneo Hatari Yaliyogunduliwa" color="red" />
       </div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
         <Card>
