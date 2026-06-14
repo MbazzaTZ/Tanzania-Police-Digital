@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Citations / Tiketi – TPDOP</title>
+<link rel="stylesheet" href="../../assets/css/tpdop.css">
+</head>
+<body data-page="citations" data-title="Citations / Tiketi" data-subtitle="Utekelezaji wa Sheria za Barabarani">
+<div class="app" id="app">
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../../index.html">🏠 Makao Makuu</a><span>›</span>Utekelezaji<span>›</span>Citations</div>
+      <div class="page-header">
+        <div><h1>📋 Citations / Tiketi</h1><p>Angalia, tafuta na dhibiti citations zote · 4,291 jumla</p></div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-outline">⬇ Pakua</button>
+          <a href="citation-wizard.html" class="btn btn-accent">+ Toa Citation Mpya</a>
+        </div>
+      </div>
+
+      <!-- Summary Pills -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-secondary);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div class="stat-num" style="font-size:22px;color:var(--clr-white)">4,291</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Zote</div></div>
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div class="stat-num" style="font-size:22px;color:#64B5F6">2,847</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Imetolewa</div></div>
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div class="stat-num" style="font-size:22px;color:#66BB6A">1,744</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Imelipwa</div></div>
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div class="stat-num" style="font-size:22px;color:var(--clr-accent)">485</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Haijalipwa</div></div>
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div class="stat-num" style="font-size:22px;color:#9E9E9E">215</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Imeghairiwa</div></div>
+        <div style="background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 16px;text-align:center;">
+          <div style="font-size:16px;font-weight:800;color:var(--clr-accent);font-family:var(--font-mono)">TZS 89M</div><div style="font-size:9px;color:var(--clr-muted);text-transform:uppercase;">Jumla Faini</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="tabs">
+            <button class="tab active">Zote</button>
+            <button class="tab">Imetolewa</button>
+            <button class="tab">Imelipwa</button>
+            <button class="tab">Haijalipwa</button>
+            <button class="tab">Imeghairiwa</button>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input id="cite-search" class="form-input" style="width:180px;font-size:11px;padding:6px 10px;" placeholder="🔍 Tafuta...">
+            <select class="form-select" style="width:auto;font-size:11px;padding:6px 10px;">
+              <option>Tarehe: Zote</option><option>Leo</option><option>Wiki Hii</option><option>Mwezi Huu</option>
+            </select>
+            <select class="form-select" style="width:auto;font-size:11px;padding:6px 10px;">
+              <option>Makosa: Zote</option><option>Mwendo Kasi</option><option>Bila Leseni</option><option>Bila Mkanda</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-wrap">
+            <table id="citations-table">
+              <thead><tr>
+                <th>#</th><th>Namba ya Citation</th><th>Mtuhumiwa / Suspect</th>
+                <th>Gari</th><th>Makosa / Offence</th><th>Afisa</th>
+                <th>Mahali</th><th>Tarehe</th><th>Faini (TZS)</th><th>Hali</th><th></th>
+              </tr></thead>
+              <tbody>
+                <tr><td class="td-mono">28</td><td class="td-mono">CIT-2024-00028</td><td><div class="td-name">Juma Ally Khamis</div><div class="td-sub">NIDA: 1234567890123</div></td><td class="td-mono">T123 DFG</td><td>Kuendesha bila leseni</td><td style="font-size:11px">Insp. J.M. Khamis</td><td style="font-size:11px">Morogoro Rd, Oysterbay</td><td style="font-family:var(--font-mono);font-size:10px">17/05/2024 10:45</td><td class="td-mono">50,000</td><td><span class="status s-issued">Imetolewa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">27</td><td class="td-mono">CIT-2024-00027</td><td><div class="td-name">David John Mallya</div><div class="td-sub">NIDA: 9876543210987</div></td><td class="td-mono">T987 ABC</td><td>Mwendo kasi (85 km/h)</td><td style="font-size:11px">Sgt. A. Suleiman</td><td style="font-size:11px">Haile Selassie Rd</td><td style="font-family:var(--font-mono);font-size:10px">17/05/2024 09:58</td><td class="td-mono">30,000</td><td><span class="status s-issued">Imetolewa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">26</td><td class="td-mono">CIT-2024-00026</td><td><div class="td-name">Salma Said Mwinyi</div><div class="td-sub">NIDA: 1122334455667</div></td><td class="td-mono">T456 EFG</td><td>Kuvuka taa nyekundu</td><td style="font-size:11px">Cpl. H. Mwinyi</td><td style="font-size:11px">Ali Hassan Mwinyi Rd</td><td style="font-family:var(--font-mono);font-size:10px">16/05/2024 16:30</td><td class="td-mono">30,000</td><td><span class="status s-paid">Imelipwa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">25</td><td class="td-mono">CIT-2024-00025</td><td><div class="td-name">Nesto Eliya Masoud</div><div class="td-sub">NIDA: 3344556677889</div></td><td class="td-mono">T222 HJK</td><td>Bila mkanda wa usalama</td><td style="font-size:11px">Insp. J.M. Khamis</td><td style="font-size:11px">Bagamoyo Road</td><td style="font-family:var(--font-mono);font-size:10px">16/05/2024 04:45</td><td class="td-mono">10,000</td><td><span class="status s-pending">Haijalipwa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">24</td><td class="td-mono">CIT-2024-00024</td><td><div class="td-name">Rajabu Abubakar</div><div class="td-sub">NIDA: 5566778899001</div></td><td class="td-mono">T789 LMN</td><td>Kuendesha bila bima</td><td style="font-size:11px">ASP F. Kimaro</td><td style="font-size:11px">Morogoro Rd, Oysterbay</td><td style="font-family:var(--font-mono);font-size:10px">16/05/2024 02:30</td><td class="td-mono">50,000</td><td><span class="status s-issued">Imetolewa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">23</td><td class="td-mono">CIT-2024-00023</td><td><div class="td-name">Hassan Juma</div><div class="td-sub">NIDA: 2233445566778</div></td><td class="td-mono">T555 OPQ</td><td>Taa zisizofanya kazi</td><td style="font-size:11px">Sgt. A. Suleiman</td><td style="font-size:11px">Nyerere Road</td><td style="font-family:var(--font-mono);font-size:10px">15/05/2024 19:45</td><td class="td-mono">50,000</td><td><span class="status s-pending">Haijalipwa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">22</td><td class="td-mono">CIT-2024-00022</td><td><div class="td-name">Neema Kazimoto</div><div class="td-sub">NIDA: 6677889900112</div></td><td class="td-mono">T333 RST</td><td>Kutumia simu wakati wa kuendesha</td><td style="font-size:11px">Cpl. H. Mwinyi</td><td style="font-size:11px">Nyerere Road</td><td style="font-family:var(--font-mono);font-size:10px">15/05/2024 16:20</td><td class="td-mono">100,000</td><td><span class="status s-paid">Imelipwa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+                <tr><td class="td-mono">21</td><td class="td-mono">CIT-2024-00021</td><td><div class="td-name">Omary Said</div><div class="td-sub">NIDA: 8899001122334</div></td><td class="td-mono">T112 UVW</td><td>Hati za gari hazikamiliki</td><td style="font-size:11px">Insp. J.M. Khamis</td><td style="font-size:11px">Sam Nujoma Road</td><td style="font-family:var(--font-mono);font-size:10px">14/05/2024 15:10</td><td class="td-mono">100,000</td><td><span class="status s-paid">Imelipwa</span></td><td><a href="citation-detail.html" class="btn btn-outline btn-sm">Angalia</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--clr-border);">
+            <div style="font-size:11px;color:var(--clr-muted);">Inaonyesha 1–8 ya 4,291 · Ukurasa 1 ya 537</div>
+            <div style="display:flex;gap:6px;">
+              <button class="btn btn-outline btn-sm">‹</button>
+              <button class="btn btn-primary btn-sm">1</button>
+              <button class="btn btn-outline btn-sm">2</button>
+              <button class="btn btn-outline btn-sm">3</button>
+              <button class="btn btn-outline btn-sm">...</button>
+              <button class="btn btn-outline btn-sm">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/js/sidebar.js"></script>
+<script>
+document.getElementById('cite-search')?.addEventListener('input', function() {
+  const v = this.value.toLowerCase();
+  document.querySelectorAll('#citations-table tbody tr').forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(v) ? '' : 'none';
+  });
+});
+</script>
+</body></html>

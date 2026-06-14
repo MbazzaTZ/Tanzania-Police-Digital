@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tafuta Watu – TPDOP</title>
+<link rel="stylesheet" href="../../assets/css/tpdop.css">
+<style>
+.search-types{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.search-type-btn{background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 8px;text-align:center;cursor:pointer;transition:all .15s;}
+.search-type-btn:hover,.search-type-btn.active{border-color:var(--clr-accent);background:rgba(255,193,7,.06);}
+.search-type-btn .st-icon{font-size:20px;margin-bottom:4px;}
+.search-type-btn .st-label{font-size:10px;font-weight:600;color:var(--clr-text);}
+.search-type-btn .st-sub{font-size:9px;color:var(--clr-muted);}
+.profile-card{background:var(--clr-panel);border:1px solid var(--clr-border);border-radius:var(--r-lg);overflow:hidden;}
+.profile-header{background:linear-gradient(135deg,var(--clr-primary),#0A3D0A);padding:20px;display:flex;gap:16px;align-items:flex-start;}
+.profile-avatar{width:72px;height:72px;border-radius:50%;background:rgba(0,0,0,.3);border:2px solid var(--clr-accent);display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;}
+.profile-name{font-size:18px;font-weight:800;color:#fff;}
+.profile-id{font-size:10px;font-family:var(--font-mono);color:rgba(255,255,255,.7);}
+.id-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:16px;}
+.id-card{background:var(--clr-dark);border:1px solid var(--clr-border);border-radius:var(--r);padding:10px 12px;}
+.id-card-type{font-size:9px;color:var(--clr-muted);text-transform:uppercase;letter-spacing:.5px;}
+.id-card-num{font-size:11px;font-family:var(--font-mono);color:var(--clr-accent);margin:3px 0;font-weight:600;}
+.id-card-status{font-size:9px;}
+.police-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px;}
+.police-row:last-child{border-bottom:none;}
+.recent-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer;}
+.recent-item:hover{opacity:.8;}
+.recent-avatar{width:32px;height:32px;border-radius:50%;background:var(--clr-primary);display:flex;align-items:center;justify-content:center;font-size:14px;}
+</style>
+</head>
+<body data-page="persons" data-title="Tafuta Watu / Person Search" data-subtitle="NIDA · Passport · Leseni · Biometric">
+<div class="app" id="app">
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../../index.html">🏠</a><span>›</span>Usimamizi<span>›</span>Tafuta Watu</div>
+      <div class="page-header">
+        <div><h1>🔍 Tafuta Watu / Person Search</h1><p>Tafuta kwa NIDA, Pasipoti, Leseni, Simu, TIN, I-NEC, au Biometric</p></div>
+      </div>
+
+      <!-- Search Type Selector -->
+      <div class="search-types">
+        <div class="search-type-btn active" onclick="setSearchType(this,'NIDA')">
+          <div class="st-icon">🪪</div><div class="st-label">NIDA</div><div class="st-sub">Namba ya NIDA</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'Jina')">
+          <div class="st-icon">👤</div><div class="st-label">Jina</div><div class="st-sub">Jina Kamili</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'Simu')">
+          <div class="st-icon">📱</div><div class="st-label">Simu</div><div class="st-sub">Namba ya Simu</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'Leseni')">
+          <div class="st-icon">🪪</div><div class="st-label">Leseni</div><div class="st-sub">Driver Licence</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'TIN')">
+          <div class="st-icon">▐▌▌</div><div class="st-label">TIN</div><div class="st-sub">Namba ya TIN</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'I-NEC')">
+          <div class="st-icon">🗳️</div><div class="st-label">I-NEC</div><div class="st-sub">Namba ya I-NEC</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'Passport')">
+          <div class="st-icon">🛂</div><div class="st-label">Passport</div><div class="st-sub">Namba ya Pasipoti</div>
+        </div>
+        <div class="search-type-btn" onclick="setSearchType(this,'Biometric')">
+          <div class="st-icon">👆</div><div class="st-label">Biometric</div><div class="st-sub">Alama ya Kidole</div>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="card section-gap">
+        <div class="card-body">
+          <div style="display:flex;gap:8px;margin-bottom:8px;">
+            <input id="search-input" class="form-input" style="flex:1;font-size:14px;padding:12px 16px;" placeholder="Weka namba ya NIDA...">
+            <button class="btn btn-primary btn-lg" style="padding:12px 24px;" onclick="doSearch()">🔍 Tafuta</button>
+            <button class="btn btn-outline" style="padding:12px 16px;" title="Scan QR / NIDA">📷 Scan</button>
+          </div>
+          <div style="font-size:11px;color:var(--clr-muted);">Au: <a style="color:var(--clr-accent);cursor:pointer;">Scan QR Code au Namba ya NIDA</a></div>
+        </div>
+      </div>
+
+      <!-- Profile Result -->
+      <div id="profile-result" class="section-gap">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                <div class="profile-name">JUMA ALLY KHAMIS</div>
+                <span class="status s-active">Hakuna Tahadhari</span>
+                <span class="status s-closed">Amilifu</span>
+              </div>
+              <div class="profile-id" style="margin-bottom:6px;">ID: PRS-2024-0517-000123 · NIDA: 1234567890123</div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:11px;">
+                <div><div style="color:rgba(255,255,255,.5);font-size:9px;text-transform:uppercase;">Jinsia</div><div style="color:#fff;font-weight:500;margin-top:2px;">Mwanaume</div></div>
+                <div><div style="color:rgba(255,255,255,.5);font-size:9px;text-transform:uppercase;">Tarehe ya Kuzaliwa</div><div style="color:#fff;font-weight:500;margin-top:2px;">15/03/1985 (39 yrs)</div></div>
+                <div><div style="color:rgba(255,255,255,.5);font-size:9px;text-transform:uppercase;">Uraia</div><div style="color:#fff;font-weight:500;margin-top:2px;">Mtanzania</div></div>
+                <div><div style="color:rgba(255,255,255,.5);font-size:9px;text-transform:uppercase;">Mkoa</div><div style="color:#fff;font-weight:500;margin-top:2px;">Dar es Salaam</div></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+              <div style="background:rgba(0,0,0,.4);padding:6px;border-radius:4px;">
+                <div style="width:60px;height:60px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:28px;">▦</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.5);text-align:center;margin-top:2px;">Scan QR</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ID Documents -->
+          <div style="border-bottom:1px solid var(--clr-border);">
+            <div style="padding:12px 16px 4px;font-size:11px;font-weight:700;color:var(--clr-muted);text-transform:uppercase;letter-spacing:.5px;">Nyaraka za Utambulisho</div>
+            <div class="id-cards">
+              <div class="id-card">
+                <div class="id-card-type">NIDA</div>
+                <div class="id-card-num">1234567890123</div>
+                <div class="id-card-status"><span class="status s-active" style="font-size:9px;">Ndiyo</span></div>
+                <div style="font-size:9px;color:var(--clr-muted);margin-top:4px;">Imetolewa: 12/06/2016</div>
+              </div>
+              <div class="id-card">
+                <div class="id-card-type">Leseni ya Udereva</div>
+                <div class="id-card-num">DL12345678TZ</div>
+                <div class="id-card-status"><span class="status s-active" style="font-size:9px;">Ndiyo</span></div>
+                <div style="font-size:9px;color:var(--clr-muted);margin-top:4px;">Daraja B,C · Exp: 20/08/2026</div>
+              </div>
+              <div class="id-card">
+                <div class="id-card-type">TIN</div>
+                <div class="id-card-num">123-456-789</div>
+                <div class="id-card-status"><span class="status s-active" style="font-size:9px;">Ndiyo</span></div>
+                <div style="font-size:9px;color:var(--clr-muted);margin-top:4px;">Aina: Mtu Binafsi</div>
+              </div>
+              <div class="id-card">
+                <div class="id-card-type">I-NEC</div>
+                <div class="id-card-num">NEC987654321</div>
+                <div class="id-card-status"><span class="status s-active" style="font-size:9px;">Ndiyo</span></div>
+                <div style="font-size:9px;color:var(--clr-muted);margin-top:4px;">Kituo: Oysterbay</div>
+              </div>
+              <div class="id-card">
+                <div class="id-card-type">Passport</div>
+                <div class="id-card-num">PP1234567</div>
+                <div class="id-card-status"><span class="status s-active" style="font-size:9px;">Ndiyo</span></div>
+                <div style="font-size:9px;color:var(--clr-muted);margin-top:4px;">Exp: 10/02/2028 · Kawaida</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div style="padding:0 16px;border-bottom:1px solid var(--clr-border);">
+            <div class="tabs" style="background:transparent;padding:0;border-radius:0;gap:0;">
+              <button class="tab active" style="border-bottom:2px solid var(--clr-accent);border-radius:0;">Muhtasari</button>
+              <button class="tab">Nyaraka</button>
+              <button class="tab">Mashtaka ya Polisi</button>
+              <button class="tab">Magari</button>
+              <button class="tab">Leseni</button>
+              <button class="tab">Kesi</button>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+            <!-- Personal Info -->
+            <div style="padding:16px;border-right:1px solid var(--clr-border);">
+              <div style="font-size:11px;font-weight:700;color:var(--clr-muted);text-transform:uppercase;margin-bottom:10px;">Taarifa Binafsi</div>
+              <div style="font-size:11px;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Jina la Baba</span><span>Ally Khamis</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Jina la Mama</span><span>Asha Mohamed</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Simu</span><span style="font-family:var(--font-mono);">+255 712 345 678</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Barua Pepe</span><span>juma.ally@gmail.com</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Anuani</span><span>Mbezi Beach, Makabe Rd</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Mkoa</span><span>Dar es Salaam</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Wilaya</span><span>Kinondoni</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="color:var(--clr-muted);">Kata</span><span>Mbezi</span></div>
+              </div>
+            </div>
+            <!-- Police Info -->
+            <div style="padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <div style="font-size:11px;font-weight:700;color:var(--clr-muted);text-transform:uppercase;">Taarifa za Polisi</div>
+                <a style="font-size:10px;color:var(--clr-accent);cursor:pointer;">Ona Zote →</a>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div class="police-row"><span style="color:var(--clr-muted);">⚠️ Tahadhari / Watchlist</span><span class="td-mono">0</span></div>
+                <div class="police-row"><span style="color:var(--clr-muted);">⛓️ Historia ya Kukamatwa</span><span class="td-mono">1</span></div>
+                <div class="police-row"><span style="color:var(--clr-muted);">⚖️ Mashtaka / Makosa</span><span class="td-mono">1</span></div>
+                <div class="police-row"><span style="color:var(--clr-muted);">📁 Kesi Zinazoendelea</span><span class="td-mono">0</span></div>
+                <div class="police-row"><span style="color:var(--clr-muted);">📋 Citations / Tiketi</span><span class="td-mono">3</span></div>
+                <div class="police-row"><span style="color:var(--clr-muted);">🏛️ Amri za Mahakama</span><span class="td-mono">0</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="padding:14px 16px;border-top:1px solid var(--clr-border);display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="../enforcement/citation-wizard.html" class="btn btn-outline btn-sm">📋 Toa Citation</a>
+            <a href="../enforcement/arrests.html" class="btn btn-outline btn-sm">⛓️ Kamata (Arrest)</a>
+            <button class="btn btn-outline btn-sm">🔒 Detain (Shikilia)</button>
+            <button class="btn btn-outline btn-sm">📝 Ripoti ya Tukio</button>
+            <button class="btn btn-danger btn-sm">🚨 Escalate</button>
+            <button class="btn btn-outline btn-sm">⋯ Zaidi</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Searches -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🕐 Utafutaji wa Hivi Karibuni</div>
+          <span class="view-all">Ona Zote →</span>
+        </div>
+        <div class="card-body" style="padding:0 16px;">
+          <div class="recent-item">
+            <div class="recent-avatar">👤</div>
+            <div style="flex:1;"><div style="font-size:12px;font-weight:600;color:var(--clr-white);">Juma Ally Khamis</div><div style="font-size:10px;color:var(--clr-muted);">NIDA: 1234567890123</div></div>
+            <div style="font-size:10px;color:var(--clr-muted);">17 Mei 2024, 10:35</div>
+          </div>
+          <div class="recent-item">
+            <div class="recent-avatar">👤</div>
+            <div style="flex:1;"><div style="font-size:12px;font-weight:600;color:var(--clr-white);">Asha Mohamed Suleiman</div><div style="font-size:10px;color:var(--clr-muted);">NIDA: 9876543210987</div></div>
+            <div style="font-size:10px;color:var(--clr-muted);">17 Mei 2024, 09:42</div>
+          </div>
+          <div class="recent-item">
+            <div class="recent-avatar">👤</div>
+            <div style="flex:1;"><div style="font-size:12px;font-weight:600;color:var(--clr-white);">Abdallah Hassan Mwinyi</div><div style="font-size:10px;color:var(--clr-muted);">NIDA: 1122334455667</div></div>
+            <div style="font-size:10px;color:var(--clr-muted);">16 Mei 2024, 16:20</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/js/sidebar.js"></script>
+<script>
+function setSearchType(el, type) {
+  document.querySelectorAll('.search-type-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('search-input').placeholder = `Weka namba ya ${type}...`;
+}
+function doSearch() {
+  const val = document.getElementById('search-input').value.trim();
+  if (val) document.getElementById('profile-result').style.display = 'block';
+}
+</script>
+</body></html>
