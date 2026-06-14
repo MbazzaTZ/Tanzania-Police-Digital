@@ -1,84 +1,112 @@
-// Tanzania Police Force – Official Badge SVG
-// Colors: Navy #1E3A6E, White, Gold torch #F57C00/#FFC107
+// Tanzania Police Force – Official Badge SVG (accurate replica)
 export default function PoliceBadge({ size = 40 }) {
+  const id = `pb_${Math.random().toString(36).slice(2,7)}`
   return (
-    <svg width={size} height={size} viewBox="0 0 200 220"
-      style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,.45))', flexShrink: 0 }}>
-
-      {/* ── TORCH / FLAME ── */}
-      {/* Torch cup – gold */}
-      <ellipse cx="100" cy="36" rx="10" ry="6" fill="#F9A825"/>
-      <rect x="93" y="36" width="14" height="10" rx="2" fill="#F9A825"/>
-      {/* Flame layers */}
-      <ellipse cx="100" cy="22" rx="9" ry="16" fill="#E65100"/>
-      <ellipse cx="98"  cy="20" rx="6" ry="11" fill="#F57C00"/>
-      <ellipse cx="100" cy="18" rx="4" ry="8"  fill="#FFC107"/>
-      <ellipse cx="101" cy="17" rx="2" ry="5"  fill="#FFF176"/>
+    <svg
+      width={size}
+      height={Math.round(size * 1.15)}
+      viewBox="0 0 200 230"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ flexShrink: 0, display: 'block' }}
+    >
+      {/* ── TORCH TOP ── */}
+      {/* Torch base / cup */}
+      <path d="M88,55 Q88,48 100,46 Q112,48 112,55 L110,65 L90,65 Z" fill="#F9A825"/>
+      {/* Flame – outer dark orange */}
+      <ellipse cx="100" cy="34" rx="11" ry="20" fill="#BF360C"/>
+      {/* Flame – mid orange */}
+      <ellipse cx="99"  cy="30" rx="8"  ry="15" fill="#E65100"/>
+      {/* Flame – bright orange */}
+      <ellipse cx="100" cy="27" rx="6"  ry="11" fill="#F57C00"/>
+      {/* Flame – yellow core */}
+      <ellipse cx="100" cy="24" rx="4"  ry="8"  fill="#FFC107"/>
+      {/* Flame – white tip */}
+      <ellipse cx="100" cy="21" rx="2"  ry="4"  fill="#FFF9C4"/>
 
       {/* ── OUTER NAVY RING ── */}
-      <circle cx="100" cy="118" r="78" fill="#1E3A6E"/>
-      {/* White gap ring */}
-      <circle cx="100" cy="118" r="70" fill="white"/>
-      {/* Inner navy circle */}
-      <circle cx="100" cy="118" r="62" fill="#1E3A6E"/>
-      {/* Inner white field for weapons */}
-      <circle cx="100" cy="118" r="54" fill="white"/>
+      <circle cx="100" cy="128" r="80" fill="#1E3A6E"/>
+      {/* White spacer */}
+      <circle cx="100" cy="128" r="71" fill="#FFFFFF"/>
+      {/* Inner navy disc */}
+      <circle cx="100" cy="128" r="63" fill="#1E3A6E"/>
+      {/* White weapon field */}
+      <circle cx="100" cy="128" r="55" fill="#FFFFFF"/>
 
-      {/* ── WEAPONS: Sword (vertical) + 2 Axes (crossed) ── */}
-      {/* Left axe handle */}
-      <line x1="68" y1="88" x2="100" y2="145" stroke="#1E3A6E" strokeWidth="3" strokeLinecap="round"/>
-      {/* Left axe blade */}
-      <path d="M 60 82 Q 55 90 68 88 Q 65 78 60 82 Z" fill="#1E3A6E"/>
-      <path d="M 60 82 Q 70 76 68 88 Z" fill="#1E3A6E"/>
-      {/* Right axe handle */}
-      <line x1="132" y1="88" x2="100" y2="145" stroke="#1E3A6E" strokeWidth="3" strokeLinecap="round"/>
-      {/* Right axe blade */}
-      <path d="M 140 82 Q 145 90 132 88 Q 135 78 140 82 Z" fill="#1E3A6E"/>
-      <path d="M 140 82 Q 130 76 132 88 Z" fill="#1E3A6E"/>
+      {/* ── WEAPONS ── */}
+      {/* === LEFT AXE === */}
+      {/* Handle */}
+      <line x1="72" y1="95" x2="97" y2="155"
+        stroke="#1E3A6E" strokeWidth="3.5" strokeLinecap="round"/>
+      {/* Blade – curved axe shape */}
+      <path d="M58,82 C54,92 62,100 72,95 C66,88 62,80 58,82 Z"
+        fill="#1E3A6E"/>
+      <path d="M58,82 C68,76 76,84 72,95 C68,86 62,80 58,82 Z"
+        fill="#C0C0C0" opacity="0.6"/>
 
-      {/* Center sword – vertical */}
+      {/* === RIGHT AXE === */}
+      {/* Handle */}
+      <line x1="128" y1="95" x2="103" y2="155"
+        stroke="#1E3A6E" strokeWidth="3.5" strokeLinecap="round"/>
       {/* Blade */}
-      <polygon points="100,72 96,110 100,115 104,110" fill="#1E3A6E"/>
-      {/* Guard / crossguard */}
-      <rect x="90" y="110" width="20" height="4" rx="2" fill="#1E3A6E"/>
+      <path d="M142,82 C146,92 138,100 128,95 C134,88 138,80 142,82 Z"
+        fill="#1E3A6E"/>
+      <path d="M142,82 C132,76 124,84 128,95 C132,86 138,80 142,82 Z"
+        fill="#C0C0C0" opacity="0.6"/>
+
+      {/* === CENTER SWORD (vertical, pointing up) === */}
+      {/* Blade – narrow triangle */}
+      <polygon points="100,80 97,118 103,118" fill="#1E3A6E"/>
+      {/* Blade fuller (lighter strip) */}
+      <line x1="100" y1="83" x2="100" y2="116"
+        stroke="#C0C0C0" strokeWidth="1" opacity="0.5"/>
+      {/* Crossguard */}
+      <rect x="89" y="118" width="22" height="5" rx="2.5" fill="#1E3A6E"/>
       {/* Grip */}
-      <rect x="97" y="114" width="6" height="16" rx="2" fill="#1E3A6E"/>
-      {/* Pommel */}
-      <circle cx="100" cy="132" r="4" fill="#1E3A6E"/>
-      {/* Drop below pommel */}
-      <circle cx="100" cy="140" r="2.5" fill="#1E3A6E"/>
+      <rect x="97.5" y="123" width="5" height="15" rx="2" fill="#1E3A6E"/>
+      {/* Pommel round */}
+      <circle cx="100" cy="141" r="5" fill="#1E3A6E"/>
+      {/* Pommel drop */}
+      <ellipse cx="100" cy="150" rx="2.5" ry="3.5" fill="#1E3A6E"/>
 
       {/* ── TEXT ON RING ── */}
-      {/* TANZANIA – top arc */}
-      <path id="topArc" d="M 32,118 A 68,68 0 0,1 168,118" fill="none"/>
-      <text fontSize="13" fontWeight="800" fill="white" letterSpacing="3.5" fontFamily="Arial,sans-serif">
-        <textPath href="#topArc" startOffset="12%">TANZANIA</textPath>
+      {/* Top arc path */}
+      <defs>
+        <path id={`${id}_top`} d="M 26,128 A 74,74 0 0,1 174,128"/>
+        <path id={`${id}_bot`} d="M 34,142 A 74,74 0 0,0 166,142"/>
+      </defs>
+      <text fontSize="14" fontWeight="900" fill="white"
+        letterSpacing="4" fontFamily="Arial Black,Arial,sans-serif">
+        <textPath href={`#${id}_top`} startOffset="10%">TANZANIA</textPath>
+      </text>
+      <text fontSize="14" fontWeight="900" fill="white"
+        letterSpacing="5" fontFamily="Arial Black,Arial,sans-serif">
+        <textPath href={`#${id}_bot`} startOffset="20%">POLISI</textPath>
       </text>
 
-      {/* POLISI – bottom arc */}
-      <path id="botArc" d="M 38,130 A 68,68 0 0,0 162,130" fill="none"/>
-      <text fontSize="13" fontWeight="800" fill="white" letterSpacing="4" fontFamily="Arial,sans-serif">
-        <textPath href="#botArc" startOffset="18%">POLISI</textPath>
-      </text>
-
-      {/* ── BOTTOM RIBBON / BANNER ── */}
+      {/* ── RIBBON BANNER ── */}
+      {/* Left tail pointing left-down */}
+      <path d="M 30,192 L 16,204 L 24,198 L 20,210 L 34,200 Z" fill="#1E3A6E"/>
+      {/* Right tail */}
+      <path d="M 170,192 L 184,204 L 176,198 L 180,210 L 166,200 Z" fill="#1E3A6E"/>
       {/* Main ribbon body */}
-      <path d="M 28,178 Q 100,168 172,178 Q 170,192 100,188 Q 30,192 28,178 Z" fill="#1E3A6E"/>
-      {/* Left ribbon tail */}
-      <path d="M 28,178 L 14,188 L 22,184 L 26,196 L 34,182 Z" fill="#1E3A6E"/>
-      {/* Right ribbon tail */}
-      <path d="M 172,178 L 186,188 L 178,184 L 174,196 L 166,182 Z" fill="#1E3A6E"/>
-      {/* USALAMA WA RAIA text */}
-      <text x="100" y="187" textAnchor="middle" fontSize="9.5" fontWeight="800"
-        fill="white" letterSpacing="1.2" fontFamily="Arial,sans-serif">USALAMA WA RAIA</text>
+      <path d="M 30,192 Q 100,182 170,192 Q 168,208 100,205 Q 32,208 30,192 Z"
+        fill="#1E3A6E"/>
+      {/* Ribbon text */}
+      <text x="100" y="200" textAnchor="middle"
+        fontSize="10" fontWeight="800" fill="white"
+        letterSpacing="1.5" fontFamily="Arial,sans-serif">
+        USALAMA WA RAIA
+      </text>
 
-      {/* ── SIDE HORSE HEADS (simplified) ── */}
-      {/* Left horse head */}
-      <path d="M 22,158 Q 15,148 18,138 Q 22,130 30,132 Q 26,140 28,152 Z" fill="#1E3A6E"/>
-      <circle cx="20" cy="152" r="5" fill="#1E3A6E"/>
-      {/* Right horse head */}
-      <path d="M 178,158 Q 185,148 182,138 Q 178,130 170,132 Q 174,140 172,152 Z" fill="#1E3A6E"/>
-      <circle cx="180" cy="152" r="5" fill="#1E3A6E"/>
+      {/* ── HORSE HEAD DECORATIONS ── */}
+      {/* Left horse */}
+      <path d="M26,175 Q18,165 20,155 Q22,145 30,147 Q27,155 28,165 Q28,172 30,178 Z"
+        fill="#1E3A6E"/>
+      <path d="M20,155 Q16,148 22,144 Q26,141 30,147 Z" fill="#1E3A6E"/>
+      {/* Right horse */}
+      <path d="M174,175 Q182,165 180,155 Q178,145 170,147 Q173,155 172,165 Q172,172 170,178 Z"
+        fill="#1E3A6E"/>
+      <path d="M180,155 Q184,148 178,144 Q174,141 170,147 Z" fill="#1E3A6E"/>
     </svg>
   )
 }
