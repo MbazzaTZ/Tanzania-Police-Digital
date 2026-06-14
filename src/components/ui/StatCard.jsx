@@ -7,7 +7,11 @@ export default function StatCard({ icon, value, label, delta, deltaUp=true, colo
       <div className="stat-icon">{icon}</div>
       <div className="stat-num">{display}</div>
       <div className="stat-label">{label}</div>
-      {delta && <div className={`stat-delta ${deltaUp?'delta-up':'delta-down'}`}>{deltaUp?'↑':'↓'} {delta}</div>}
+      {delta && (
+        <div className={`stat-delta ${deltaUp?'delta-up':'delta-down'}`}>
+          {deltaUp?'↑':'↓'} {delta}
+        </div>
+      )}
     </div>
   )
 }
