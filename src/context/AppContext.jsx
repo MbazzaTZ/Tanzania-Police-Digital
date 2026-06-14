@@ -1,27 +1,28 @@
 import { createContext, useContext, useState } from 'react'
+import { CURRENT_OFFICER } from '@utils/mockData'
+import { getDashboardScope } from '@utils/rbac'
 
 const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
-  const [lang, setLang]           = useState('sw')   // 'sw' | 'en'
+  const [lang, setLang]       = useState('sw')
   const [sidebarOpen, setSidebar] = useState(true)
-  const [currentOfficer]          = useState({
-    id:       'OPS-2024-00125',
-    name:     'Insp. Juma M. Khamis',
-    badge:    '123456',
-    rank:     'Inspector',
-    station:  'Oysterbay Police Station',
-    role:     'IGP',         // controls RBAC
-    online:   true,
-  })
+  const [currentOfficer]      = useState(CURRENT_OFFICER)
+
+  // Derive scope from role
+  const scope = getDashboardScope(currentOfficer.role)
 
   const toggleLang = () => setLang(l => l === 'sw' ? 'en' : 'sw')
 
   return (
     <AppContext.Provider value={{
-      lang, toggleLang,
+      lang, toggleLang, setLang,
       sidebarOpen, setSidebar,
       currentOfficer,
+      scope,
+      // helpers
+      isSW: lang === 'sw',
+      isEN: lang === 'en',
     }}>
       {children}
     </AppContext.Provider>
@@ -30,6 +31,6 @@ export function AppProvider({ children }) {
 
 export const useApp = () => {
   const ctx = useContext(AppContext)
-  if (!ctx) throw new Error('useApp must be used inside AppProvider')
+  if (!ctx) throw new Error('useApp must be inside AppProvider')
   return ctx
 }

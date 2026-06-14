@@ -1,31 +1,49 @@
-import Breadcrumb from '@components/ui/Breadcrumb'
+import { useState } from 'react'
 import StatCard from '@components/ui/StatCard'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
-export default function Page() {
+import Button from '@components/ui/Button'
+import Badge from '@components/ui/Badge'
+import { MOCK_MISSING } from '@utils/mockData'
+export default function Missing() {
+  const [search, setSearch] = useState('')
+  const filtered = MOCK_MISSING.filter(m => m.name.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className="animate-fade-in">
-      <Breadcrumb items={[{label:'🏠',href:'/'},{label:'Uchunguzi'},{label:'Missing'}]} />
+      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watu Waliopotea</div>
       <div className="page-header">
-        <div><h1>👤 Watu Waliopotea</h1><p>Module hii itaunganishwa na Supabase backend katika Sprint 2</p></div>
-        <div className="flex gap-8">
-          <button className="btn btn-outline">⬇ Pakua</button>
-          <button className="btn btn-accent">+ Mpya</button>
-        </div>
+        <div><h1>👤 Watu Waliopotea / Missing Persons</h1><p>Orodha ya watu waliopotea na hali ya uchunguzi</p></div>
+        <Button variant="accent">+ Ongeza Mpya</Button>
       </div>
       <div className="stat-grid stat-grid-4 section-gap">
-        <StatCard icon="📊" value={128} label="Jumla" delta="5%" color="green" />
-        <StatCard icon="⏳" value={47}  label="Hai / Active" delta="3%" color="amber" />
-        <StatCard icon="🚨" value={5}   label="Muhimu" delta="1" deltaUp={false} color="red" />
-        <StatCard icon="✅" value={76}  label="Imekamilika" delta="8%" />
+        <StatCard icon="👤" value={MOCK_MISSING.length} label="Wanaotafutwa"  color="red" />
+        <StatCard icon="👶" value={1} label="Watoto"    color="red" />
+        <StatCard icon="✅" value={0} label="Walioopatikana Leo" color="green" />
+        <StatCard icon="📅" value={2} label="Zaidi ya Siku 7"  color="amber" />
       </div>
       <Card>
-        <CardHeader title="👤 Watu Waliopotea" />
-        <CardBody>
-          <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase backend katika Sprint 2.</div>
-          <div style={{textAlign:'center',padding:'40px',color:'var(--clr-muted)'}}>
-            <div style={{fontSize:48,marginBottom:12}}>🔧</div>
-            <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Watu Waliopotea</div>
-            <div style={{fontSize:12}}>Sprint 2 – Supabase Integration</div>
+        <CardHeader title="👤 Orodha ya Watu Waliopotea"
+          action={<input className="form-input" style={{width:200,fontSize:11,padding:'6px 10px'}} placeholder="🔍 Tafuta..." value={search} onChange={e=>setSearch(e.target.value)} />} />
+        <CardBody noPadding>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Namba</th><th>Jina</th><th>Umri</th><th>Jinsia</th><th>Alipotea</th><th>Tarehe</th><th>Mripotiwa</th><th>Simu</th><th>Hali</th><th></th></tr></thead>
+              <tbody>
+                {filtered.map(m => (
+                  <tr key={m.id}>
+                    <td className="td-mono">{m.id}</td>
+                    <td className="td-name">{m.name}</td>
+                    <td>{m.age}</td>
+                    <td>{m.gender}</td>
+                    <td style={{fontSize:11}}>{m.lastSeen}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{m.date}</td>
+                    <td style={{fontSize:11}}>{m.reporter}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{m.phone}</td>
+                    <td><Badge status={m.status} /></td>
+                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </CardBody>
       </Card>

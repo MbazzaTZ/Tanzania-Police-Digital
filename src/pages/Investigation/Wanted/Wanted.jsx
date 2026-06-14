@@ -1,31 +1,49 @@
-import Breadcrumb from '@components/ui/Breadcrumb'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import StatCard from '@components/ui/StatCard'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
-export default function Page() {
+import Button from '@components/ui/Button'
+import Badge from '@components/ui/Badge'
+import { MOCK_WANTED } from '@utils/mockData'
+export default function Wanted() {
+  const [search, setSearch] = useState('')
+  const filtered = MOCK_WANTED.filter(w => w.name.toLowerCase().includes(search.toLowerCase()) || w.crime.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className="animate-fade-in">
-      <Breadcrumb items={[{label:'🏠',href:'/'},{label:'Uchunguzi'},{label:'Wanted'}]} />
+      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
       <div className="page-header">
-        <div><h1>🎯 Watuhumiwa Wanaotafutwa</h1><p>Module hii itaunganishwa na Supabase backend katika Sprint 2</p></div>
-        <div className="flex gap-8">
-          <button className="btn btn-outline">⬇ Pakua</button>
-          <button className="btn btn-accent">+ Mpya</button>
-        </div>
+        <div><h1>🎯 Watuhumiwa Wanaotafutwa</h1><p>Orodha ya watu wanaotafutwa kitaifa</p></div>
+        <Button variant="accent">+ Ongeza Mtarajiwa</Button>
       </div>
       <div className="stat-grid stat-grid-4 section-gap">
-        <StatCard icon="📊" value={128} label="Jumla" delta="5%" color="green" />
-        <StatCard icon="⏳" value={47}  label="Hai / Active" delta="3%" color="amber" />
-        <StatCard icon="🚨" value={5}   label="Muhimu" delta="1" deltaUp={false} color="red" />
-        <StatCard icon="✅" value={76}  label="Imekamilika" delta="8%" />
+        <StatCard icon="🎯" value={MOCK_WANTED.length} label="Wanaotafutwa"    color="red" />
+        <StatCard icon="⚠️" value={1}  label="Hatari / Dangerous"  color="red" />
+        <StatCard icon="✅" value={0}  label="Waliokamatwa Leo"     color="green" />
+        <StatCard icon="💰" value={8}  label="Zawadi (Milioni TZS)" color="amber" />
       </div>
       <Card>
-        <CardHeader title="🎯 Watuhumiwa Wanaotafutwa" />
-        <CardBody>
-          <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase backend katika Sprint 2.</div>
-          <div style={{textAlign:'center',padding:'40px',color:'var(--clr-muted)'}}>
-            <div style={{fontSize:48,marginBottom:12}}>🔧</div>
-            <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Watuhumiwa Wanaotafutwa</div>
-            <div style={{fontSize:12}}>Sprint 2 – Supabase Integration</div>
+        <CardHeader title="🎯 Orodha ya Watuhumiwa"
+          action={<input className="form-input" style={{width:200,fontSize:11,padding:'6px 10px'}} placeholder="🔍 Tafuta..." value={search} onChange={e=>setSearch(e.target.value)} />} />
+        <CardBody noPadding>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Namba</th><th>Jina</th><th>Alias</th><th>Uhalifu</th><th>Mkoa wa Mwisho</th><th>Tarehe</th><th>Zawadi (TZS)</th><th>Hatari</th><th></th></tr></thead>
+              <tbody>
+                {filtered.map(w => (
+                  <tr key={w.id}>
+                    <td className="td-mono">{w.id}</td>
+                    <td><div className="td-name">{w.name}</div><div className="td-sub">NIDA: {w.nida}</div></td>
+                    <td style={{color:'var(--clr-accent)',fontStyle:'italic',fontSize:11}}>{w.alias}</td>
+                    <td style={{fontSize:11}}>{w.crime}</td>
+                    <td style={{fontSize:11}}>{w.region}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{w.date}</td>
+                    <td className="td-mono">{w.reward.toLocaleString()}</td>
+                    <td>{w.dangerous ? <span className="status s-critical">⚠️ Ndiyo</span> : <span className="status s-closed">Hapana</span>}</td>
+                    <td><Button variant="danger" size="sm">Kamata</Button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </CardBody>
       </Card>
