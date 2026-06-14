@@ -3,6 +3,11 @@ import { AppProvider }    from '@context/AppContext'
 import { AuthProvider }   from '@context/AuthContext'
 import MainLayout         from '@layout/MainLayout'
 
+// Auth pages (no sidebar/topbar)
+import SplashScreen       from '@pages/Auth/SplashScreen'
+import SplashGuard       from '@pages/Auth/SplashGuard'
+import LoginPage          from '@pages/Auth/LoginPage'
+
 // Dashboards
 import NationalDashboard  from '@pages/Dashboard/National/NationalDashboard'
 import RegionalDashboard  from '@pages/Dashboard/Regional/RegionalDashboard'
@@ -70,6 +75,12 @@ export default function App() {
       <AuthProvider>
         <AppProvider>
           <Routes>
+            {/* ── PUBLIC: splash + login (no layout) ── */}
+            <Route path="/entry"  element={<SplashGuard />} />
+            <Route path="/splash" element={<SplashScreen />} />
+            <Route path="/login"  element={<LoginPage />} />
+
+            {/* ── PROTECTED: all app routes inside MainLayout ── */}
             <Route path="/" element={<MainLayout />}>
               <Route index                          element={<NationalDashboard />} />
               <Route path="dashboard/regional"      element={<RegionalDashboard />} />
