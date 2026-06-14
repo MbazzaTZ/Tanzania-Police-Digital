@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanzania Police – Digital Operations Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   DESIGN TOKENS – Tanzania Police Force Identity
+   Primary: Dark Forest Green  #1B5E20
+   Secondary: Rich Green       #2E7D32
+   Surface:  Deep Charcoal     #0D1B0F
+   Accent:   Amber/Gold        #FFC107
+   Alert:    Crimson           #C62828
+   ========================================================= */
+:root {
+  --clr-primary:   #1B5E20;
+  --clr-secondary: #2E7D32;
+  --clr-dark:      #0D1B0F;
+  --clr-surface:   #122115;
+  --clr-panel:     #1A2E1D;
+  --clr-border:    #2A3F2D;
+  --clr-accent:    #FFC107;
+  --clr-accent2:   #FFD54F;
+  --clr-red:       #C62828;
+  --clr-orange:    #E65100;
+  --clr-blue:      #1565C0;
+  --clr-text:      #E8F5E9;
+  --clr-muted:     #81C784;
+  --clr-faint:     #4CAF50;
+  --clr-white:     #FFFFFF;
+  --r:             6px;
+  --r-lg:          10px;
+  --font-ui:       'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+  --sidebar-w:     240px;
+  --topbar-h:      60px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--clr-dark);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--clr-surface);
+  border-right: 1px solid var(--clr-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.police-badge {
+  width: 40px; height: 40px;
+  background: var(--clr-primary);
+  border-radius: 50%;
+  border: 2px solid var(--clr-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+
+.logo-text { line-height: 1.2; }
+.logo-text strong { display: block; font-size: 11px; font-weight: 700; color: var(--clr-white); letter-spacing: .5px; }
+.logo-text span   { font-size: 9px;  font-weight: 400; color: var(--clr-muted); letter-spacing: 1px; text-transform: uppercase; }
+
+.nav-section { padding: 10px 0 4px; }
+.nav-label {
+  font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  color: var(--clr-muted); opacity: .6;
+  text-transform: uppercase; padding: 0 16px 6px;
+}
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 16px; cursor: pointer; position: relative;
+  font-size: 12.5px; font-weight: 500; color: var(--clr-muted);
+  transition: all .15s; border: none; background: none; width: 100%; text-align: left;
+}
+.nav-item:hover { background: var(--clr-panel); color: var(--clr-text); }
+.nav-item.active {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--clr-accent); border-radius: 0 2px 2px 0;
+}
+.nav-icon { font-size: 15px; width: 18px; text-align: center; }
+.nav-badge {
+  margin-left: auto; background: var(--clr-red);
+  color: #fff; font-size: 9px; font-weight: 700;
+  padding: 1px 5px; border-radius: 10px;
+}
+
+.sidebar-footer {
+  margin-top: auto; padding: 12px 16px;
+  border-top: 1px solid var(--clr-border);
+}
+.officer-card {
+  display: flex; align-items: center; gap: 10px;
+}
+.officer-avatar {
+  width: 32px; height: 32px;
+  background: var(--clr-primary);
+  border-radius: 50%; border: 1.5px solid var(--clr-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.officer-info { flex: 1; min-width: 0; }
+.officer-info strong { display: block; font-size: 11px; font-weight: 600; color: var(--clr-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.officer-info span { font-size: 9px; color: var(--clr-muted); }
+.online-dot { width: 7px; height: 7px; background: #4CAF50; border-radius: 50%; flex-shrink: 0; }
+
+/* ── MAIN LAYOUT ── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  height: var(--topbar-h);
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.topbar-title { font-size: 14px; font-weight: 700; color: var(--clr-white); }
+.topbar-sub   { font-size: 11px; color: var(--clr-muted); margin-top: 1px; }
+
+.topbar-search {
+  flex: 1; max-width: 380px;
+  background: var(--clr-panel);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r);
+  padding: 7px 12px 7px 32px;
+  color: var(--clr-text); font-size: 12px;
+  position: relative;
+}
+.search-wrap { position: relative; flex: 1; max-width: 380px; }
+.search-wrap::before {
+  content: '🔍'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; pointer-events: none;
+}
+.search-wrap input {
+  width: 100%; background: var(--clr-panel); border: 1px solid var(--clr-border);
+  border-radius: var(--r); padding: 7px 12px 7px 32px; color: var(--clr-text);
+  font-size: 12px; font-family: var(--font-ui); outline: none;
+}
+.search-wrap input::placeholder { color: var(--clr-muted); opacity: .6; }
+.search-wrap input:focus { border-color: var(--clr-secondary); }
+
+.topbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+.lang-toggle {
+  display: flex; background: var(--clr-panel); border: 1px solid var(--clr-border);
+  border-radius: 20px; overflow: hidden;
+}
+.lang-btn {
+  padding: 4px 10px; font-size: 10px; font-weight: 600; cursor: pointer;
+  border: none; background: none; color: var(--clr-muted); letter-spacing: .5px;
+  transition: all .15s;
+}
+.lang-btn.active { background: var(--clr-primary); color: #fff; }
+
+.icon-btn {
+  width: 32px; height: 32px; border-radius: var(--r);
+  background: var(--clr-panel); border: 1px solid var(--clr-border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 14px; position: relative; transition: background .15s;
+}
+.icon-btn:hover { background: var(--clr-primary); }
+.notif-count {
+  position: absolute; top: -3px; right: -3px;
+  background: var(--clr-red); color: #fff; font-size: 8px; font-weight: 700;
+  padding: 1px 4px; border-radius: 8px; min-width: 14px; text-align: center;
+}
+
+/* ── CONTENT AREA ── */
+.content {
+  flex: 1; overflow-y: auto; padding: 20px;
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.page-header h1 { font-size: 20px; font-weight: 800; color: var(--clr-white); }
+.page-header p  { font-size: 12px; color: var(--clr-muted); margin-top: 2px; }
+
+.btn {
+  padding: 8px 16px; border-radius: var(--r); font-size: 12px; font-weight: 600;
+  cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s; font-family: var(--font-ui);
+}
+.btn-primary { background: var(--clr-primary); color: #fff; }
+.btn-primary:hover { background: var(--clr-secondary); }
+.btn-outline { background: transparent; color: var(--clr-muted); border: 1px solid var(--clr-border); }
+.btn-outline:hover { border-color: var(--clr-muted); color: var(--clr-white); }
+.btn-accent { background: var(--clr-accent); color: var(--clr-dark); font-weight: 700; }
+
+/* ── STAT CARDS ── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--clr-panel); border: 1px solid var(--clr-border);
+  border-radius: var(--r-lg); padding: 14px 16px; position: relative; overflow: hidden;
+  transition: border-color .15s; cursor: pointer;
+}
+.stat-card:hover { border-color: var(--clr-secondary); }
+.stat-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--clr-primary);
+}
+.stat-card.red::after   { background: var(--clr-red); }
+.stat-card.amber::after { background: var(--clr-accent); }
+.stat-card.blue::after  { background: var(--clr-blue); }
+.stat-card.green::after { background: #43A047; }
+
+.stat-icon { font-size: 20px; margin-bottom: 8px; }
+.stat-num  { font-size: 26px; font-weight: 800; color: var(--clr-white); line-height: 1; font-family: var(--font-mono); }
+.stat-label { font-size: 10px; color: var(--clr-muted); margin-top: 4px; font-weight: 500; letter-spacing: .3px; }
+.stat-delta {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10px; font-weight: 600; margin-top: 6px; padding: 2px 6px;
+  border-radius: 10px;
+}
+.delta-up   { background: rgba(76,175,80,.15); color: #66BB6A; }
+.delta-down { background: rgba(198,40,40,.15); color: #EF5350; }
+
+/* ── GRID LAYOUTS ── */
+.row { display: grid; gap: 16px; margin-bottom: 20px; }
+.row-2  { grid-template-columns: 1fr 1fr; }
+.row-3  { grid-template-columns: 2fr 1fr; }
+.row-4  { grid-template-columns: 1.4fr 1fr; }
+
+/* ── CARD ── */
+.card {
+  background: var(--clr-panel); border: 1px solid var(--clr-border);
+  border-radius: var(--r-lg);
+}
+.card-header {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-title { font-size: 13px; font-weight: 700; color: var(--clr-white); }
+.card-sub   { font-size: 10px; color: var(--clr-muted); margin-top: 1px; }
+.card-body  { padding: 14px 16px; }
+.view-all { font-size: 11px; color: var(--clr-accent); cursor: pointer; font-weight: 500; }
+.view-all:hover { text-decoration: underline; }
+
+/* ── ALERT ITEMS ── */
+.alert-list { display: flex; flex-direction: column; gap: 8px; }
+.alert-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px; border-radius: var(--r);
+  border-left: 3px solid transparent; cursor: pointer;
+  background: rgba(255,255,255,.03);
+  transition: background .15s;
+}
+.alert-item:hover { background: rgba(255,255,255,.06); }
+.alert-item.critical { border-color: var(--clr-red);    background: rgba(198,40,40,.08); }
+.alert-item.urgent   { border-color: var(--clr-orange); background: rgba(230,81,0,.08); }
+.alert-item.info     { border-color: var(--clr-blue);   background: rgba(21,101,192,.08); }
+.alert-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.dot-red    { background: var(--clr-red); }
+.dot-orange { background: var(--clr-orange); }
+.dot-blue   { background: var(--clr-blue); }
+.alert-title { font-size: 11.5px; font-weight: 600; color: var(--clr-white); }
+.alert-desc  { font-size: 10.5px; color: var(--clr-muted); margin-top: 2px; }
+.alert-time  { font-size: 9px;  color: var(--clr-muted); margin-top: 2px; opacity: .7; }
+.alert-badge {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 10px;
+  text-transform: uppercase;
+}
+.badge-red    { background: rgba(198,40,40,.25); color: #EF5350; }
+.badge-orange { background: rgba(230,81,0,.25); color: #FF7043; }
+.badge-blue   { background: rgba(21,101,192,.25); color: #64B5F6; }
+
+/* ── TABLES ── */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+th {
+  font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--clr-muted); opacity: .7;
+  padding: 8px 12px; text-align: left;
+  border-bottom: 1px solid var(--clr-border);
+}
+td {
+  padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.04);
+  color: var(--clr-text); vertical-align: middle;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.03); }
+.td-num { font-family: var(--font-mono); font-size: 11px; color: var(--clr-accent); }
+.td-name { font-weight: 600; }
+.td-sub  { font-size: 10px; color: var(--clr-muted); margin-top: 1px; }
+
+/* ── STATUS BADGES ── */
+.status {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 10px;
+  font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .3px;
+}
+.status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; }
+.s-active   { background: rgba(76,175,80,.15); color: #66BB6A; }
+.s-active::before { background: #66BB6A; }
+.s-pending  { background: rgba(255,193,7,.15); color: var(--clr-accent); }
+.s-pending::before { background: var(--clr-accent); }
+.s-closed   { background: rgba(158,158,158,.15); color: #9E9E9E; }
+.s-closed::before { background: #9E9E9E; }
+.s-critical { background: rgba(198,40,40,.15); color: #EF5350; }
+.s-critical::before { background: #EF5350; }
+.s-issued   { background: rgba(21,101,192,.15); color: #64B5F6; }
+.s-issued::before { background: #64B5F6; }
+
+/* ── MAP PLACEHOLDER ── */
+.map-placeholder {
+  background: var(--clr-dark); border-radius: var(--r);
+  height: 200px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.map-grid {
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(46,125,50,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,125,50,.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.map-blip {
+  position: absolute; width: 10px; height: 10px;
+  background: var(--clr-accent); border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,193,7,.3);
+}
+.map-label { position: relative; z-index: 1; font-size: 11px; color: var(--clr-muted); }
+
+/* ── MINI CHART ── */
+.mini-bars {
+  display: flex; align-items: flex-end; gap: 4px; height: 60px;
+}
+.mini-bar {
+  flex: 1; border-radius: 3px 3px 0 0;
+  background: var(--clr-secondary); opacity: .7;
+  transition: opacity .15s; cursor: pointer;
+}
+.mini-bar:hover { opacity: 1; }
+.mini-bar.accent { background: var(--clr-accent); opacity: .85; }
+
+/* ── REGION LIST ── */
+.region-list { display: flex; flex-direction: column; gap: 6px; }
+.region-row  { display: flex; align-items: center; gap: 10px; }
+.region-name { font-size: 11px; font-weight: 500; color: var(--clr-text); min-width: 80px; }
+.region-bar-wrap { flex: 1; background: var(--clr-dark); border-radius: 3px; height: 6px; overflow: hidden; }
+.region-bar { height: 100%; background: var(--clr-secondary); border-radius: 3px; }
+.region-val { font-size: 10px; font-family: var(--font-mono); color: var(--clr-accent); min-width: 28px; text-align: right; }
+
+/* ── OFFICER LIST ── */
+.officer-list { display: flex; flex-direction: column; gap: 1px; }
+.officer-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.officer-row:last-child { border-bottom: none; }
+.officer-ava {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--clr-primary); border: 1.5px solid var(--clr-border);
+  display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0;
+}
+.officer-n { font-size: 11px; font-weight: 600; color: var(--clr-white); }
+.officer-r { font-size: 9.5px; color: var(--clr-muted); }
+.officer-loc { margin-left: auto; font-size: 9.5px; color: var(--clr-muted); text-align: right; }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--clr-muted); margin-bottom: 16px; }
+.breadcrumb span { opacity: .5; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-secondary); }
+
+/* ── HEADER BANNER ── */
+.dash-banner {
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #0A3D0A 100%);
+  border: 1px solid var(--clr-secondary);
+  border-radius: var(--r-lg); padding: 16px 20px;
+  margin-bottom: 20px; position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 20px;
+}
+.dash-banner::before {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.banner-badge-wrap {
+  background: rgba(0,0,0,.3); border-radius: var(--r);
+  padding: 10px 14px; display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.banner-badge-icon { font-size: 28px; }
+.banner-text h2 { font-size: 18px; font-weight: 800; color: var(--clr-white); }
+.banner-text p  { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 2px; }
+.banner-stats { display: flex; gap: 24px; margin-left: auto; }
+.banner-stat  { text-align: center; }
+.banner-stat strong { display: block; font-size: 22px; font-weight: 800; color: var(--clr-accent); font-family: var(--font-mono); }
+.banner-stat span   { font-size: 9px; color: rgba(255,255,255,.6); letter-spacing: .5px; text-transform: uppercase; }
+
+/* ── TABS ── */
+.tabs { display: flex; gap: 2px; background: var(--clr-dark); border-radius: var(--r); padding: 3px; margin-bottom: 14px; }
+.tab {
+  padding: 6px 14px; font-size: 11px; font-weight: 600; border-radius: 4px;
+  cursor: pointer; color: var(--clr-muted); transition: all .15s; border: none;
+  background: none; font-family: var(--font-ui);
+}
+.tab.active { background: var(--clr-primary); color: #fff; }
+
+/* ── QUICK ACTIONS ── */
+.quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
+.qa-btn {
+  background: var(--clr-panel); border: 1px solid var(--clr-border);
+  border-radius: var(--r); padding: 10px 8px; text-align: center;
+  cursor: pointer; transition: all .15s; color: var(--clr-text);
+}
+.qa-btn:hover { background: var(--clr-primary); border-color: var(--clr-secondary); }
+.qa-icon { font-size: 20px; margin-bottom: 4px; }
+.qa-label { font-size: 10px; font-weight: 500; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1200px) {
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  .row-2, .row-3, .row-4 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ SIDEBAR ══════ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="police-badge">🛡️</div>
+    <div class="logo-text">
+      <strong>JESHI LA POLISI</strong>
+      <span>Tanzania · TPDOP</span>
+    </div>
+  </div>
+
+  <nav style="flex:1">
+    <div class="nav-section">
+      <div class="nav-label">Msingi / Core</div>
+      <button class="nav-item active" onclick="showPage('dashboard')">
+        <span class="nav-icon">📊</span> Dashibodi / Dashboard
+      </button>
+      <button class="nav-item" onclick="showPage('map')">
+        <span class="nav-icon">🗺️</span> Ramani ya Operesheni
+      </button>
+      <button class="nav-item" onclick="showPage('alerts')">
+        <span class="nav-icon">🚨</span> Taarifa za Haraka
+        <span class="nav-badge">5</span>
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Utekelezaji / Enforcement</div>
+      <button class="nav-item" onclick="showPage('citations')">
+        <span class="nav-icon">📋</span> Citations / Tiketi
+      </button>
+      <button class="nav-item" onclick="showPage('arrests')">
+        <span class="nav-icon">⛓️</span> Kukamatwa / Arrests
+      </button>
+      <button class="nav-item" onclick="showPage('incidents')">
+        <span class="nav-icon">📝</span> Matukio / Incidents
+      </button>
+      <button class="nav-item" onclick="showPage('accidents')">
+        <span class="nav-icon">🚗</span> Ajali / Accidents
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Uchunguzi / Investigation</div>
+      <button class="nav-item" onclick="showPage('cases')">
+        <span class="nav-icon">📁</span> Kesi / Cases
+        <span class="nav-badge">12</span>
+      </button>
+      <button class="nav-item" onclick="showPage('wanted')">
+        <span class="nav-icon">🎯</span> Watuhumiwa Wanaotafutwa
+      </button>
+      <button class="nav-item" onclick="showPage('missing')">
+        <span class="nav-icon">👤</span> Watu Waliopotea
+      </button>
+      <button class="nav-item" onclick="showPage('evidence')">
+        <span class="nav-icon">🔬</span> Ushahidi / Evidence
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Usimamizi / Management</div>
+      <button class="nav-item" onclick="showPage('officers')">
+        <span class="nav-icon">👮</span> Maafisa / Officers
+      </button>
+      <button class="nav-item" onclick="showPage('stations')">
+        <span class="nav-icon">🏢</span> Vituo / Stations
+      </button>
+      <button class="nav-item" onclick="showPage('prisoners')">
+        <span class="nav-icon">🔒</span> Wafungwa / Prisoners
+      </button>
+      <button class="nav-item" onclick="showPage('reports')">
+        <span class="nav-icon">📈</span> Ripoti / Reports
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Mfumo / System</div>
+      <button class="nav-item" onclick="showPage('intel')">
+        <span class="nav-icon">🧠</span> Ujasusi / Intelligence
+      </button>
+      <button class="nav-item" onclick="showPage('audit')">
+        <span class="nav-icon">🗂️</span> Rekodi ya Ukaguzi
+      </button>
+      <button class="nav-item" onclick="showPage('settings')">
+        <span class="nav-icon">⚙️</span> Mipangilio
+      </button>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="officer-card">
+      <div class="officer-avatar">👮</div>
+      <div class="officer-info">
+        <strong>Insp. Juma M. Khamis</strong>
+        <span>Badge: 123456 · IGP Level</span>
+      </div>
+      <div class="online-dot" title="Online"></div>
+    </div>
+  </div>
+</aside>
+
+<!-- ══════ MAIN ══════ -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div>
+      <div class="topbar-title">Tanzania Police Force</div>
+      <div class="topbar-sub">Digital Operations Platform · Web Command Center</div>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Tafuta mtu, gari, kesi, citation... (Search)">
+    </div>
+
+    <div class="topbar-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active">SW</button>
+        <button class="lang-btn">EN</button>
+      </div>
+      <div class="icon-btn">🔔<span class="notif-count">5</span></div>
+      <div class="icon-btn">📡</div>
+      <div class="icon-btn">👤</div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="content" id="page-content">
+
+    <!-- ══ DASHBOARD PAGE ══ -->
+    <div id="page-dashboard">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        🏠 Makao Makuu <span>›</span> Dashibodi ya Taifa
+      </div>
+
+      <!-- Banner -->
+      <div class="dash-banner">
+        <div class="banner-badge-wrap">
+          <div class="banner-badge-icon">🛡️</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#fff;">KITUO CHA UDHIBITI</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.6);">National Command Center</div>
+          </div>
+        </div>
+        <div class="banner-text">
+          <h2>Jumatatu, 17 Mei 2024</h2>
+          <p>Mfumo unafanya kazi vizuri · Maafisa 1,247 wanafanya kazi · Vituo 312 vimeunganishwa</p>
+        </div>
+        <div class="banner-stats">
+          <div class="banner-stat">
+            <strong>1,247</strong>
+            <span>Maafisa Hai</span>
+          </div>
+          <div class="banner-stat">
+            <strong>312</strong>
+            <span>Vituo</span>
+          </div>
+          <div class="banner-stat">
+            <strong>26</strong>
+            <span>Mikoa</span>
+          </div>
+          <div class="banner-stat">
+            <strong>99.8%</strong>
+            <span>Upatikanaji</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <div class="qa-btn"><div class="qa-icon">🔍</div><div class="qa-label">Tafuta Mtu</div></div>
+        <div class="qa-btn"><div class="qa-icon">🚗</div><div class="qa-label">Tafuta Gari</div></div>
+        <div class="qa-btn"><div class="qa-icon">📋</div><div class="qa-label">Toa Citation</div></div>
+        <div class="qa-btn"><div class="qa-icon">⛓️</div><div class="qa-label">Kamata</div></div>
+        <div class="qa-btn"><div class="qa-icon">📝</div><div class="qa-label">Ripoti Tukio</div></div>
+        <div class="qa-btn"><div class="qa-icon">🎯</div><div class="qa-label">Watuhumiwa</div></div>
+        <div class="qa-btn"><div class="qa-icon">📡</div><div class="qa-label">Operesheni Hai</div></div>
+        <div class="qa-btn"><div class="qa-icon">📊</div><div class="qa-label">Takwimu</div></div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stat-grid">
+        <div class="stat-card green">
+          <div class="stat-icon">📋</div>
+          <div class="stat-num">284</div>
+          <div class="stat-label">Citations Leo / Today</div>
+          <div class="stat-delta delta-up">↑ 12% vs jana</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="stat-icon">⛓️</div>
+          <div class="stat-num">47</div>
+          <div class="stat-label">Kukamatwa Leo / Arrests</div>
+          <div class="stat-delta delta-up">↑ 8% vs jana</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-icon">🚨</div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Matukio Muhimu / Critical</div>
+          <div class="stat-delta delta-down">↑ 2 mpya</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-icon">📁</div>
+          <div class="stat-num">128</div>
+          <div class="stat-label">Kesi Hai / Active Cases</div>
+          <div class="stat-delta delta-down">↓ 3% vs wiki</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🚗</div>
+          <div class="stat-num">1,842</div>
+          <div class="stat-label">Magari Yakaguliwa</div>
+          <div class="stat-delta delta-up">↑ 15% vs jana</div>
+        </div>
+      </div>
+
+      <!-- Main Row -->
+      <div class="row row-4">
+
+        <!-- Alerts & Active Cases -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <!-- Active Alerts -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">🚨 Taarifa za Haraka / Active Alerts</div>
+                <div class="card-sub">Zinaohitaji umakini sasa hivi</div>
+              </div>
+              <span class="view-all">Ona Zote →</span>
+            </div>
+            <div class="card-body">
+              <div class="alert-list">
+                <div class="alert-item critical">
+                  <div class="alert-dot dot-red"></div>
+                  <div style="flex:1">
+                    <div class="alert-title">Wizi wa Gari – T123 DFG</div>
+                    <div class="alert-desc">Gari lenye namba T123 DFG linatafutwa · Kariakoo, Dar es Salaam</div>
+                    <div class="alert-time">🕐 Iliripotiwa: 17 Mei 2024, 22:15</div>
+                  </div>
+                  <span class="alert-badge badge-red">Muhimu</span>
+                </div>
+                <div class="alert-item urgent">
+                  <div class="alert-dot dot-orange"></div>
+                  <div style="flex:1">
+                    <div class="alert-title">Operesheni Maalum – Barabara ya Morogoro</div>
+                    <div class="alert-desc">Zuio la usalama kuanzia saa 18:00 hadi 06:00</div>
+                    <div class="alert-time">🕐 Ilipangwa: 16 Mei 2024, 17:45</div>
+                  </div>
+                  <span class="alert-badge badge-orange">Haraka</span>
+                </div>
+                <div class="alert-item info">
+                  <div class="alert-dot dot-blue"></div>
+                  <div style="flex:1">
+                    <div class="alert-title">Mkutano wa Maafisa – Makao Makuu</div>
+                    <div class="alert-desc">Maafisa wote wa ngazi ya SP na juu wanahitajika</div>
+                    <div class="alert-time">🕐 Kesho saa 09:00, 18 Mei 2024</div>
+                  </div>
+                  <span class="alert-badge badge-blue">Taarifa</span>
+                </div>
+                <div class="alert-item critical">
+                  <div class="alert-dot dot-red"></div>
+                  <div style="flex:1">
+                    <div class="alert-title">Mtu Aliyepotea – Amina Rashid Mbwana</div>
+                    <div class="alert-desc">Mtoto wa miaka 14 · Alikimbia tarehe 16 Mei · Kinondoni</div>
+                    <div class="alert-time">🕐 16 Mei 2024, 14:30</div>
+                  </div>
+                  <span class="alert-badge badge-red">Muhimu</span>
+                </div>
+                <div class="alert-item urgent">
+                  <div class="alert-dot dot-orange"></div>
+                  <div style="flex:1">
+                    <div class="alert-title">Silaha Iliyoibiwa – Kituo cha Temeke</div>
+                    <div class="alert-desc">Bunduki moja ya mazoezi haipo. Uchunguzi unaendelea</div>
+                    <div class="alert-time">🕐 15 Mei 2024, 20:10</div>
+                  </div>
+                  <span class="alert-badge badge-orange">Haraka</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">📈 Shughuli za Wiki Hii</div>
+                <div class="card-sub">Citations, Ukaguzi na Kukamatwa</div>
+              </div>
+              <div class="tabs" style="margin:0;background:transparent;">
+                <button class="tab active" style="padding:4px 10px;font-size:10px;">Leo</button>
+                <button class="tab" style="padding:4px 10px;font-size:10px;">Wiki</button>
+                <button class="tab" style="padding:4px 10px;font-size:10px;">Mwezi</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;gap:16px;align-items:flex-end;">
+                <div style="flex:1">
+                  <div style="font-size:10px;color:var(--clr-muted);margin-bottom:8px;">Citations kwa siku</div>
+                  <div class="mini-bars">
+                    <div class="mini-bar" style="height:40%"></div>
+                    <div class="mini-bar" style="height:55%"></div>
+                    <div class="mini-bar" style="height:48%"></div>
+                    <div class="mini-bar" style="height:70%"></div>
+                    <div class="mini-bar" style="height:62%"></div>
+                    <div class="mini-bar" style="height:85%"></div>
+                    <div class="mini-bar accent" style="height:100%"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--clr-muted);margin-top:4px;opacity:.6;">
+                    <span>Ju</span><span>Mo</span><span>Ji</span><span>Al</span><span>Ij</span><span>Ja</span><span>Leo</span>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:800;color:var(--clr-accent);font-family:var(--font-mono);">284</div>
+                    <div style="font-size:9px;color:var(--clr-muted);">Citations Leo</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:800;color:#66BB6A;font-family:var(--font-mono);">1,842</div>
+                    <div style="font-size:9px;color:var(--clr-muted);">Magari Yakaguliwa</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <!-- Region Crime Map -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">🗺️ Ramani ya Uhalifu</div>
+                <div class="card-sub">Makao ya uhalifu kwa mkoa</div>
+              </div>
+              <span class="view-all">Ramani Kubwa →</span>
+            </div>
+            <div class="card-body">
+              <div class="map-placeholder">
+                <div class="map-grid"></div>
+                <div class="map-blip" style="top:30%;left:40%"></div>
+                <div class="map-blip" style="top:55%;left:65%;background:#ef5350;box-shadow:0 0 0 3px rgba(239,83,80,.3)"></div>
+                <div class="map-blip" style="top:70%;left:30%;background:#ff7043;box-shadow:0 0 0 3px rgba(255,112,67,.3)"></div>
+                <div class="map-blip" style="top:20%;left:70%"></div>
+                <div class="map-label">Tanzania · Ramani ya Shughuli za Polisi</div>
+              </div>
+              <div style="margin-top:12px;">
+                <div class="region-list">
+                  <div class="region-row">
+                    <div class="region-name">Dar es Salaam</div>
+                    <div class="region-bar-wrap"><div class="region-bar" style="width:85%;background:#ef5350"></div></div>
+                    <div class="region-val">847</div>
+                  </div>
+                  <div class="region-row">
+                    <div class="region-name">Mwanza</div>
+                    <div class="region-bar-wrap"><div class="region-bar" style="width:55%"></div></div>
+                    <div class="region-val">312</div>
+                  </div>
+                  <div class="region-row">
+                    <div class="region-name">Arusha</div>
+                    <div class="region-bar-wrap"><div class="region-bar" style="width:42%"></div></div>
+                    <div class="region-val">198</div>
+                  </div>
+                  <div class="region-row">
+                    <div class="region-name">Dodoma</div>
+                    <div class="region-bar-wrap"><div class="region-bar" style="width:30%"></div></div>
+                    <div class="region-val">143</div>
+                  </div>
+                  <div class="region-row">
+                    <div class="region-name">Mbeya</div>
+                    <div class="region-bar-wrap"><div class="region-bar" style="width:22%"></div></div>
+                    <div class="region-val">98</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Officers Online -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">👮 Maafisa Wanaofanya Kazi Sasa</div>
+              <span class="view-all">Wote →</span>
+            </div>
+            <div class="card-body">
+              <div class="officer-list">
+                <div class="officer-row">
+                  <div class="officer-ava">👮</div>
+                  <div style="flex:1">
+                    <div class="officer-n">Insp. Juma M. Khamis</div>
+                    <div class="officer-r">Inspector · Oysterbay PS</div>
+                  </div>
+                  <div class="officer-loc">
+                    <div style="font-size:9px;color:#66BB6A;">● Hai</div>
+                    <div>Doria</div>
+                  </div>
+                </div>
+                <div class="officer-row">
+                  <div class="officer-ava">👮</div>
+                  <div style="flex:1">
+                    <div class="officer-n">Sgt. Asha M. Suleiman</div>
+                    <div class="officer-r">Sergeant · Kariakoo PS</div>
+                  </div>
+                  <div class="officer-loc">
+                    <div style="font-size:9px;color:#66BB6A;">● Hai</div>
+                    <div>Ukaguzi</div>
+                  </div>
+                </div>
+                <div class="officer-row">
+                  <div class="officer-ava">👮</div>
+                  <div style="flex:1">
+                    <div class="officer-n">Cpl. Hassan A. Mwinyi</div>
+                    <div class="officer-r">Corporal · Temeke PS</div>
+                  </div>
+                  <div class="officer-loc">
+                    <div style="font-size:9px;color:var(--clr-accent);">● Kituo</div>
+                    <div>Zuio</div>
+                  </div>
+                </div>
+                <div class="officer-row">
+                  <div class="officer-ava">👮</div>
+                  <div style="flex:1">
+                    <div class="officer-n">ASP Fatuma R. Kimaro</div>
+                    <div class="officer-r">ASP · Ilala PS</div>
+                  </div>
+                  <div class="officer-loc">
+                    <div style="font-size:9px;color:#66BB6A;">● Hai</div>
+                    <div>Uchunguzi</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Citations Table -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header">
+          <div>
+            <div class="card-title">📋 Citations za Hivi Karibuni / Recent Citations</div>
+            <div class="card-sub">Tiketi 284 leo · Jumla mwezi huu: 4,291</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn btn-outline" style="font-size:11px;padding:6px 12px;">⬇ Pakua</button>
+            <button class="btn btn-primary" style="font-size:11px;padding:6px 12px;">+ Toa Citation Mpya</button>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Namba ya Citation</th>
+                  <th>Mtuhumiwa / Suspect</th>
+                  <th>Gari / Vehicle</th>
+                  <th>Makosa / Offence</th>
+                  <th>Mahali / Location</th>
+                  <th>Tarehe na Saa</th>
+                  <th>Kiasi (TZS)</th>
+                  <th>Hali / Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-num">28</td>
+                  <td><div class="td-num">CIT-2024-00028</div></td>
+                  <td>
+                    <div class="td-name">Juma Ally Khamis</div>
+                    <div class="td-sub">NIDA: 1234567890123</div>
+                  </td>
+                  <td class="td-num">T123 DFG</td>
+                  <td>Kuendesha bila leseni</td>
+                  <td style="font-size:11px">Morogoro Rd, Oysterbay</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">17/05/2024 10:45</td>
+                  <td class="td-num">50,000</td>
+                  <td><span class="status s-issued">Imetolewa</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">27</td>
+                  <td><div class="td-num">CIT-2024-00027</div></td>
+                  <td>
+                    <div class="td-name">David John Mallya</div>
+                    <div class="td-sub">NIDA: 9876543210987</div>
+                  </td>
+                  <td class="td-num">T987 ABC</td>
+                  <td>Mwendo kasi (85 km/h)</td>
+                  <td style="font-size:11px">Haile Selassie Rd</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">17/05/2024 09:58</td>
+                  <td class="td-num">30,000</td>
+                  <td><span class="status s-issued">Imetolewa</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">26</td>
+                  <td><div class="td-num">CIT-2024-00026</div></td>
+                  <td>
+                    <div class="td-name">Salma Said Mwinyi</div>
+                    <div class="td-sub">NIDA: 1122334455667</div>
+                  </td>
+                  <td class="td-num">T456 EFG</td>
+                  <td>Kuvuka taa nyekundu</td>
+                  <td style="font-size:11px">Ali Hassan Mwinyi Rd</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">16/05/2024 16:30</td>
+                  <td class="td-num">30,000</td>
+                  <td><span class="status s-active">Imelipwa</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">25</td>
+                  <td><div class="td-num">CIT-2024-00025</div></td>
+                  <td>
+                    <div class="td-name">Nesto Eliya Masoud</div>
+                    <div class="td-sub">NIDA: 3344556677889</div>
+                  </td>
+                  <td class="td-num">T222 HJK</td>
+                  <td>Kutokuweka mkanda</td>
+                  <td style="font-size:11px">Bagamoyo Road</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">16/05/2024 04:45</td>
+                  <td class="td-num">10,000</td>
+                  <td><span class="status s-pending">Rasimu</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">24</td>
+                  <td><div class="td-num">CIT-2024-00024</div></td>
+                  <td>
+                    <div class="td-name">Rajabu Abubakar</div>
+                    <div class="td-sub">NIDA: 5566778899001</div>
+                  </td>
+                  <td class="td-num">T789 LMN</td>
+                  <td>Kuendesha bila bima</td>
+                  <td style="font-size:11px">Morogoro Rd, Oysterbay</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">16/05/2024 02:30</td>
+                  <td class="td-num">50,000</td>
+                  <td><span class="status s-issued">Imetolewa</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">23</td>
+                  <td><div class="td-num">CIT-2024-00023</div></td>
+                  <td>
+                    <div class="td-name">Hassan Juma</div>
+                    <div class="td-sub">NIDA: 2233445566778</div>
+                  </td>
+                  <td class="td-num">T555 OPQ</td>
+                  <td>Taa zisizofanya kazi</td>
+                  <td style="font-size:11px">Nyerere Road</td>
+                  <td style="font-size:10px;font-family:var(--font-mono)">15/05/2024 19:45</td>
+                  <td class="td-num">50,000</td>
+                  <td><span class="status s-pending">Haijalipwa</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--clr-border);">
+            <div style="font-size:11px;color:var(--clr-muted);">Inaonyesha 1–6 ya matokeo 284</div>
+            <div style="display:flex;gap:6px;">
+              <button class="btn btn-outline" style="padding:5px 10px;font-size:11px;">‹ Nyuma</button>
+              <button class="btn btn-primary" style="padding:5px 10px;font-size:11px;background:var(--clr-primary);">1</button>
+              <button class="btn btn-outline" style="padding:5px 10px;font-size:11px;">2</button>
+              <button class="btn btn-outline" style="padding:5px 10px;font-size:11px;">3</button>
+              <button class="btn btn-outline" style="padding:5px 10px;font-size:11px;">...</button>
+              <button class="btn btn-outline" style="padding:5px 10px;font-size:11px;">Ijayo ›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrests Table -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">⛓️ Kukamatwa kwa Hivi Karibuni / Recent Arrests</div>
+            <div class="card-sub">Watu 47 walikamatwa leo</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-outline" style="font-size:11px;padding:6px 12px;">⬇ Pakua</button>
+            <button class="btn btn-primary" style="font-size:11px;padding:6px 12px;">+ Rekodi ya Kukamatwa</button>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Namba</th>
+                  <th>Mtuhumiwa / Suspect</th>
+                  <th>Makosa / Charges</th>
+                  <th>Aliyekamata / Arresting Officer</th>
+                  <th>Kituo / Station</th>
+                  <th>Tarehe</th>
+                  <th>Hali</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-num">AR-2024-00005</td>
+                  <td>
+                    <div class="td-name">Juma Ally Khamis</div>
+                    <div class="td-sub">NIDA: 1234567890123</div>
+                  </td>
+                  <td>Kuendesha bila leseni · Traffic</td>
+                  <td>Insp. Juma M. Khamis</td>
+                  <td>Oysterbay PS</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;">17/05/2024</td>
+                  <td><span class="status s-pending">Inasubiri</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">AR-2024-00004</td>
+                  <td>
+                    <div class="td-name">Omar Said Bakari</div>
+                    <div class="td-sub">NIDA: 9988776655443</div>
+                  </td>
+                  <td>Wizi wa nyumba · Criminal</td>
+                  <td>Sgt. Asha M. Suleiman</td>
+                  <td>Kariakoo PS</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;">16/05/2024</td>
+                  <td><span class="status s-critical">Kizuizini</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+                <tr>
+                  <td class="td-num">AR-2024-00003</td>
+                  <td>
+                    <div class="td-name">Neema Kazimoto</div>
+                    <div class="td-sub">NIDA: 6677889900112</div>
+                  </td>
+                  <td>Udanganyifu wa fedha · Economic</td>
+                  <td>ASP Fatuma R. Kimaro</td>
+                  <td>Ilala PS</td>
+                  <td style="font-family:var(--font-mono);font-size:10px;">15/05/2024</td>
+                  <td><span class="status s-active">Imekamilika</span></td>
+                  <td><button class="btn btn-outline" style="padding:3px 8px;font-size:10px;">Angalia</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /dashboard -->
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+// Language toggle
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Nav items
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const parent = this.closest('.tabs');
+    parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+function showPage(page) {
+  // Future: show/hide different page sections
+  console.log('Navigate to:', page);
+}
+
+// Animate stat numbers
+document.querySelectorAll('.stat-num').forEach(el => {
+  const target = parseInt(el.textContent.replace(/,/g, ''));
+  if (isNaN(target)) return;
+  let current = 0;
+  const step = Math.max(1, Math.floor(target / 40));
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current.toLocaleString();
+    if (current >= target) clearInterval(timer);
+  }, 20);
+});
+</script>
+</body>
+</html>
