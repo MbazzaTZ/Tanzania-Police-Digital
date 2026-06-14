@@ -80,7 +80,7 @@ export default function OpsMap() {
           {/* Map canvas */}
           <div style={{position:'relative',height:380,background:'#0A1A0C',overflow:'hidden'}}>
             {/* Grid */}
-            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(27,94,32,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(27,94,32,.06) 1px,transparent 1px)',backgroundSize:'30px 30px'}} />
+            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(26,35,126,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,35,126,.06) 1px,transparent 1px)',backgroundSize:'30px 30px'}} />
             {/* Roads simulation */}
             <div style={{position:'absolute',top:'50%',left:0,right:0,height:2,background:'rgba(255,255,255,.06)'}} />
             <div style={{position:'absolute',top:0,bottom:0,left:'50%',width:2,background:'rgba(255,255,255,.06)'}} />

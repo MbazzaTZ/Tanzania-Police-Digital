@@ -15,7 +15,7 @@ export default function DistrictDashboard() {
   const nav = useNavigate()
   return (
     <div className="afd">
-      <div style={{background:'linear-gradient(135deg,#071209,#1B5E20)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
+      <div style={{background:'linear-gradient(135deg,#080C1A,#1a237e)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
         <PoliceBadge size={50} />
         <div style={{flex:1}}>
           <div style={{fontSize:9,color:'rgba(255,255,255,.5)',textTransform:'uppercase',letterSpacing:1,marginBottom:2}}>DASHIBODI YA WILAYA</div>

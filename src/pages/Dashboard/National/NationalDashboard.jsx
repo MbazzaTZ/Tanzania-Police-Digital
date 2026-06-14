@@ -31,7 +31,7 @@ const QUICK = [
 ]
 
 const RECENT_ACTIVITY = [
-  {ic:'📋',bg:'rgba(27,94,32,.25)',title:'Citation #TZA-2024-00028',sub:'Kuendesha bila leseni · Morogoro Rd',time:'10:35 AM',status:'Imekamilika'},
+  {ic:'📋',bg:'rgba(26,35,126,.25)',title:'Citation #TZA-2024-00028',sub:'Kuendesha bila leseni · Morogoro Rd',time:'10:35 AM',status:'Imekamilika'},
   {ic:'⛓️',bg:'rgba(198,40,40,.15)',title:'Kukamata #AR-2024-00005',sub:'Mtuhumiwa wa Ukiukaji wa Barabara',time:'09:58 AM',status:'Imekamilika'},
   {ic:'🚗',bg:'rgba(21,101,192,.15)',title:'Ukaguzi wa Gari – T123 DFG',sub:'Ukaguzi wa Kawaida',time:'09:20 AM',status:'Imekamilika'},
   {ic:'👤',bg:'rgba(106,27,154,.15)',title:'Uthibitisho wa Mtu – NIDA: 1234567890123',sub:'Hakuna Rekodi Iliyopatikana',time:'08:55 AM',status:'Imekamilika'},
@@ -142,7 +142,7 @@ export default function NationalDashboard() {
           {QUICK.slice(0,7).map(q => (
             <div key={q.lb} onClick={()=>nav(q.to)}
               style={{padding:'12px 4px 10px',textAlign:'center',cursor:'pointer',borderRight:'1px solid var(--b)',transition:'background .12s'}}
-              onMouseEnter={e=>e.currentTarget.style.background='rgba(27,94,32,.2)'}
+              onMouseEnter={e=>e.currentTarget.style.background='rgba(26,35,126,.2)'}
               onMouseLeave={e=>e.currentTarget.style.background='transparent'}>
               <div style={{fontSize:22,marginBottom:5}}>{q.ic}</div>
               <div style={{fontSize:9.5,fontWeight:600,color:'var(--tl)',lineHeight:1.2}}>{q.lb}</div>
@@ -296,7 +296,7 @@ export default function NationalDashboard() {
           <div className="card-bd">
             <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:8}}>
               {[
-                {ic:'⛓️',bg:'rgba(27,94,32,.25)',lb:'Kamata\n(Arrest)',to:'/enforcement/arrests/new'},
+                {ic:'⛓️',bg:'rgba(26,35,126,.25)',lb:'Kamata\n(Arrest)',to:'/enforcement/arrests/new'},
                 {ic:'📋',bg:'rgba(21,101,192,.15)',lb:'Toa Tiketi\n(Citation)',to:'/enforcement/citations/new'},
                 {ic:'⚠️',bg:'rgba(255,193,7,.15)',lb:'Maonyo\n(Warning)',to:'/enforcement/incidents'},
                 {ic:'🔍',bg:'rgba(106,27,154,.15)',lb:'Tafuta\nMtu',to:'/management/persons'},
@@ -314,7 +314,7 @@ export default function NationalDashboard() {
             </div>
 
             {/* Taarifa Muhimu */}
-            <div style={{marginTop:10,background:'rgba(27,94,32,.15)',border:'1px solid rgba(27,94,32,.3)',borderRadius:'var(--r8)',padding:'10px 12px'}}>
+            <div style={{marginTop:10,background:'rgba(26,35,126,.15)',border:'1px solid rgba(26,35,126,.3)',borderRadius:'var(--r8)',padding:'10px 12px'}}>
               <div style={{fontSize:11,fontWeight:700,color:'var(--tw)',marginBottom:4}}>🛡️ Kumbuka!</div>
               <div style={{fontSize:10.5,color:'var(--tm)',lineHeight:1.5}}>Zingatia usalama barabarani. Usalama wa raia ni jukumu letu sote.</div>
             </div>
@@ -380,7 +380,7 @@ export default function NationalDashboard() {
           <div className="card-bd">
             {/* Map placeholder */}
             <div style={{background:'rgba(0,0,0,.3)',borderRadius:'var(--r8)',height:110,marginBottom:12,position:'relative',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
-              <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(27,94,32,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(27,94,32,.08) 1px,transparent 1px)',backgroundSize:'18px 18px'}} />
+              <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(26,35,126,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(26,35,126,.08) 1px,transparent 1px)',backgroundSize:'18px 18px'}} />
               <div style={{position:'relative',textAlign:'center'}}>
                 <div style={{fontSize:30}}>🇹🇿</div>
                 <div style={{fontSize:9.5,color:'var(--tm)',marginTop:2}}>Tanzania · Live Operations Map</div>
@@ -406,7 +406,7 @@ export default function NationalDashboard() {
           <div>
             {MOCK_OFFICERS.map(o => (
               <div key={o.id} className="act-item">
-                <div className="act-ic" style={{background:'rgba(27,94,32,.2)',borderRadius:'50%',fontSize:14}}>👮</div>
+                <div className="act-ic" style={{background:'rgba(26,35,126,.2)',borderRadius:'50%',fontSize:14}}>👮</div>
                 <div className="act-meta">
                   <div className="act-title" style={{fontSize:11}}>{o.name}</div>
                   <div className="act-sub">{o.rank} · {o.station}</div>

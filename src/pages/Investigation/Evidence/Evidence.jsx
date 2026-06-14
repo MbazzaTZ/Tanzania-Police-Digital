@@ -25,7 +25,7 @@ export default function Evidence() {
           <CardBody noPadding>
             {MOCK_EVIDENCE.map(e=>(
               <div key={e.id} onClick={()=>setSelected(e)}
-                style={{padding:'10px 14px',borderBottom:'1px solid rgba(255,255,255,.04)',cursor:'pointer',background:selected?.id===e.id?'rgba(46,125,50,.1)':'transparent'}}>
+                style={{padding:'10px 14px',borderBottom:'1px solid rgba(255,255,255,.04)',cursor:'pointer',background:selected?.id===e.id?'rgba(40,53,147,.1)':'transparent'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:3}}>
                   <span className="td-mo" style={{fontSize:10}}>{e.id}</span>
                   <span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'1px 6px',borderRadius:8,color:'var(--text-muted)'}}>{e.type}</span>

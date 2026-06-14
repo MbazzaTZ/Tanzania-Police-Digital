@@ -52,7 +52,7 @@ export default function LoginPage() {
         {/* Background grid */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'linear-gradient(rgba(27,94,32,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(27,94,32,.06) 1px,transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(26,35,126,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,35,126,.06) 1px,transparent 1px)',
           backgroundSize: '40px 40px',
         }} />
 
@@ -60,7 +60,7 @@ export default function LoginPage() {
         <div style={{
           position: 'absolute', top: '30%', left: '10%',
           width: 400, height: 400,
-          background: 'radial-gradient(circle, rgba(27,94,32,.18) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(26,35,126,.18) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -91,7 +91,7 @@ export default function LoginPage() {
               <button key={l} onClick={() => setLang(l.toLowerCase())} style={{
                 padding: '5px 14px', borderRadius: 18, border: 'none', cursor: 'pointer',
                 fontFamily: 'Inter,sans-serif', fontSize: 11, fontWeight: 700,
-                background: lang === l.toLowerCase() ? '#1B5E20' : 'transparent',
+                background: lang === l.toLowerCase() ? '#1a237e' : 'transparent',
                 color: lang === l.toLowerCase() ? '#fff' : 'rgba(255,255,255,.5)',
                 transition: 'all .14s',
               }}>{l}</button>
@@ -125,7 +125,7 @@ export default function LoginPage() {
             <div style={{
               position: 'absolute', bottom: -20, left: '50%', transform: 'translateX(-50%)',
               width: 300, height: 200,
-              background: 'radial-gradient(ellipse, rgba(27,94,32,.3) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse, rgba(26,35,126,.3) 0%, transparent 70%)',
               pointerEvents: 'none',
             }} />
             <div style={{ fontSize: 160, lineHeight: 1, filter: 'drop-shadow(0 20px 40px rgba(0,0,0,.8))', textAlign: 'center', position: 'relative' }}>
@@ -166,7 +166,7 @@ export default function LoginPage() {
 
         {/* Top logo on card */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
-          <div style={{ width: 40, height: 40, borderRadius: 10, background: '#E8F5E9', border: '1px solid #C8E6C9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>
+          <div style={{ width: 40, height: 40, borderRadius: 10, background: '#E8EAF6', border: '1px solid #C8E6C9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>
             🛡️
           </div>
           <div>
@@ -206,7 +206,7 @@ export default function LoginPage() {
                 outline: 'none', background: '#FAFAFA', color: '#111',
                 boxSizing: 'border-box', transition: 'border-color .14s, background .14s',
               }}
-              onFocus={e => { e.target.style.borderColor = '#1B5E20'; e.target.style.background = '#fff' }}
+              onFocus={e => { e.target.style.borderColor = '#1a237e'; e.target.style.background = '#fff' }}
               onBlur={e => { e.target.style.borderColor = '#E0E0E0'; e.target.style.background = '#FAFAFA' }}
             />
           </div>
@@ -232,7 +232,7 @@ export default function LoginPage() {
                 outline: 'none', background: '#FAFAFA', color: '#111',
                 boxSizing: 'border-box', transition: 'border-color .14s, background .14s',
               }}
-              onFocus={e => { e.target.style.borderColor = '#1B5E20'; e.target.style.background = '#fff' }}
+              onFocus={e => { e.target.style.borderColor = '#1a237e'; e.target.style.background = '#fff' }}
               onBlur={e => { e.target.style.borderColor = '#E0E0E0'; e.target.style.background = '#FAFAFA' }}
             />
             <button onClick={() => setShow(!showPass)} style={{
@@ -249,8 +249,8 @@ export default function LoginPage() {
           <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
             <div onClick={() => setRem(!remember)} style={{
               width: 18, height: 18, borderRadius: 5,
-              border: `2px solid ${remember ? '#1B5E20' : '#CCC'}`,
-              background: remember ? '#1B5E20' : '#fff',
+              border: `2px solid ${remember ? '#1a237e' : '#CCC'}`,
+              background: remember ? '#1a237e' : '#fff',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'all .14s', flexShrink: 0,
             }}>
@@ -258,7 +258,7 @@ export default function LoginPage() {
             </div>
             <span style={{ fontSize: 13, color: '#555' }}>{sw ? 'Kumbuka mimi' : 'Remember me'}</span>
           </label>
-          <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: '#1B5E20', fontWeight: 600, fontFamily: 'Inter,sans-serif' }}>
+          <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: '#1a237e', fontWeight: 600, fontFamily: 'Inter,sans-serif' }}>
             {sw ? 'Umesahau nenosiri?' : 'Forgot password?'}
           </button>
         </div>
@@ -266,16 +266,16 @@ export default function LoginPage() {
         {/* INGIA button */}
         <button onClick={login} disabled={loading} style={{
           width: '100%', padding: '14px',
-          background: loading ? '#2E7D32' : '#1B5E20',
+          background: loading ? '#283593' : '#1a237e',
           color: '#fff', border: 'none', borderRadius: 12,
           fontSize: 15, fontWeight: 700, fontFamily: 'Inter,sans-serif',
           cursor: loading ? 'not-allowed' : 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
           marginBottom: 18, transition: 'all .14s',
-          boxShadow: '0 4px 20px rgba(27,94,32,.35)',
+          boxShadow: '0 4px 20px rgba(26,35,126,.35)',
         }}
-          onMouseEnter={e => { if (!loading) e.currentTarget.style.background = '#2E7D32' }}
-          onMouseLeave={e => { if (!loading) e.currentTarget.style.background = '#1B5E20' }}>
+          onMouseEnter={e => { if (!loading) e.currentTarget.style.background = '#283593' }}
+          onMouseLeave={e => { if (!loading) e.currentTarget.style.background = '#1a237e' }}>
           {loading ? '⏳ Inaingia...' : <><span style={{ fontSize: 18 }}>🔒</span> {sw ? 'INGIA' : 'LOGIN'}</>}
         </button>
 
@@ -294,7 +294,7 @@ export default function LoginPage() {
           cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
           gap: 8, color: '#444', marginBottom: 32, transition: 'border-color .14s',
         }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = '#1B5E20'}
+          onMouseEnter={e => e.currentTarget.style.borderColor = '#1a237e'}
           onMouseLeave={e => e.currentTarget.style.borderColor = '#E0E0E0'}>
           <span style={{ fontSize: 20 }}>👆</span>
           {sw ? 'Tumia Alama ya Kidole' : 'Use Fingerprint'}

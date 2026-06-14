@@ -33,7 +33,7 @@ export default function Citations() {
   return (
     <div className="afd">
       {/* Header banner */}
-      <div style={{background:'linear-gradient(135deg,#071209,#1B5E20)',borderRadius:'var(--r16)',padding:'16px 20px',marginBottom:16,display:'flex',gap:14,alignItems:'center'}}>
+      <div style={{background:'linear-gradient(135deg,#080C1A,#1a237e)',borderRadius:'var(--r16)',padding:'16px 20px',marginBottom:16,display:'flex',gap:14,alignItems:'center'}}>
         <PoliceBadge size={44} />
         <div style={{flex:1}}>
           <div style={{fontSize:9,color:'rgba(255,255,255,.5)',textTransform:'uppercase',letterSpacing:1,marginBottom:1}}>TOA CITATION (LESENI)</div>

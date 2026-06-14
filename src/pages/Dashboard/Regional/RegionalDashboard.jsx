@@ -21,7 +21,7 @@ export default function RegionalDashboard() {
   return (
     <div className="afd">
       {/* Header */}
-      <div style={{background:'linear-gradient(135deg,#071209,#1B5E20)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
+      <div style={{background:'linear-gradient(135deg,#080C1A,#1a237e)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
         <PoliceBadge size={50} />
         <div style={{flex:1}}>
           <div style={{fontSize:9,color:'rgba(255,255,255,.5)',textTransform:'uppercase',letterSpacing:1,marginBottom:2}}>DASHIBODI YA MKOA</div>
@@ -159,7 +159,7 @@ export default function RegionalDashboard() {
             {/* Simple bar chart */}
             <div style={{display:'flex',alignItems:'flex-end',gap:4,height:100,marginBottom:8}}>
               {[28,35,22,41,38,45,32,27,48,38,42,51,44,38,46,28].map((v,i) => (
-                <div key={i} style={{flex:1,height:`${(v/51)*100}%`,background:`rgba(27,94,32,${0.4+v/100})`,borderRadius:'2px 2px 0 0',minWidth:4}} />
+                <div key={i} style={{flex:1,height:`${(v/51)*100}%`,background:`rgba(26,35,126,${0.4+v/100})`,borderRadius:'2px 2px 0 0',minWidth:4}} />
               ))}
             </div>
             <div style={{display:'flex',justifyContent:'space-between',fontSize:9,color:'var(--td)'}}>
@@ -180,7 +180,7 @@ export default function RegionalDashboard() {
           <div className="card-h"><div className="card-t">🗺️ Ramani ya Mkoa</div><span className="view-all" onClick={()=>nav('/operations/map')}>Live →</span></div>
           <div style={{padding:'14px'}}>
             <div style={{background:'rgba(0,0,0,.3)',borderRadius:'var(--r8)',height:120,display:'flex',alignItems:'center',justifyContent:'center',marginBottom:12,position:'relative',overflow:'hidden'}}>
-              <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(27,94,32,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(27,94,32,.08) 1px,transparent 1px)',backgroundSize:'15px 15px'}} />
+              <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(26,35,126,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(26,35,126,.08) 1px,transparent 1px)',backgroundSize:'15px 15px'}} />
               <div style={{position:'relative',textAlign:'center'}}>
                 <div style={{fontSize:28}}>🗺️</div>
                 <div style={{fontSize:9.5,color:'var(--tm)'}}>Dar es Salaam – Live GPS</div>

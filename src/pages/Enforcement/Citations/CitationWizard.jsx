@@ -24,7 +24,7 @@ export default function CitationWizard() {
   return (
     <div className="afd">
       {/* Banner */}
-      <div style={{background:'linear-gradient(135deg,#071209,#1B5E20)',borderRadius:'var(--r16)',padding:'14px 20px',marginBottom:14,display:'flex',gap:14,alignItems:'center'}}>
+      <div style={{background:'linear-gradient(135deg,#080C1A,#1a237e)',borderRadius:'var(--r16)',padding:'14px 20px',marginBottom:14,display:'flex',gap:14,alignItems:'center'}}>
         <PoliceBadge size={42} />
         <div style={{flex:1}}>
           <div style={{fontSize:9,color:'rgba(255,255,255,.45)',textTransform:'uppercase',letterSpacing:1}}>TOA CITATION (LESENI)</div>
@@ -158,7 +158,7 @@ export default function CitationWizard() {
 
               {/* Law & Penalty box */}
               {offence && (
-                <div style={{background:'rgba(27,94,32,.1)',border:'1px solid rgba(27,94,32,.25)',borderRadius:'var(--r8)',padding:'12px 14px',marginTop:4}}>
+                <div style={{background:'rgba(26,35,126,.1)',border:'1px solid rgba(26,35,126,.25)',borderRadius:'var(--r8)',padding:'12px 14px',marginTop:4}}>
                   <div style={{display:'grid',gridTemplateColumns:'1fr auto auto',gap:12,alignItems:'center'}}>
                     <div><div style={{fontSize:9.5,color:'var(--tm)'}}>Sheria</div><div style={{fontSize:11.5,fontWeight:600,color:'var(--tw)',marginTop:1}}>{offence.law}</div></div>
                     <div style={{textAlign:'center'}}><div style={{fontSize:9.5,color:'var(--tm)'}}>Kifungu</div><div className="td-id" style={{marginTop:1}}>{offence.code}</div></div>

@@ -76,7 +76,7 @@ export default function SplashScreen() {
 
         {/* Flag stripe */}
         <div style={{ display:'flex', margin:'12px 0 10px', gap:0 }}>
-          {[['#1DB954',50],['#FFD700',26],['#111111',14],['#1EB2FC',36]].map(([c,w]) => (
+          {[['#3949AB',50],['#FFD700',26],['#111111',14],['#1EB2FC',36]].map(([c,w]) => (
             <div key={c} style={{ width:w, height:3.5, background:c }} />
           ))}
         </div>
@@ -98,7 +98,7 @@ export default function SplashScreen() {
       {/* ── CENTER: Officer hero ── */}
       <div style={{ flex:1, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', position:'relative', width:'100%' }}>
         {/* Glow behind officer */}
-        <div style={{ position:'absolute', width:280, height:280, borderRadius:'50%', background:'radial-gradient(circle, rgba(46,125,50,.2) 0%, transparent 70%)', top:'50%', left:'50%', transform:'translate(-50%,-50%)' }} />
+        <div style={{ position:'absolute', width:280, height:280, borderRadius:'50%', background:'radial-gradient(circle, rgba(40,53,147,.2) 0%, transparent 70%)', top:'50%', left:'50%', transform:'translate(-50%,-50%)' }} />
 
         {/* Officer */}
         <div style={{ fontSize:130, lineHeight:1, filter:'drop-shadow(0 20px 48px rgba(0,0,0,.9))', position:'relative', zIndex:1 }}>👮</div>

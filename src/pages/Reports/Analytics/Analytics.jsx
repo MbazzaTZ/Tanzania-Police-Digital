@@ -40,7 +40,7 @@ export default function Analytics() {
             <div style={{display:'flex',alignItems:'flex-end',gap:2,height:120,marginBottom:8}}>
               {MONTHLY.map((v,i) => (
                 <div key={i} style={{flex:1,display:'flex',flexDirection:'column',gap:2,height:'100%',alignItems:'center',justifyContent:'flex-end'}}>
-                  <div style={{width:'100%',background:`rgba(27,94,32,${0.4+v/maxM*0.6})`,borderRadius:'2px 2px 0 0',height:`${(v/maxM)*100}%`}} />
+                  <div style={{width:'100%',background:`rgba(26,35,126,${0.4+v/maxM*0.6})`,borderRadius:'2px 2px 0 0',height:`${(v/maxM)*100}%`}} />
                 </div>
               ))}
             </div>
