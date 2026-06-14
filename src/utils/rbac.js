@@ -64,7 +64,7 @@ export function getDashboardScope(role) {
 // ── Full nav items — each item specifies exactly which roles see it ──
 const ALL_NAV = [
   // ─ DASHIBODI ─
-  { to:'/',                      icon:'📊', label:'Dashibodi ya Taifa',       section:'Dashibodi',              roles:['igp','digp'] },
+  { to:'/dashboard', icon:'📊', label:'Dashibodi ya Taifa',       section:'Dashibodi',              roles:['igp','digp'] },
   { to:'/dashboard/regional',    icon:'🗺️', label:'Dashibodi ya Mkoa',        section:'Dashibodi',              roles:['rpc','igp','digp'] },
   { to:'/dashboard/district',    icon:'🏛️', label:'Dashibodi ya Wilaya',      section:'Dashibodi',              roles:['ocd','rpc','igp','digp'] },
   { to:'/dashboard/station',     icon:'🏢', label:'Dashibodi ya Kituo',       section:'Dashibodi',              roles:['ocs','ocd','rpc','igp','digp','traffic_officer','regular_officer','cid_officer','forensic_officer','inspector','asp','sp','ssp'] },

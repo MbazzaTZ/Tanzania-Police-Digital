@@ -6,7 +6,7 @@ import { MOCK_PRISONERS } from '@utils/mockData'
 export default function Prisoners() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Wafungwa</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Wafungwa</div>
       <div className="ph">
         <div><h1>🔒 Wafungwa / Prisoners</h1><p>Wafungwa walioko vituo vya polisi sasa hivi</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Ingiza Mfungwa</Button></div>

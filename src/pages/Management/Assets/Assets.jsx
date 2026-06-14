@@ -5,7 +5,7 @@ export default function Page() {
   const icon='🏗️'
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>🏗️ Mali / Assets</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>🏗️ Mali / Assets</div>
       <div className="ph">
         <div><h1>🏗️ Mali / Assets</h1><p>Vifaa na mali za polisi Tanzania</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Mpya</Button></div>

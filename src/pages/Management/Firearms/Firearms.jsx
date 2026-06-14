@@ -6,7 +6,7 @@ import { MOCK_FIREARMS } from '@utils/mockData'
 export default function Firearms() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Silaha</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Silaha</div>
       <div className="ph">
         <div><h1>🔫 Silaha / Firearms Registry</h1><p>Registry ya silaha zote za polisi Tanzania</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Sajili Silaha</Button></div>

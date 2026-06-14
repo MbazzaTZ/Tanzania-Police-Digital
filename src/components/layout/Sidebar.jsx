@@ -16,7 +16,7 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <NavLink to="/" className="sb-logo">
+      <NavLink to="/dashboard" className="sb-logo">
         <PoliceBadge size={36} />
         <div className="sb-brand">
           <strong>JESHI LA POLISI</strong>
@@ -29,7 +29,7 @@ export default function Sidebar() {
           <div key={sec} className="nav-sec">
             <div className="nav-sec-lbl">{sec}</div>
             {items.map(item => {
-              const active = item.to==='/' ? location.pathname==='/' : location.pathname.startsWith(item.to)
+              const active = item.to==='/dashboard' ? location.pathname==='/dashboard' : location.pathname.startsWith(item.to)
               return (
                 <NavLink key={item.to} to={item.to} className={`nav-a ${active?'active':''}`}>
                   <span className="nav-ic">{item.icon}</span>

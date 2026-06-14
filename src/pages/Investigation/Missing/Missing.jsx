@@ -9,7 +9,7 @@ export default function Missing() {
   const filtered = MOCK_MISSING.filter(m => m.name.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watu Waliopotea</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Uchunguzi<span>›</span>Watu Waliopotea</div>
       <div className="ph">
         <div><h1>👤 Watu Waliopotea / Missing Persons</h1><p>Orodha ya watu waliopotea na hali ya uchunguzi</p></div>
         <Button variant="g">+ Ongeza Mpya</Button>

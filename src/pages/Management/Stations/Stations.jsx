@@ -11,7 +11,7 @@ const MOCK_STATIONS=[
 export default function Stations() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Vituo</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Vituo</div>
       <div className="ph">
         <div><h1>🏢 Vituo / Stations</h1><p>Vituo 312 vya polisi nchini Tanzania</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Kituo Kipya</Button></div>

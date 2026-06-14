@@ -10,7 +10,7 @@ export default function Wanted() {
   const filtered = MOCK_WANTED.filter(w => w.name.toLowerCase().includes(search.toLowerCase()) || w.crime.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
       <div className="ph">
         <div><h1>🎯 Watuhumiwa Wanaotafutwa</h1><p>Orodha ya watu wanaotafutwa kitaifa</p></div>
         <Button variant="g">+ Ongeza Mtarajiwa</Button>

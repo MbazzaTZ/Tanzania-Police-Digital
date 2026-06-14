@@ -7,7 +7,7 @@ export default function Communications() {
   const [newMsg, setNewMsg] = useState('')
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Mawasiliano</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Mawasiliano</div>
       <div className="ph"><div><h1>💬 Mawasiliano</h1><p>Ujumbe, Taarifa za Haraka na Escalations</p></div><Button variant="g">+ Ujumbe Mpya</Button></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 2fr',gap:16,height:500}}>
         <Card style={{overflow:'hidden',display:'flex',flexDirection:'column'}}>

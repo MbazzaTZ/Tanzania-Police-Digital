@@ -13,7 +13,7 @@ export default function Officers() {
   const filtered=MOCK_OFFICERS.filter(o=>o.name.toLowerCase().includes(search.toLowerCase())||o.badge.includes(search)||o.station.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Maafisa</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Maafisa</div>
       <div className="ph">
         <div><h1>👮 Maafisa / Officers</h1><p>Orodha ya maafisa wote · Tanzania Police Force</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Afisa Mpya</Button></div>

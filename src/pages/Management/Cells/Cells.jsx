@@ -11,7 +11,7 @@ const MOCK_CELLS=[
 export default function Cells() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Seli</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Seli</div>
       <div className="ph"><div><h1>🔐 Seli / Cells</h1><p>Hali ya seli zote katika vituo vya polisi</p></div></div>
       <div className="stats-row s4 mb-sec">
         <StatCard icon="🔐" value={MOCK_CELLS.length} label="Seli Jumla"      color="blue" />

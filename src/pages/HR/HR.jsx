@@ -13,7 +13,7 @@ export default function HR() {
   const types={Promotion:'p-active',Training:'p-issued',Transfer:'p-pending',Commendation:'p-paid',Suspension:'p-critical'}
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>HR<span>›</span>Rasilimali Watu</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>HR<span>›</span>Rasilimali Watu</div>
       <div className="ph">
         <div><h1>👥 Rasilimali Watu / Human Resources</h1><p>Usimamizi wa wafanyakazi · Tanzania Police Force</p></div>
         <div className="flex g8"><Button variant="o">⬇ Ripoti ya HR</Button><Button variant="g">+ Rekodi Mpya</Button></div>

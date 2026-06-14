@@ -8,7 +8,7 @@ export default function Detentions() {
   const [data] = useState(MOCK_DETENTIONS)
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kizuizini</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Utekelezaji<span>›</span>Kizuizini</div>
       <div className="ph">
         <div><h1>🔒 Kizuizini / Detentions</h1><p>Watu walioko kizuizini sasa · Upeo: Masaa 48</p></div>
         <Button variant="g">+ Weka Kizuizini</Button>

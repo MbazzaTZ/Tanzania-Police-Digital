@@ -9,7 +9,7 @@ export default function Alerts() {
   const markRead = (id) => setAlerts(prev => prev.map(a => a.id===id ? {...a,read:true} : a))
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Taarifa za Haraka</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Operesheni<span>›</span>Taarifa za Haraka</div>
       <div className="ph">
         <div><h1>🚨 Taarifa za Haraka</h1><p>Taarifa {alerts.filter(a=>!a.read).length} za kusomwa · Jumla {alerts.length}</p></div>
         <div className="flex g8"><Button variant="o">Soma Zote</Button><Button variant="g">+ Taarifa Mpya</Button></div>

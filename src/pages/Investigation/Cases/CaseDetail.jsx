@@ -10,7 +10,7 @@ export default function CaseDetail() {
   const evidence = MOCK_EVIDENCE.filter(e => e.case === c.id)
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span><a href="/investigation/cases">Kesi</a><span>›</span>{c.id}</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span><a href="/investigation/cases">Kesi</a><span>›</span>{c.id}</div>
       <div className="ph">
         <div><h1>📁 {c.id}</h1><p>{c.title} · {c.type} · {c.officer}</p></div>
         <div className="flex g8"><Badge status={c.status} /><Button variant="o" onClick={() => navigate('/investigation/cases')}>← Nyuma</Button></div>

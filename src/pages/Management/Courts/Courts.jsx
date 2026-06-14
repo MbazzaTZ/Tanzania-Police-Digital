@@ -9,7 +9,7 @@ const MOCK_COURT_CASES=[
 export default function Courts() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Mahakama</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Usimamizi<span>›</span>Mahakama</div>
       <div className="ph">
         <div><h1>🏛️ Mahakama / Court Management</h1><p>Kesi zinazoendelea mahakamani na ratiba ya vikao</p></div>
         <Button variant="g">+ Ongeza Kesi ya Mahakama</Button>

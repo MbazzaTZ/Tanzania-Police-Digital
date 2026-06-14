@@ -11,7 +11,7 @@ export default function PF3Forms() {
   ]
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>PF3 Forms</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Utekelezaji<span>›</span>PF3 Forms</div>
       <div className="ph">
         <div><h1>📄 PF3 Forms</h1><p>Fomu rasmi za polisi – PF3 ya kukamata, kizuizini na tuhuma</p></div>
         <div className="flex g8"><Button variant="o">⬇ Pakua Fomu</Button><Button variant="g">+ PF3 Mpya</Button></div>

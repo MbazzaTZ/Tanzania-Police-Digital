@@ -20,10 +20,10 @@ export default function LoginPage() {
     }
     setError('')
     setLoad(true)
-    setTimeout(() => { setLoad(false); nav('/') }, 1400)
+    setTimeout(() => { setLoad(false); nav('/dashboard') }, 1400)
   }
 
-  const biometric = () => { setLoad(true); setTimeout(() => { setLoad(false); nav('/') }, 1000) }
+  const biometric = () => { setLoad(true); setTimeout(() => { setLoad(false); nav('/dashboard') }, 1000) }
 
   return (
     <div style={{

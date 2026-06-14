@@ -7,7 +7,7 @@ export default function Evidence() {
   const [selected,setSelected]=useState(null)
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Ushahidi</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Uchunguzi<span>›</span>Ushahidi</div>
       <div className="ph">
         <div><h1>🔬 Ushahidi / Evidence</h1><p>Usimamizi wa ushahidi na chain of custody</p></div>
         <Button variant="g">+ Ongeza Ushahidi</Button>

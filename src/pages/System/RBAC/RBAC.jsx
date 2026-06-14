@@ -3,7 +3,7 @@ import { ROLES, PERMISSIONS } from '@utils/constants'
 export default function RBAC() {
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Mfumo<span>›</span>Udhibiti wa Ufikiaji</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Mfumo<span>›</span>Udhibiti wa Ufikiaji</div>
       <div className="ph"><div><h1>🛡️ Udhibiti wa Ufikiaji / RBAC</h1><p>Usimamizi wa majukumu na ruhusa – IGP peke yake</p></div></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:16}}>
         <Card>

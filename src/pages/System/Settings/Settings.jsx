@@ -7,7 +7,7 @@ export default function Settings() {
   const role = ROLES[currentOfficer.role] || {}
   return (
     <div className="afd">
-      <div className="bc"><a href="/">🏠</a><span>›</span>Mfumo<span>›</span>Mipangilio</div>
+      <div className="bc"><a href="/dashboard">🏠</a><span>›</span>Mfumo<span>›</span>Mipangilio</div>
       <div className="ph"><div><h1>⚙️ Mipangilio / Settings</h1><p>Mipangilio ya akaunti na mfumo</p></div></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
         <Card>
