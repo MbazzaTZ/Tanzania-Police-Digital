@@ -6,13 +6,13 @@ export default function CrimeReports() {
   const monthly=[{m:'Jan',v:312},{m:'Feb',v:287},{m:'Mar',v:334},{m:'Apr',v:298},{m:'May',v:401},{m:'Jun',v:356},{m:'Jul',v:289},{m:'Aug',v:312},{m:'Sep',v:378},{m:'Oct',v:421},{m:'Nov',v:394},{m:'Dec',v:0}]
   const max=Math.max(...monthly.map(m=>m.v))
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Takwimu za Uhalifu</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Takwimu za Uhalifu</div>
+      <div className="ph">
         <div><h1>📊 Takwimu za Uhalifu / Crime Reports</h1><p>Takwimu za uhalifu kwa mkoa, wilaya na aina</p></div>
-        <div className="flex gap-8"><select className="form-select" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mwaka 2024</option><option>Mwaka 2023</option></select><Button variant="outline">⬇ Pakua PDF</Button><Button variant="accent">📧 Tuma Ripoti</Button></div>
+        <div className="flex gap-8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mwaka 2024</option><option>Mwaka 2023</option></select><Button variant="outline">⬇ Pakua PDF</Button><Button variant="accent">📧 Tuma Ripoti</Button></div>
       </div>
-      <div className="stat-grid stat-grid-5 section-gap">
+      <div className="stats-row stat-grid-5 section-gap">
         <StatCard icon="🚨" value={4291}  label="Matukio Mwaka Huu"  delta="8%"   color="red" />
         <StatCard icon="⛓️" value={1847}  label="Wakamatwa"           delta="12%"  color="amber" />
         <StatCard icon="⚖️" value={892}   label="Waliofungwa"         delta="5%"   color="blue" />

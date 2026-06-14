@@ -12,13 +12,13 @@ export default function HR() {
   ]
   const types={Promotion:'s-active',Training:'s-issued',Transfer:'s-pending',Commendation:'s-paid',Suspension:'s-critical'}
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>HR<span>›</span>Rasilimali Watu</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>HR<span>›</span>Rasilimali Watu</div>
+      <div className="ph">
         <div><h1>👥 Rasilimali Watu / Human Resources</h1><p>Usimamizi wa wafanyakazi · Tanzania Police Force</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Ripoti ya HR</Button><Button variant="accent">+ Rekodi Mpya</Button></div>
       </div>
-      <div className="stat-grid stat-grid-5 section-gap">
+      <div className="stats-row stat-grid-5 section-gap">
         <StatCard icon="👮" value={38547} label="Wafanyakazi Jumla"  delta="2%"  color="blue" />
         <StatCard icon="⬆️" value={234}   label="Waliопandishwa Mwaka Huu" color="green" />
         <StatCard icon="🎓" value={1247}  label="Wanaofunzwa"        delta="5%"  color="amber" />
@@ -29,14 +29,14 @@ export default function HR() {
         <Card>
           <CardHeader title="📋 Rekodi za Hivi Karibuni" />
           <CardBody noPadding>
-            <div className="table-wrap">
+            <div className="tw">
               <table>
                 <thead><tr><th>Namba</th><th>Afisa</th><th>Aina</th><th>Maelezo</th><th>Tarehe</th><th></th></tr></thead>
                 <tbody>
                   {records.map(r=>(
                     <tr key={r.id}>
-                      <td className="td-mono">{r.id}</td>
-                      <td className="td-name">{r.officer}</td>
+                      <td className="td-mo">{r.id}</td>
+                      <td className="td-nm">{r.officer}</td>
                       <td><span className={`status ${types[r.type]||'s-draft'}`}>{r.type}</span></td>
                       <td style={{fontSize:11}}>{r.desc}</td>
                       <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{r.date}</td>

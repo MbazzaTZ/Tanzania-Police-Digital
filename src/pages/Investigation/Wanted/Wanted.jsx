@@ -9,13 +9,13 @@ export default function Wanted() {
   const [search, setSearch] = useState('')
   const filtered = MOCK_WANTED.filter(w => w.name.toLowerCase().includes(search.toLowerCase()) || w.crime.toLowerCase().includes(search.toLowerCase()))
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
+      <div className="ph">
         <div><h1>🎯 Watuhumiwa Wanaotafutwa</h1><p>Orodha ya watu wanaotafutwa kitaifa</p></div>
         <Button variant="accent">+ Ongeza Mtarajiwa</Button>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🎯" value={MOCK_WANTED.length} label="Wanaotafutwa"    color="red" />
         <StatCard icon="⚠️" value={1}  label="Hatari / Dangerous"  color="red" />
         <StatCard icon="✅" value={0}  label="Waliokamatwa Leo"     color="green" />
@@ -23,21 +23,21 @@ export default function Wanted() {
       </div>
       <Card>
         <CardHeader title="🎯 Orodha ya Watuhumiwa"
-          action={<input className="form-input" style={{width:200,fontSize:11,padding:'6px 10px'}} placeholder="🔍 Tafuta..." value={search} onChange={e=>setSearch(e.target.value)} />} />
+          action={<input className="fi" style={{width:200,fontSize:11,padding:'6px 10px'}} placeholder="🔍 Tafuta..." value={search} onChange={e=>setSearch(e.target.value)} />} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Jina</th><th>Alias</th><th>Uhalifu</th><th>Mkoa wa Mwisho</th><th>Tarehe</th><th>Zawadi (TZS)</th><th>Hatari</th><th></th></tr></thead>
               <tbody>
                 {filtered.map(w => (
                   <tr key={w.id}>
-                    <td className="td-mono">{w.id}</td>
-                    <td><div className="td-name">{w.name}</div><div className="td-sub">NIDA: {w.nida}</div></td>
+                    <td className="td-mo">{w.id}</td>
+                    <td><div className="td-nm">{w.name}</div><div className="td-sub">NIDA: {w.nida}</div></td>
                     <td style={{color:'var(--gold)',fontStyle:'italic',fontSize:11}}>{w.alias}</td>
                     <td style={{fontSize:11}}>{w.crime}</td>
                     <td style={{fontSize:11}}>{w.region}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{w.date}</td>
-                    <td className="td-mono">{w.reward.toLocaleString()}</td>
+                    <td className="td-mo">{w.reward.toLocaleString()}</td>
                     <td>{w.dangerous ? <span className="status s-critical">⚠️ Ndiyo</span> : <span className="status s-closed">Hapana</span>}</td>
                     <td><Button variant="danger" size="sm">Kamata</Button></td>
                   </tr>

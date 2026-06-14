@@ -9,9 +9,9 @@ export default function CaseDetail() {
   const c = MOCK_CASES.find(x => x.id === id) || MOCK_CASES[0]
   const evidence = MOCK_EVIDENCE.filter(e => e.case === c.id)
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span><a href="/investigation/cases">Kesi</a><span>›</span>{c.id}</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span><a href="/investigation/cases">Kesi</a><span>›</span>{c.id}</div>
+      <div className="ph">
         <div><h1>📁 {c.id}</h1><p>{c.title} · {c.type} · {c.officer}</p></div>
         <div className="flex gap-8"><Badge status={c.status} /><Button variant="outline" onClick={() => navigate('/investigation/cases')}>← Nyuma</Button></div>
       </div>

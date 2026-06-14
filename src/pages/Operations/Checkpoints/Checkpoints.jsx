@@ -4,13 +4,13 @@ import Button from '@components/ui/Button'
 export default function Page() {
   const icon='⛽'
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>⛽ Vituo vya Ukaguzi</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>⛽ Vituo vya Ukaguzi</div>
+      <div className="ph">
         <div><h1>⛽ Vituo vya Ukaguzi</h1><p>Checkpoints na takwimu za ukaguzi</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Mpya</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="📊" value={0} label="Jumla" color="blue" />
         <StatCard icon="✅" value={0} label="Amilifu" color="green" />
         <StatCard icon="⏳" value={0} label="Inasubiri" color="amber" />
@@ -19,7 +19,7 @@ export default function Page() {
       <Card>
         <CardHeader title="⛽ Vituo vya Ukaguzi" />
         <CardBody>
-          <div className="info-box" style={{marginBottom:20}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Schema ya database iko tayari (supabaseSchema.sql).</div>
+          <div className="ibox" style={{marginBottom:20}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Schema ya database iko tayari (supabaseSchema.sql).</div>
           <div style={{textAlign:'center',padding:40,color:'var(--text-muted)'}}>
             <div style={{fontSize:48,marginBottom:12}}>⛽</div>
             <div style={{fontSize:14,fontWeight:600,color:'var(--text-white)',marginBottom:6}}>⛽ Vituo vya Ukaguzi</div>

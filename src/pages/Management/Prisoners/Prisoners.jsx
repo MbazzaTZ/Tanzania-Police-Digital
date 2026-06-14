@@ -5,13 +5,13 @@ import Button from '@components/ui/Button'
 import { MOCK_PRISONERS } from '@utils/mockData'
 export default function Prisoners() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Wafungwa</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Wafungwa</div>
+      <div className="ph">
         <div><h1>🔒 Wafungwa / Prisoners</h1><p>Wafungwa walioko vituo vya polisi sasa hivi</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Ingiza Mfungwa</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🔒" value={MOCK_PRISONERS.length} label="Wafungwa Jumla"     color="red" />
         <StatCard icon="⚠️" value={0}                     label="Seli Zimejaa"        color="amber" />
         <StatCard icon="🔄" value={0}                     label="Uhamisho wa Leo"      color="blue" />
@@ -21,16 +21,16 @@ export default function Prisoners() {
       <Card>
         <CardHeader title="🔒 Orodha ya Wafungwa" action={<Button variant="outline" size="sm">🔄 Uhamisho</Button>} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Jina</th><th>NIDA</th><th>Seli</th><th>Kituo</th><th>Sababu</th><th>Afisa</th><th>Kuingia</th><th>Muda Upeo</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {MOCK_PRISONERS.map(p=>(
                   <tr key={p.id}>
-                    <td className="td-mono">{p.id}</td>
-                    <td className="td-name">{p.name}</td>
-                    <td className="td-mono">{p.nida}</td>
-                    <td className="td-mono">{p.cell}</td>
+                    <td className="td-mo">{p.id}</td>
+                    <td className="td-nm">{p.name}</td>
+                    <td className="td-mo">{p.nida}</td>
+                    <td className="td-mo">{p.cell}</td>
                     <td style={{fontSize:11}}>{p.station}</td>
                     <td style={{fontSize:11}}>{p.reason}</td>
                     <td style={{fontSize:11}}>{p.officer}</td>

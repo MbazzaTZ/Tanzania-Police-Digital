@@ -6,9 +6,9 @@ export default function Communications() {
   const [selected, setSelected] = useState(MOCK_MESSAGES[0])
   const [newMsg, setNewMsg] = useState('')
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Mawasiliano</div>
-      <div className="page-header"><div><h1>💬 Mawasiliano</h1><p>Ujumbe, Taarifa za Haraka na Escalations</p></div><Button variant="accent">+ Ujumbe Mpya</Button></div>
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Mawasiliano</div>
+      <div className="ph"><div><h1>💬 Mawasiliano</h1><p>Ujumbe, Taarifa za Haraka na Escalations</p></div><Button variant="accent">+ Ujumbe Mpya</Button></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 2fr',gap:16,height:500}}>
         <Card style={{overflow:'hidden',display:'flex',flexDirection:'column'}}>
           <CardHeader title="📬 Inbox" subtitle={`${MOCK_MESSAGES.filter(m=>!m.read).length} mpya`} />
@@ -34,7 +34,7 @@ export default function Communications() {
                 <div style={{background:'var(--green-900)',borderRadius:'var(--r)',padding:16,fontSize:13,color:'var(--text-light)',lineHeight:1.6}}>{selected.content}</div>
               </div>
               <div style={{padding:16,borderTop:'1px solid var(--border)',display:'flex',gap:8}}>
-                <input className="form-input" style={{flex:1}} placeholder="Andika jibu..." value={newMsg} onChange={e=>setNewMsg(e.target.value)} />
+                <input className="fi" style={{flex:1}} placeholder="Andika jibu..." value={newMsg} onChange={e=>setNewMsg(e.target.value)} />
                 <Button variant="primary">Tuma ↗</Button>
               </div>
             </>

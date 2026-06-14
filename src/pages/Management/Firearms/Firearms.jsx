@@ -5,13 +5,13 @@ import Button from '@components/ui/Button'
 import { MOCK_FIREARMS } from '@utils/mockData'
 export default function Firearms() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Silaha</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Silaha</div>
+      <div className="ph">
         <div><h1>🔫 Silaha / Firearms Registry</h1><p>Registry ya silaha zote za polisi Tanzania</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Sajili Silaha</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🔫" value={47823} label="Silaha Jumla"     color="blue" />
         <StatCard icon="👮" value={38547} label="Zilizotolewa"      delta="2%"  color="green" />
         <StatCard icon="🏪" value={9276}  label="Ghala (Armory)"              color="amber" />
@@ -19,16 +19,16 @@ export default function Firearms() {
       </div>
       <div className="info-box section-gap">🔫 Silaha zote zimesajiliwa kwa namba ya mfululizo (Serial Number). Kila kutolewa na kurudisha kunarekodi katika mfumo.</div>
       <Card>
-        <CardHeader title="🔫 Orodha ya Silaha" action={<input className="form-input" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta serial, aina..." />} />
+        <CardHeader title="🔫 Orodha ya Silaha" action={<input className="fi" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta serial, aina..." />} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba ya Rejista</th><th>Namba ya Mfululizo</th><th>Aina</th><th>Caliber</th><th>Kituo</th><th>Imetolewa Kwa</th><th>Tarehe ya Kutolewa</th><th>Hali</th><th>Hali ya Uendeshaji</th><th></th></tr></thead>
               <tbody>
                 {MOCK_FIREARMS.map(f=>(
                   <tr key={f.id}>
-                    <td className="td-mono">{f.id}</td>
-                    <td className="td-mono">{f.serial}</td>
+                    <td className="td-mo">{f.id}</td>
+                    <td className="td-mo">{f.serial}</td>
                     <td style={{fontSize:11}}>{f.type}</td>
                     <td style={{fontSize:11}}>9mm</td>
                     <td style={{fontSize:11}}>{f.station}</td>

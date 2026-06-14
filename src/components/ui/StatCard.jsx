@@ -1,17 +1,15 @@
 import { useAnimateCount } from '@hooks/useAnimateCount'
-export default function StatCard({ icon, value, label, delta, deltaUp=true, color='' }) {
-  const animated = useAnimateCount(typeof value==='number' ? value : 0)
-  const display  = typeof value==='number' ? animated.toLocaleString() : value
+export default function StatCard({ icon, value, label, delta, up=true, color='' }) {
+  const n = useAnimateCount(typeof value==='number'?value:0)
+  const icMap = {green:'ic-green',amber:'ic-amber',red:'ic-red',blue:'ic-blue',purple:'ic-purple'}
   return (
-    <div className={`stat-card ${color}`}>
-      <div className="stat-icon">{icon}</div>
-      <div className="stat-num">{display}</div>
-      <div className="stat-label">{label}</div>
-      {delta && (
-        <div className={`stat-delta ${deltaUp?'delta-up':'delta-down'}`}>
-          {deltaUp?'↑':'↓'} {delta}
-        </div>
-      )}
+    <div className="scard">
+      <div className="scard-top">
+        <div className={`scard-icon ${icMap[color]||'ic-green'}`}>{icon}</div>
+        {delta && <div className={`scard-delta ${up?'up':'down'}`}>{up?'↑':'↓'} {delta}</div>}
+      </div>
+      <div className="scard-num">{typeof value==='number'?n.toLocaleString():value}</div>
+      <div className="scard-lbl">{label}</div>
     </div>
   )
 }

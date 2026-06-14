@@ -24,7 +24,7 @@ export default function Dashboard() {
   const citations  = MOCK_CITATIONS.slice(0, 6)
 
   return (
-    <div className="animate-fade-in">
+    <div className="afd">
       {/* Banner */}
       <div className="dash-banner" style={{ marginBottom: 20 }}>
         <div style={{ background:'rgba(0,0,0,.3)', borderRadius:'var(--r)', padding:'10px 14px', display:'flex', alignItems:'center', gap:10, flexShrink:0 }}>
@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stat Cards */}
-      <div className="stat-grid stat-grid-5 section-gap">
+      <div className="stats-row stat-grid-5 section-gap">
         <StatCard icon="📋" value={s.citationsToday} label="Citations Leo" delta={s.citationsDelta} color="green" />
         <StatCard icon="⛓️" value={s.arrestsToday}   label="Kukamatwa Leo" delta={s.arrestsDelta} color="amber" />
         <StatCard icon="🚨" value={s.criticalAlerts}  label="Matukio Muhimu" delta={s.alertsDelta} deltaUp={false} color="red" />
@@ -136,7 +136,7 @@ export default function Dashboard() {
             </div>
           } />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr>
                 <th>#</th><th>Namba ya Citation</th><th>Mtuhumiwa</th>
@@ -145,13 +145,13 @@ export default function Dashboard() {
               <tbody>
                 {citations.map(c => (
                   <tr key={c.id}>
-                    <td className="td-mono">{c.num}</td>
-                    <td className="td-mono" style={{ color:'var(--gold)' }}>{c.id}</td>
-                    <td><div className="td-name">{c.suspect}</div><div className="td-sub">NIDA: {c.nida}</div></td>
-                    <td className="td-mono">{c.vehicle}</td>
+                    <td className="td-mo">{c.num}</td>
+                    <td className="td-mo" style={{ color:'var(--gold)' }}>{c.id}</td>
+                    <td><div className="td-nm">{c.suspect}</div><div className="td-sub">NIDA: {c.nida}</div></td>
+                    <td className="td-mo">{c.vehicle}</td>
                     <td style={{ fontSize:11 }}>{c.offence}</td>
                     <td style={{ fontFamily:'var(--font-mono)', fontSize:10 }}>{c.date} {c.time}</td>
-                    <td className="td-mono">{c.fine.toLocaleString()}</td>
+                    <td className="td-mo">{c.fine.toLocaleString()}</td>
                     <td><Badge status={c.status} /></td>
                     <td><button className="btn btn-outline btn-sm" onClick={() => navigate(`/enforcement/citations/${c.id}`)}>Angalia</button></td>
                   </tr>

@@ -12,13 +12,13 @@ export default function Officers() {
   const [search,setSearch]=useState('')
   const filtered=MOCK_OFFICERS.filter(o=>o.name.toLowerCase().includes(search.toLowerCase())||o.badge.includes(search)||o.station.toLowerCase().includes(search.toLowerCase()))
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Maafisa</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Maafisa</div>
+      <div className="ph">
         <div><h1>👮 Maafisa / Officers</h1><p>Orodha ya maafisa wote · Tanzania Police Force</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Afisa Mpya</Button></div>
       </div>
-      <div className="stat-grid stat-grid-5 section-gap">
+      <div className="stats-row stat-grid-5 section-gap">
         <StatCard icon="👮" value={38547} label="Maafisa Jumla"    delta="2%"  color="blue" />
         <StatCard icon="✅" value={1247}  label="Wanafanya Kazi"   delta="5%"  color="green" />
         <StatCard icon="🏖️" value={234}   label="Likizoni"                     color="amber" />
@@ -26,16 +26,16 @@ export default function Officers() {
         <StatCard icon="🎓" value={156}   label="Mafunzo"                      color="blue" />
       </div>
       <Card>
-        <CardHeader action={<div className="flex gap-8" style={{flexWrap:'wrap'}}><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="form-input" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta afisa..." value={search} onChange={e=>setSearch(e.target.value)} /><select className="form-select" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option></select><select className="form-select" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Vyeo vyote</option>{RANKS.map(r=><option key={r.id}>{r.label}</option>)}</select></div>} />
+        <CardHeader action={<div className="flex gap-8" style={{flexWrap:'wrap'}}><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="fi" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta afisa..." value={search} onChange={e=>setSearch(e.target.value)} /><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option></select><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Vyeo vyote</option>{RANKS.map(r=><option key={r.id}>{r.label}</option>)}</select></div>} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba ya Kitambulisho</th><th>Jina Kamili</th><th>Cheo</th><th>Jukumu</th><th>Kituo</th><th>Wilaya</th><th>Mkoa</th><th>Simu</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {filtered.map(o=>(
                   <tr key={o.id}>
-                    <td className="td-mono">{o.badge}</td>
-                    <td className="td-name">{o.name}</td>
+                    <td className="td-mo">{o.badge}</td>
+                    <td className="td-nm">{o.name}</td>
                     <td style={{fontSize:11,textTransform:'capitalize'}}>{o.rank}</td>
                     <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{o.role.replace(/_/g,' ')}</span></td>
                     <td style={{fontSize:11}}>{o.station}</td>

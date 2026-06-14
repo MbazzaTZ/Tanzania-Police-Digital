@@ -2,9 +2,9 @@ import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import { ROLES, PERMISSIONS } from '@utils/constants'
 export default function RBAC() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Mfumo<span>›</span>Udhibiti wa Ufikiaji</div>
-      <div className="page-header"><div><h1>🛡️ Udhibiti wa Ufikiaji / RBAC</h1><p>Usimamizi wa majukumu na ruhusa – IGP peke yake</p></div></div>
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Mfumo<span>›</span>Udhibiti wa Ufikiaji</div>
+      <div className="ph"><div><h1>🛡️ Udhibiti wa Ufikiaji / RBAC</h1><p>Usimamizi wa majukumu na ruhusa – IGP peke yake</p></div></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:16}}>
         <Card>
           <CardHeader title="🎭 Majukumu / Roles" />

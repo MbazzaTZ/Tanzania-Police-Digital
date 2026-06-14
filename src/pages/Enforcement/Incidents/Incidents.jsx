@@ -12,28 +12,28 @@ export default function Incidents() {
   const [tab,setTab]=useState('all')
   const filtered=tab==='all'?MOCK_INCIDENTS:MOCK_INCIDENTS.filter(i=>i.status===tab)
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Matukio</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Matukio</div>
+      <div className="ph">
         <div><h1>📝 Matukio / Incidents</h1><p>Ripoti za matukio yaliyoripotiwa leo na wiki hii</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Ripoti ya Tukio</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="📝" value={312}  label="Matukio Leo"       delta="8%"   color="amber" />
         <StatCard icon="🚨" value={47}   label="Muhimu / Critical"              color="red" />
         <StatCard icon="🔍" value={189}  label="Yanachunguzwa"     delta="5%"   color="blue" />
         <StatCard icon="✅" value={76}   label="Yaliyofungwa Leo"               color="green" />
       </div>
       <Card>
-        <CardHeader action={<div className="flex gap-8"><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="form-input" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
+        <CardHeader action={<div className="flex gap-8"><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Aina ya Tukio</th><th>Maelezo</th><th>Afisa</th><th>Mahali</th><th>Tarehe</th><th>Kipaumbele</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {filtered.map(i=>(
                   <tr key={i.id}>
-                    <td className="td-mono">{i.id}</td>
+                    <td className="td-mo">{i.id}</td>
                     <td style={{fontWeight:600,fontSize:12}}>{i.type}</td>
                     <td style={{fontSize:11}}>{i.description}</td>
                     <td style={{fontSize:11}}>{i.officer}</td>

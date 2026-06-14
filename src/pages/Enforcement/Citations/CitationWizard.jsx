@@ -23,9 +23,9 @@ export default function CitationWizard() {
   }
 
   return (
-    <div className="animate-fade-in">
+    <div className="afd">
       <Breadcrumb items={[{label:'🏠',href:'/'},{label:'Citations',href:'/enforcement/citations'},{label:'Toa Citation Mpya'}]} />
-      <div className="page-header">
+      <div className="ph">
         <div><h1>📋 Toa Citation Mpya</h1><p>Jaza hatua zote kwa usahihi kabla ya kuthibitisha</p></div>
         <Button variant="outline" onClick={() => navigate('/enforcement/citations')}>✕ Ghairi</Button>
       </div>
@@ -39,12 +39,12 @@ export default function CitationWizard() {
         {/* STEP 1 */}
         {step === 1 && (
           <div>
-            <div className="card-header"><div className="card-title">1. Taarifa za Mtu / Gari</div></div>
-            <div className="card-body">
+            <div className="card-h"><div className="card-t">1. Taarifa za Mtu / Gari</div></div>
+            <div className="card-bd">
               <div style={{ fontSize:11, fontWeight:700, color:'var(--gold)', textTransform:'uppercase', letterSpacing:1, marginBottom:12, paddingBottom:8, borderBottom:'1px solid var(--border)' }}>🔍 Tafuta Mtuhumiwa</div>
               <div style={{ display:'flex', gap:8, marginBottom:12 }}>
-                <select className="form-select" style={{ width:140 }}><option>NIDA</option><option>Jina</option><option>Simu</option></select>
-                <input className="form-input" defaultValue="1234567890123" style={{ flex:1 }} placeholder="Weka namba ya utambulisho..." />
+                <select className="fs" style={{ width:140 }}><option>NIDA</option><option>Jina</option><option>Simu</option></select>
+                <input className="fi" defaultValue="1234567890123" style={{ flex:1 }} placeholder="Weka namba ya utambulisho..." />
                 <Button variant="primary">🔍 Tafuta</Button>
               </div>
               {/* Person found */}
@@ -57,18 +57,18 @@ export default function CitationWizard() {
                 </div>
                 <span className="status s-active">Hakuna Tahadhari</span>
               </div>
-              <div className="form-grid-2" style={{ marginBottom:16 }}>
-                <div className="form-group"><label className="form-label">Leseni ya Udereva *</label><input className="form-input" defaultValue="DL12345678TZ" /></div>
-                <div className="form-group"><label className="form-label">Daraja la Leseni *</label><select className="form-select"><option>B, C</option><option>A</option><option>D</option></select></div>
-                <div className="form-group"><label className="form-label">Tarehe ya Kumalizika *</label><input className="form-input" type="date" defaultValue="2026-08-20" /></div>
-                <div className="form-group"><label className="form-label">Hali ya Leseni</label><input className="form-input" readOnly value="Halali ✓" style={{ color:'#66BB6A' }} /></div>
+              <div className="fg2" style={{ marginBottom:16 }}>
+                <div className="fg"><label className="fl">Leseni ya Udereva *</label><input className="fi" defaultValue="DL12345678TZ" /></div>
+                <div className="fg"><label className="fl">Daraja la Leseni *</label><select className="fs"><option>B, C</option><option>A</option><option>D</option></select></div>
+                <div className="fg"><label className="fl">Tarehe ya Kumalizika *</label><input className="fi" type="date" defaultValue="2026-08-20" /></div>
+                <div className="fg"><label className="fl">Hali ya Leseni</label><input className="fi" readOnly value="Halali ✓" style={{ color:'#66BB6A' }} /></div>
               </div>
               <div style={{ fontSize:11, fontWeight:700, color:'var(--gold)', textTransform:'uppercase', letterSpacing:1, marginBottom:12, paddingBottom:8, borderBottom:'1px solid var(--border)' }}>🚗 Taarifa za Gari</div>
-              <div className="form-grid-2">
-                <div className="form-group"><label className="form-label">Namba ya Gari *</label><input className="form-input" defaultValue="T123 DFG" /></div>
-                <div className="form-group"><label className="form-label">Aina ya Gari</label><input className="form-input" readOnly value="Toyota Noah – Silver" /></div>
-                <div className="form-group"><label className="form-label">Namba ya Chasi (VIN)</label><input className="form-input" readOnly value="ZRR80-0123456" /></div>
-                <div className="form-group"><label className="form-label">Hali ya Bima</label><input className="form-input" readOnly value="Halali hadi 30/11/2024 ✓" style={{ color:'#66BB6A' }} /></div>
+              <div className="fg2">
+                <div className="fg"><label className="fl">Namba ya Gari *</label><input className="fi" defaultValue="T123 DFG" /></div>
+                <div className="fg"><label className="fl">Aina ya Gari</label><input className="fi" readOnly value="Toyota Noah – Silver" /></div>
+                <div className="fg"><label className="fl">Namba ya Chasi (VIN)</label><input className="fi" readOnly value="ZRR80-0123456" /></div>
+                <div className="fg"><label className="fl">Hali ya Bima</label><input className="fi" readOnly value="Halali hadi 30/11/2024 ✓" style={{ color:'#66BB6A' }} /></div>
               </div>
             </div>
           </div>
@@ -77,10 +77,10 @@ export default function CitationWizard() {
         {/* STEP 2 */}
         {step === 2 && (
           <div>
-            <div className="card-header"><div className="card-title">2. Chagua Makosa / Select Offence</div></div>
-            <div className="card-body">
+            <div className="card-h"><div className="card-t">2. Chagua Makosa / Select Offence</div></div>
+            <div className="card-bd">
               <div style={{ marginBottom:12 }}>
-                <input className="form-input" placeholder="🔍 Tafuta makosa kwa namba au jina..." />
+                <input className="fi" placeholder="🔍 Tafuta makosa kwa namba au jina..." />
               </div>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:16 }}>
                 {TRAFFIC_OFFENCES.map(o => (
@@ -96,12 +96,12 @@ export default function CitationWizard() {
                   </div>
                 ))}
               </div>
-              <div className="form-grid-2">
-                <div className="form-group"><label className="form-label">Mahali lilipotokea *</label><input className="form-input" defaultValue="Morogoro Road, Oysterbay, Dar es Salaam" /></div>
-                <div className="form-group"><label className="form-label">Tarehe *</label><input className="form-input" type="date" defaultValue="2024-05-17" /></div>
+              <div className="fg2">
+                <div className="fg"><label className="fl">Mahali lilipotokea *</label><input className="fi" defaultValue="Morogoro Road, Oysterbay, Dar es Salaam" /></div>
+                <div className="fg"><label className="fl">Tarehe *</label><input className="fi" type="date" defaultValue="2024-05-17" /></div>
               </div>
-              <div className="form-group"><label className="form-label">Maelezo ya Ziada (Hiari)</label>
-                <textarea className="form-textarea" defaultValue="Dereva alikamatwa baada ya ukaguzi wa kawaida. Hakuna leseni ya udereva." /></div>
+              <div className="fg"><label className="fl">Maelezo ya Ziada (Hiari)</label>
+                <textarea className="ft" defaultValue="Dereva alikamatwa baada ya ukaguzi wa kawaida. Hakuna leseni ya udereva." /></div>
             </div>
           </div>
         )}
@@ -109,13 +109,13 @@ export default function CitationWizard() {
         {/* STEP 3 */}
         {step === 3 && (
           <div>
-            <div className="card-header"><div className="card-title">3. Maelezo ya Citation na Nyaraka</div></div>
-            <div className="card-body">
-              <div className="form-grid-2" style={{ marginBottom:16 }}>
-                <div className="form-group"><label className="form-label">Namba ya Citation</label><input className="form-input" readOnly value="CIT-2024-00029" style={{ color:'var(--gold)', fontFamily:'var(--font-mono)' }} /></div>
-                <div className="form-group"><label className="form-label">Faini (TZS)</label><input className="form-input" readOnly value={offence ? offence.fine.toLocaleString() : '50,000'} style={{ color:'#66BB6A', fontFamily:'var(--font-mono)', fontWeight:700 }} /></div>
-                <div className="form-group"><label className="form-label">Mahali pa Kutolewa *</label><input className="form-input" defaultValue="Morogoro Road, Oysterbay" /></div>
-                <div className="form-group"><label className="form-label">Tarehe na Saa</label><input className="form-input" readOnly value="17/05/2024, 10:45 AM" /></div>
+            <div className="card-h"><div className="card-t">3. Maelezo ya Citation na Nyaraka</div></div>
+            <div className="card-bd">
+              <div className="fg2" style={{ marginBottom:16 }}>
+                <div className="fg"><label className="fl">Namba ya Citation</label><input className="fi" readOnly value="CIT-2024-00029" style={{ color:'var(--gold)', fontFamily:'var(--font-mono)' }} /></div>
+                <div className="fg"><label className="fl">Faini (TZS)</label><input className="fi" readOnly value={offence ? offence.fine.toLocaleString() : '50,000'} style={{ color:'#66BB6A', fontFamily:'var(--font-mono)', fontWeight:700 }} /></div>
+                <div className="fg"><label className="fl">Mahali pa Kutolewa *</label><input className="fi" defaultValue="Morogoro Road, Oysterbay" /></div>
+                <div className="fg"><label className="fl">Tarehe na Saa</label><input className="fi" readOnly value="17/05/2024, 10:45 AM" /></div>
               </div>
               <div style={{ fontSize:11, fontWeight:700, color:'var(--gold)', textTransform:'uppercase', marginBottom:8 }}>📷 Picha na Ushahidi</div>
               <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:8, marginBottom:16 }}>
@@ -129,7 +129,7 @@ export default function CitationWizard() {
                   </div>
                 ))}
               </div>
-              <div className="form-group"><label className="form-label">Saini ya Afisa *</label>
+              <div className="fg"><label className="fl">Saini ya Afisa *</label>
                 <div style={{ background:'var(--green-900)', border:'1px solid var(--border)', borderRadius:'var(--r)', height:80, display:'flex', alignItems:'center', justifyContent:'center', color:'var(--text-muted)', fontSize:12, cursor:'pointer' }}>
                   ✍️ Bonyeza hapa kuandika saini yako ya kidijitali
                 </div>
@@ -141,8 +141,8 @@ export default function CitationWizard() {
         {/* STEP 4 */}
         {step === 4 && (
           <div>
-            <div className="card-header"><div className="card-title">4. Kagua na Thibitisha</div></div>
-            <div className="card-body">
+            <div className="card-h"><div className="card-t">4. Kagua na Thibitisha</div></div>
+            <div className="card-bd">
               {[
                 { title:'1. TAARIFA ZA MTU / GARI', rows:[['Jina Kamili',p.fullName],['NIDA',p.nida],['Leseni','DL12345678TZ – Daraja B,C'],['Gari','T123 DFG – Toyota Noah (Silver)']] },
                 { title:'2. MAKOSA', rows:[['Sheria / Kifungu',offence ? `${offence.law} – Kif. ${offence.code}` : 'Traffic Offences Act, Cap. 168 – Kif. 129(1)'],['Makosa',offence?.name || 'Kuendesha bila leseni'],['Faini',`TZS ${(offence?.fine || 50000).toLocaleString()}`],['Mahali','Morogoro Road, Oysterbay']] },

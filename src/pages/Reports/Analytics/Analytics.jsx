@@ -3,13 +3,13 @@ import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import Button from '@components/ui/Button'
 export default function Analytics() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Uchambuzi</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Uchambuzi</div>
+      <div className="ph">
         <div><h1>📉 Uchambuzi / Analytics</h1><p>Uchambuzi wa kina wa data ya uhalifu kwa kutumia AI na takwimu</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">🤖 AI Ripoti</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="📊" value={2847291} label="Rekodi Zilizochambuliwa"  delta="8%" color="blue" />
         <StatCard icon="🔮" value={94}      label="Usahihi wa Utabiri (%)"   delta="3%" color="green" />
         <StatCard icon="🗺️" value={26}      label="Mikoa Inayochunguzwa"                color="amber" />

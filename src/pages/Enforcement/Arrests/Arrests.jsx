@@ -16,16 +16,16 @@ export default function Arrests() {
   const { query, setQuery, results } = useSearch(MOCK_ARRESTS, ['suspect','charges','officer','station','id'])
   const filtered = tab==='all' ? results : results.filter(a => a.status===tab)
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kukamatwa</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kukamatwa</div>
+      <div className="ph">
         <div><h1>⛓️ Kukamatwa / Arrests</h1><p>Rekodi za kukamatwa zote · Leo: 47 · Mwezi huu: 1,284</p></div>
         <div className="flex gap-8">
           <Button variant="outline">⬇ Pakua PDF</Button>
           <Button variant="accent" onClick={() => navigate('/enforcement/arrests/new')}>+ Rekodi ya Kukamata</Button>
         </div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="⛓️" value={47}   label="Kukamata Leo"     delta="8%" color="amber" />
         <StatCard icon="🔒" value={23}   label="Kizuizini Sasa"   color="red" />
         <StatCard icon="⚖️" value={18}   label="Mahakamani"       color="blue" />
@@ -36,19 +36,19 @@ export default function Arrests() {
           action={
             <div className="flex gap-8" style={{flexWrap:'wrap'}}>
               <Tabs tabs={TABS} active={tab} onChange={setTab} />
-              <input className="form-input" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." value={query} onChange={e=>setQuery(e.target.value)} />
+              <input className="fi" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." value={query} onChange={e=>setQuery(e.target.value)} />
             </div>
           }
         />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Mtuhumiwa</th><th>Makosa</th><th>Aina</th><th>Afisa</th><th>Kituo</th><th>Tarehe</th><th>Haki Zilisomwa</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {filtered.map(a => (
                   <tr key={a.id}>
-                    <td className="td-mono">{a.id}</td>
-                    <td><div className="td-name">{a.suspect}</div><div className="td-sub">NIDA: {a.nida}</div></td>
+                    <td className="td-mo">{a.id}</td>
+                    <td><div className="td-nm">{a.suspect}</div><div className="td-sub">NIDA: {a.nida}</div></td>
                     <td style={{fontSize:11}}>{a.charges}</td>
                     <td><span style={{fontSize:9,background:'rgba(255,255,255,.08)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{a.category}</span></td>
                     <td style={{fontSize:11}}>{a.officer}</td>

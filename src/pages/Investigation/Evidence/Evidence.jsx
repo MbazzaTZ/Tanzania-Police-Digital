@@ -6,13 +6,13 @@ import { MOCK_EVIDENCE } from '@utils/mockData'
 export default function Evidence() {
   const [selected,setSelected]=useState(null)
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Ushahidi</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Ushahidi</div>
+      <div className="ph">
         <div><h1>🔬 Ushahidi / Evidence</h1><p>Usimamizi wa ushahidi na chain of custody</p></div>
         <Button variant="accent">+ Ongeza Ushahidi</Button>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🔬" value={2847}  label="Ushahidi Jumla"        color="blue" />
         <StatCard icon="✅" value={2612}  label="Unaotunzwa Vizuri"      delta="5%"  color="green" />
         <StatCard icon="⚠️" value={23}    label="Unaohitaji Umakini"                 color="amber" />
@@ -27,7 +27,7 @@ export default function Evidence() {
               <div key={e.id} onClick={()=>setSelected(e)}
                 style={{padding:'10px 14px',borderBottom:'1px solid rgba(255,255,255,.04)',cursor:'pointer',background:selected?.id===e.id?'rgba(46,125,50,.1)':'transparent'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:3}}>
-                  <span className="td-mono" style={{fontSize:10}}>{e.id}</span>
+                  <span className="td-mo" style={{fontSize:10}}>{e.id}</span>
                   <span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'1px 6px',borderRadius:8,color:'var(--text-muted)'}}>{e.type}</span>
                 </div>
                 <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)',marginBottom:2}}>{e.description}</div>

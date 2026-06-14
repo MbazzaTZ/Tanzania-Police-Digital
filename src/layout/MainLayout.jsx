@@ -4,19 +4,11 @@ import Topbar  from '@components/layout/Topbar'
 
 export default function MainLayout() {
   return (
-    <div style={{ display:'flex', height:'100vh', overflow:'hidden' }}>
+    <div className="layout">
       <Sidebar />
-      <div style={{
-        marginLeft: 'var(--sidebar-w)',
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        overflow: 'hidden',
-        minWidth: 0,
-      }}>
+      <div className="main-col">
         <Topbar />
-        <main style={{ flex:1, overflowY:'auto', padding:'18px 20px', background:'var(--green-900)' }}>
+        <main>
           <Outlet />
         </main>
       </div>

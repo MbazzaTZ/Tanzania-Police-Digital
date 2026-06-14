@@ -21,7 +21,7 @@ export default function Persons() {
   }
 
   return (
-    <div className="animate-fade-in">
+    <div className="afd">
       {/* Header matching app design */}
       <div style={{background:'linear-gradient(135deg,#0D2E0F,#1B5E20)',borderRadius:'var(--r-xl)',padding:'16px 20px',marginBottom:20,display:'flex',gap:14,alignItems:'center'}}>
         <PoliceBadge size={42} />
@@ -61,12 +61,12 @@ export default function Persons() {
 
       {/* Search bar */}
       <div className="card section-gap">
-        <div className="card-body">
+        <div className="card-bd">
           <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:8}}>
             Ingiza Namba ya {type}
           </div>
           <div style={{display:'flex',gap:8}}>
-            <input className="form-input" style={{flex:1,fontSize:14,padding:'12px 16px'}}
+            <input className="fi" style={{flex:1,fontSize:14,padding:'12px 16px'}}
               placeholder={`Weka namba ya ${type}...`}
               value={query} onChange={e => setQuery(e.target.value)}
               onKeyDown={e => e.key==='Enter' && doSearch()} />
@@ -98,8 +98,8 @@ export default function Persons() {
       {/* Recent searches */}
       {!result && (
         <div className="card section-gap">
-          <div className="card-header">
-            <div className="card-title">🕐 Utafutaji wa Hivi Karibuni</div>
+          <div className="card-h">
+            <div className="card-t">🕐 Utafutaji wa Hivi Karibuni</div>
             <span className="view-all">Ona Zote</span>
           </div>
           {[

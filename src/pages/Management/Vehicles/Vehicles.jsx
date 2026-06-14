@@ -25,7 +25,7 @@ export default function Vehicles() {
   const v = MOCK_VEHICLE
 
   return (
-    <div className="animate-fade-in">
+    <div className="afd">
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:14}}>
         <button className="btn btn-ghost btn-sm" onClick={() => navigate(-1)}>← Nyuma</button>
         <div style={{flex:1}}>
@@ -72,11 +72,11 @@ export default function Vehicles() {
 
       {/* Owner section */}
       <div className="card section-gap">
-        <div className="card-header">
-          <div className="card-title">👤 MMILIKI WA GARI</div>
+        <div className="card-h">
+          <div className="card-t">👤 MMILIKI WA GARI</div>
           <Button variant="ghost" size="sm" onClick={() => navigate('/management/persons')}>👤 Tazama Wasifu</Button>
         </div>
-        <div className="card-body">
+        <div className="card-bd">
           <div style={{display:'grid',gridTemplateColumns:'auto 1fr 1fr 1fr',gap:16,alignItems:'center'}}>
             <div style={{width:44,height:44,borderRadius:'50%',background:'var(--green-600)',border:'2px solid var(--border-light)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:20}}>👤</div>
             <div><div style={{fontSize:12,fontWeight:700,color:'var(--text-white)'}}>{v.owner.name}</div><div style={{fontSize:10,color:'var(--text-muted)'}}>NIDA: {v.owner.nida}</div></div>
@@ -97,7 +97,7 @@ export default function Vehicles() {
         </div>
 
         {activeTab === 'usajili' && (
-          <div className="card-body">
+          <div className="card-bd">
             <div style={{display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:20}}>
               <div>
                 {[['Namba ya Usajili','T 123 DRS'],['Mkoa wa Usajili',v.registration.region],['Tarehe ya Usajili',v.registration.date],['Tarehe ya Kumalizika',v.registration.expiry],['Aina ya Matumizi','Binafsi'],['Uzito Halisi (kg)',v.weight],['Idadi ya Viti',v.seats],['Namba ya Engine',v.engine],['Namba ya Chasi (VIN)',v.vin]].map(([l,val]) => (
@@ -130,7 +130,7 @@ export default function Vehicles() {
 
         {activeTab === 'historia' && (
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:16}}>
-            <div className="card-body">
+            <div className="card-bd">
               <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>🛡️ BIMA</div>
               <div style={{marginBottom:6}}><Badge status="halali" /></div>
               {[['Kampuni',v.insurance.company],['Namba ya Polisi',v.insurance.policy],['Aina ya Bima',v.insurance.type],['Kuanza',v.insurance.from],['Kumalizika',v.insurance.to]].map(([l,val]) => (
@@ -140,7 +140,7 @@ export default function Vehicles() {
               ))}
               <Button variant="outline" size="sm" style={{marginTop:10,width:'100%'}}>👁️ Tazama Bima</Button>
             </div>
-            <div className="card-body">
+            <div className="card-bd">
               <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>📝 HISTORIA YA UKIUKAJI</div>
               {v.violations.map(vi => (
                 <div key={vi.offense} style={{padding:'8px 0',borderBottom:'1px solid rgba(255,255,255,.04)'}}>
@@ -157,7 +157,7 @@ export default function Vehicles() {
               ))}
               <Button variant="outline" size="sm" style={{marginTop:10,width:'100%'}}>☰ Tazama Zote</Button>
             </div>
-            <div className="card-body">
+            <div className="card-bd">
               <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>🛡️ HISTORIA YA WIZI</div>
               <div style={{textAlign:'center',padding:'20px 10px',color:'#66BB6A'}}>
                 <div style={{fontSize:32,marginBottom:8}}>✅</div>

@@ -10,13 +10,13 @@ export default function PF3Forms() {
     {id:'PF3-2024-00087',person:'Neema Kazimoto',type:'Ulaghai / Fraud',officer:'ASP F.R. Kimaro',station:'Ilala PS',date:'15/05/2024',status:'completed'},
   ]
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>PF3 Forms</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>PF3 Forms</div>
+      <div className="ph">
         <div><h1>📄 PF3 Forms</h1><p>Fomu rasmi za polisi – PF3 ya kukamata, kizuizini na tuhuma</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua Fomu</Button><Button variant="accent">+ PF3 Mpya</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="📄" value={89}  label="PF3 Zote Leo"      delta="5%"  color="blue" />
         <StatCard icon="✅" value={67}  label="Zilizokamilika"                color="green" />
         <StatCard icon="📝" value={22}  label="Rasimu (Draft)"               color="amber" />
@@ -26,14 +26,14 @@ export default function PF3Forms() {
       <Card>
         <CardHeader title="📄 Orodha ya PF3 Forms" action={<Button variant="accent">+ PF3 Mpya</Button>} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba ya PF3</th><th>Mhusika</th><th>Aina</th><th>Afisa</th><th>Kituo</th><th>Tarehe</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {forms.map(f=>(
                   <tr key={f.id}>
-                    <td className="td-mono">{f.id}</td>
-                    <td className="td-name">{f.person}</td>
+                    <td className="td-mo">{f.id}</td>
+                    <td className="td-nm">{f.person}</td>
                     <td style={{fontSize:11}}>{f.type}</td>
                     <td style={{fontSize:11}}>{f.officer}</td>
                     <td style={{fontSize:11}}>{f.station}</td>

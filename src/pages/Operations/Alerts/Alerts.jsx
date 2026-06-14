@@ -8,9 +8,9 @@ export default function Alerts() {
   const [alerts, setAlerts] = useState(MOCK_ALERTS)
   const markRead = (id) => setAlerts(prev => prev.map(a => a.id===id ? {...a,read:true} : a))
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Taarifa za Haraka</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Taarifa za Haraka</div>
+      <div className="ph">
         <div><h1>🚨 Taarifa za Haraka</h1><p>Taarifa {alerts.filter(a=>!a.read).length} za kusomwa · Jumla {alerts.length}</p></div>
         <div className="flex gap-8"><Button variant="outline">Soma Zote</Button><Button variant="accent">+ Taarifa Mpya</Button></div>
       </div>

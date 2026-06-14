@@ -1,34 +1,20 @@
-const STATUS_MAP = {
-  issued:       {label:'Imetolewa',    cls:'s-issued'},
-  paid:         {label:'Imelipwa',     cls:'s-paid'},
-  imepwa:       {label:'Imelipwa',     cls:'s-paid'},
-  haijapwa:     {label:'Haijalipwa',   cls:'s-unpaid'},
-  unpaid:       {label:'Haijalipwa',   cls:'s-unpaid'},
-  cancelled:    {label:'Imeghairiwa',  cls:'s-cancelled'},
-  draft:        {label:'Rasimu',       cls:'s-draft'},
-  pending:      {label:'Inasubiri',    cls:'s-pending'},
-  detained:     {label:'Kizuizini',    cls:'s-detained'},
-  court:        {label:'Mahakamani',   cls:'s-court'},
-  completed:    {label:'Imekamilika',  cls:'s-done'},
-  active:       {label:'Hai',          cls:'s-active'},
-  closed:       {label:'Imefungwa',    cls:'s-closed'},
-  critical:     {label:'Muhimu Sana',  cls:'s-critical'},
-  high:         {label:'Juu',          cls:'s-high'},
-  medium:       {label:'Wastani',      cls:'s-medium'},
-  low:          {label:'Chini',        cls:'s-closed'},
-  open:         {label:'Wazi',         cls:'s-active'},
-  investigating:{label:'Inachunguzwa', cls:'s-pending'},
-  halali:       {label:'Halali',       cls:'s-halali'},
-  Felony:       {label:'Felony',       cls:'s-critical'},
-  Misdemeanor:  {label:'Misdemeanor',  cls:'s-pending'},
+const M = {
+  issued:'p-issued',paid:'p-paid',unpaid:'p-unpaid',imepwa:'p-imepwa',haijapwa:'p-haijapwa',
+  cancelled:'p-imegha',draft:'p-rasimu',pending:'p-pending',detained:'p-detained',
+  court:'p-court',completed:'p-done',active:'p-active',closed:'p-closed',
+  critical:'p-critical',high:'p-critical',medium:'p-pending',halali:'p-halali',
+  Felony:'p-critical',Misdemeanor:'p-pending',open:'p-active',investigating:'p-pending',
 }
-
-export default function Badge({ status, size = 'sm' }) {
-  const cfg = STATUS_MAP[status] || STATUS_MAP[status?.toLowerCase()] || {label: status || '–', cls: 's-closed'}
-  return (
-    <span className={`status ${cfg.cls}`}
-      style={size==='xs' ? {fontSize:'8.5px', padding:'1px 6px'} : {}}>
-      {cfg.label}
-    </span>
-  )
+const L = {
+  issued:'Imetolewa',paid:'Imelipwa',unpaid:'Haijalipwa',imepwa:'Imelipwa',haijapwa:'Haijalipwa',
+  cancelled:'Imeghairiwa',draft:'Rasimu',pending:'Inasubiri',detained:'Kizuizini',
+  court:'Mahakamani',completed:'Imekamilika',active:'Hai',closed:'Imefungwa',
+  critical:'Muhimu',high:'Juu',medium:'Wastani',halali:'Halali',
+  Felony:'Felony',Misdemeanor:'Misdemeanor',open:'Wazi',investigating:'Inachunguzwa',
+}
+export default function Badge({ status, xs }) {
+  const k = status?.toLowerCase ? status.toLowerCase() : status
+  const cls = M[status] || M[k] || 'p-closed'
+  const lbl = L[status] || L[k] || status || '–'
+  return <span className={`pill ${cls}`} style={xs?{fontSize:'8.5px',padding:'1px 6px'}:{}}>{lbl}</span>
 }

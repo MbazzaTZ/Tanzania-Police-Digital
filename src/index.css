@@ -1,66 +1,27 @@
-/* TPDOP – Global Base Styles */
-/* All design tokens are in src/assets/styles.css */
-
 :root {
-  --green-900: #0D1B0F;
-  --green-800: #122115;
-  --green-700: #1A2E1D;
-  --green-600: #1B5E20;
-  --green-500: #2E7D32;
-  --green-400: #388E3C;
-  --green-300: #4CAF50;
-  --green-200: #81C784;
-  --green-100: #C8E6C9;
-  --gold:       #FFC107;
-  --gold-light: #FFD54F;
-  --gold-dark:  #F9A825;
-  --red-dark:   #B71C1C;
-  --red:        #C62828;
-  --red-light:  #EF5350;
-  --orange:     #E65100;
-  --orange-l:   #FF7043;
-  --blue-dark:  #0D47A1;
-  --blue:       #1565C0;
-  --blue-light: #64B5F6;
-  --text-white: #FFFFFF;
-  --text-light: #E8F5E9;
-  --text-muted: #81C784;
-  --border:     rgba(255,255,255,.08);
-  --border-light:rgba(255,255,255,.12);
-  --r:     8px;
-  --r-md:  10px;
-  --r-lg:  14px;
-  --r-xl:  18px;
-  --t:     all .15s ease;
-  --sidebar-w: 248px;
-  --topbar-h:  60px;
-  --font-ui:   'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --g900:#080F09;--g800:#0F1A10;--g750:#122115;--g700:#162B18;--g650:#1A2E1D;
+  --g600:#1B5E20;--g500:#2E7D32;--g400:#388E3C;--g300:#4CAF50;--g200:#81C784;
+  --gold:#FFC107;--gold2:#FFD54F;--gold3:#F9A825;
+  --red:#C62828;--redL:#EF5350;--ora:#E65100;--oraL:#FF7043;
+  --blu:#1565C0;--bluL:#64B5F6;
+  --tw:#FFFFFF;--tl:#E8F5E9;--tm:#81C784;--td:rgba(129,199,132,.45);
+  --b:rgba(255,255,255,.07);--bl:rgba(255,255,255,.12);--bh:rgba(255,255,255,.18);
+  --sw:230px;--th:58px;
+  --r4:4px;--r6:6px;--r8:8px;--r10:10px;--r12:12px;--r16:16px;--r20:20px;
+  --t:all .14s ease;
+  --fu:'Inter',system-ui,sans-serif;
+  --fm:'JetBrains Mono','Fira Code',monospace;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body, #root {
-  height: 100%;
-  font-family: var(--font-ui);
-  background: var(--green-900);
-  color: var(--text-light);
-  font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: var(--font-ui); }
-input, select, textarea { font-family: var(--font-ui); }
-
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--green-500); border-radius: 2px; }
-
-@keyframes fadeIn  { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@keyframes pulse   { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
-@keyframes spin    { to { transform: rotate(360deg); } }
-
-.animate-fade-in { animation: fadeIn .22s ease forwards; }
-.animate-pulse   { animation: pulse 2s infinite; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body,#root{height:100%;font-family:var(--fu);background:var(--g800);color:var(--tl);font-size:13px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--fu);cursor:pointer}
+input,select,textarea{font-family:var(--fu)}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--g500);border-radius:2px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.afd{animation:fadeIn .2s ease forwards}
+.pls{animation:pulse 2s infinite}

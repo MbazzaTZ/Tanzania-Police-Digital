@@ -8,40 +8,33 @@ export default function Sidebar() {
   const location = useLocation()
   const navItems = getNavItems(currentOfficer.role)
 
-  // Group nav items by section
   const sections = navItems.reduce((acc, item) => {
-    const s = item.section
-    if (!acc[s]) acc[s] = []
-    acc[s].push(item)
+    if (!acc[item.section]) acc[item.section] = []
+    acc[item.section].push(item)
     return acc
   }, {})
 
   return (
     <aside className="sidebar">
-      {/* Logo */}
-      <NavLink to="/" className="sidebar-logo">
-        <PoliceBadge size={40} />
-        <div className="sidebar-brand">
+      <NavLink to="/" className="sb-logo">
+        <PoliceBadge size={36} />
+        <div className="sb-brand">
           <strong>JESHI LA POLISI</strong>
           <span>Tanzania · TPDOP</span>
         </div>
       </NavLink>
 
-      {/* Nav */}
-      <nav style={{flex:1, paddingBottom:8}}>
-        {Object.entries(sections).map(([section, items]) => (
-          <div key={section} className="nav-section">
-            <div className="nav-section-label">{section}</div>
+      <nav style={{flex:1, paddingBottom:6}}>
+        {Object.entries(sections).map(([sec, items]) => (
+          <div key={sec} className="nav-sec">
+            <div className="nav-sec-lbl">{sec}</div>
             {items.map(item => {
-              const isActive = item.to === '/'
-                ? location.pathname === '/'
-                : location.pathname.startsWith(item.to)
+              const active = item.to==='/' ? location.pathname==='/' : location.pathname.startsWith(item.to)
               return (
-                <NavLink key={item.to} to={item.to}
-                  className={`nav-link ${isActive ? 'active' : ''}`}>
-                  <span className="nav-icon">{item.icon}</span>
-                  <span style={{flex:1, fontSize:'11.5px'}}>{item.label}</span>
-                  {item.badge && <span className="nav-badge-count">{item.badge}</span>}
+                <NavLink key={item.to} to={item.to} className={`nav-a ${active?'active':''}`}>
+                  <span className="nav-ic">{item.icon}</span>
+                  <span style={{flex:1}}>{item.label}</span>
+                  {item.badge && <span className="nav-badge">{item.badge}</span>}
                 </NavLink>
               )
             })}
@@ -49,14 +42,11 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* Officer Footer */}
-      <div className="sidebar-footer">
-        <div className="role-pill">
-          {currentOfficer.role.replace(/_/g,' ').toUpperCase()}
-        </div>
-        <div className="officer-row">
-          <div className="officer-avatar">👮</div>
-          <div className="officer-meta">
+      <div className="sb-foot">
+        <div className="sb-role">{currentOfficer.role.replace(/_/g,' ').toUpperCase()}</div>
+        <div className="sb-officer">
+          <div className="sb-av">👮</div>
+          <div className="sb-info">
             <strong>{currentOfficer.name}</strong>
             <span>Badge: {currentOfficer.badge}</span>
           </div>

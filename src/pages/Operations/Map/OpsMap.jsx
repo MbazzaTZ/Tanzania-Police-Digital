@@ -3,10 +3,10 @@ import StatCard from '@components/ui/StatCard'
 import { MOCK_OFFICERS, MOCK_PATROLS } from '@utils/mockData'
 export default function OpsMap() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Ramani</div>
-      <div className="page-header"><div><h1>🗺️ Ramani ya Operesheni</h1><p>GPS tracking ya maafisa na operesheni zote hai</p></div></div>
-      <div className="stat-grid stat-grid-4 section-gap">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Ramani</div>
+      <div className="ph"><div><h1>🗺️ Ramani ya Operesheni</h1><p>GPS tracking ya maafisa na operesheni zote hai</p></div></div>
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="👮" value={1247} label="Maafisa Hai"    delta="5%" color="green" />
         <StatCard icon="🚔" value={89}   label="Doria Zinazoendelea" delta="3%" color="amber" />
         <StatCard icon="🚧" value={12}   label="Vizuizi Hai"   color="red" />

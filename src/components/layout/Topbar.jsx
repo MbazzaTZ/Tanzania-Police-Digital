@@ -5,45 +5,38 @@ import PoliceBadge from '@components/shared/PoliceBadge'
 
 export default function Topbar() {
   const { lang, toggleLang, currentOfficer } = useApp()
-  const [search, setSearch] = useState('')
-  const navigate = useNavigate()
+  const [q, setQ] = useState('')
+  const nav = useNavigate()
 
-  const handleSearch = e => {
-    if (e.key === 'Enter' && search.trim())
-      navigate(`/management/persons?q=${encodeURIComponent(search)}`)
-  }
+  const go = e => { if (e.key==='Enter' && q.trim()) nav(`/management/persons?q=${encodeURIComponent(q)}`) }
 
   return (
     <header className="topbar">
-      <div style={{display:'flex', alignItems:'center', gap:10, flexShrink:0}}>
-        <PoliceBadge size={30} />
-        <div>
-          <div className="topbar-title">TPDOP</div>
-          <div className="topbar-sub">{currentOfficer.station}</div>
+      <div className="flex aic g10 " style={{flexShrink:0}}>
+        <PoliceBadge size={28} />
+        <div className="tb-brand">
+          <strong>TPDOP</strong>
+          <span>{currentOfficer.station}</span>
         </div>
       </div>
 
-      <div className="topbar-search">
-        <input
-          type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          onKeyDown={handleSearch}
-          placeholder={lang==='sw' ? 'Tafuta mtu, gari, kesi, citation, NIDA...' : 'Search person, vehicle, case...'}
-        />
+      <div className="tb-search">
+        <span className="si">🔍</span>
+        <input type="text" value={q} onChange={e=>setQ(e.target.value)} onKeyDown={go}
+          placeholder={lang==='sw'?'Tafuta mtu, gari, kesi, citation, NIDA...':'Search person, vehicle, case, citation...'} />
       </div>
 
-      <div className="topbar-actions">
-        <div className="lang-toggle">
-          <button className={`lang-btn ${lang==='sw'?'active':''}`} onClick={toggleLang}>SW</button>
-          <button className={`lang-btn ${lang==='en'?'active':''}`} onClick={toggleLang}>EN</button>
+      <div className="tb-actions">
+        <div className="lang-tog">
+          <button className={`lang-b ${lang==='sw'?'on':''}`} onClick={toggleLang}>SW</button>
+          <button className={`lang-b ${lang==='en'?'on':''}`} onClick={toggleLang}>EN</button>
         </div>
-        <div className="topbar-icon" onClick={() => navigate('/operations/alerts')} title="Taarifa za Haraka">
-          🔔<span className="badge">5</span>
+        <div className="tb-ic" onClick={()=>nav('/operations/alerts')} title="Taarifa">
+          🔔<span className="bdg">5</span>
         </div>
-        <div className="topbar-icon" onClick={() => navigate('/communications')} title="Ujumbe">💬</div>
-        <div className="topbar-icon" title="GPS Tracking">📡</div>
-        <div className="topbar-icon" onClick={() => navigate('/system/settings')} title="Profaili">👤</div>
+        <div className="tb-ic" onClick={()=>nav('/communications')} title="Ujumbe">💬</div>
+        <div className="tb-ic" title="GPS">📡</div>
+        <div className="tb-ic" onClick={()=>nav('/system/settings')} title="Profaili">👤</div>
       </div>
     </header>
   )

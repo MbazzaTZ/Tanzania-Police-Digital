@@ -11,16 +11,16 @@ const CLR={SIRI_KABISA:'#EF5350','SIRI KABISA':'#EF5350',SIRI:'#FF7043',IMEHIFAD
 export default function Intelligence() {
   const [tab,setTab]=useState('active')
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Ujasusi<span>›</span>Intelligence</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Ujasusi<span>›</span>Intelligence</div>
+      <div className="ph">
         <div><h1>🧠 Ujasusi / Intelligence</h1><p>Faili za siri – Ufikiaji kwa RPC, DIGP na IGP tu</p></div>
         <div className="flex gap-8"><Button variant="danger">🔒 SIRI KABISA</Button><Button variant="accent">+ Faili Mpya</Button></div>
       </div>
       <div style={{background:'rgba(198,40,40,.1)',border:'1px solid rgba(198,40,40,.3)',borderRadius:'var(--r)',padding:'10px 14px',marginBottom:16,fontSize:12,color:'#EF9A9A',display:'flex',gap:8,alignItems:'center'}}>
         🔒 <strong>TAHADHARI:</strong> Faili hizi ni za siri. Ufikiaji wowote unarekodi katika mfumo wa ukaguzi (audit trail). Mtu asiye na ruhusa anayejaribu kufikia ataripotiwa.
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🧠" value={47}  label="Faili Amilifu"      color="red" />
         <StatCard icon="👁️" value={12}  label="Zinafuatiliwa"      color="amber" />
         <StatCard icon="⚠️" value={4}   label="Vitisho Vya Juu"    color="red" />
@@ -29,14 +29,14 @@ export default function Intelligence() {
       <Card>
         <CardHeader title="🧠 Faili za Ujasusi" subtitle="Classified Intelligence Files" />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Kichwa</th><th>Daraja la Usiri</th><th>Mkoa</th><th>Vitisho</th><th>Tarehe</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {MOCK_INTEL.map(i=>(
                   <tr key={i.id}>
-                    <td className="td-mono">{i.id}</td>
-                    <td className="td-name">{i.title}</td>
+                    <td className="td-mo">{i.id}</td>
+                    <td className="td-nm">{i.title}</td>
                     <td><span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:10,background:`${CLR[i.classification]||'#9E9E9E'}22`,color:CLR[i.classification]||'#9E9E9E',textTransform:'uppercase'}}>{i.classification}</span></td>
                     <td style={{fontSize:11}}>{i.region}</td>
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)',color:i.threats>0?'#EF5350':'#66BB6A'}}>{i.threats}</td>

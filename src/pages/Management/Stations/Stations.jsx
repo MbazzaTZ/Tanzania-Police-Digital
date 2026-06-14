@@ -10,29 +10,29 @@ const MOCK_STATIONS=[
 ]
 export default function Stations() {
   return (
-    <div className="animate-fade-in">
-      <div className="breadcrumb"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Vituo</div>
-      <div className="page-header">
+    <div className="afd">
+      <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Vituo</div>
+      <div className="ph">
         <div><h1>🏢 Vituo / Stations</h1><p>Vituo 312 vya polisi nchini Tanzania</p></div>
         <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Kituo Kipya</Button></div>
       </div>
-      <div className="stat-grid stat-grid-4 section-gap">
+      <div className="stats-row stat-grid-4 section-gap">
         <StatCard icon="🏢" value={312}  label="Vituo Jumla"       color="blue" />
         <StatCard icon="✅" value={308}  label="Vinavyofanya Kazi" delta="2%"  color="green" />
         <StatCard icon="👮" value={38547}label="Maafisa Jumla"      delta="5%"  color="amber" />
         <StatCard icon="🌍" value={26}   label="Mikoa"                          color="blue" />
       </div>
       <Card>
-        <CardHeader title="🏢 Orodha ya Vituo" action={<div className="flex gap-8"><select className="form-select" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option>{REGIONS.map(r=><option key={r}>{r}</option>)}</select><input className="form-input" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
+        <CardHeader title="🏢 Orodha ya Vituo" action={<div className="flex gap-8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option>{REGIONS.map(r=><option key={r}>{r}</option>)}</select><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
         <CardBody noPadding>
-          <div className="table-wrap">
+          <div className="tw">
             <table>
               <thead><tr><th>Namba</th><th>Jina la Kituo</th><th>Aina</th><th>Mkoa</th><th>Wilaya</th><th>Kata</th><th>OCS</th><th>Maafisa</th><th>Seli</th><th>Hali</th><th></th></tr></thead>
               <tbody>
                 {MOCK_STATIONS.map(s=>(
                   <tr key={s.id}>
-                    <td className="td-mono">{s.id}</td>
-                    <td className="td-name">{s.name}</td>
+                    <td className="td-mo">{s.id}</td>
+                    <td className="td-nm">{s.name}</td>
                     <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{s.type}</span></td>
                     <td style={{fontSize:11}}>{s.region}</td>
                     <td style={{fontSize:11}}>{s.district}</td>
