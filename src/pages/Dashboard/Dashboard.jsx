@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import StatCard   from '@components/ui/StatCard'
 import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import Badge      from '@components/ui/Badge'
-import { MOCK_DASHBOARD_STATS, MOCK_ALERTS, MOCK_CITATIONS, MOCK_REGIONS } from '@utils/mockData'
+import { MOCK_DASHBOARD_STATS, MOCK_ALERTS, MOCK_CITATIONS, MOCK_REGIONS_STATS } from '@utils/mockData'
 import { formatTZS, ALERT_CONFIG } from '@utils/helpers'
 
 const QUICK_ACTIONS = [
@@ -111,7 +111,7 @@ export default function Dashboard() {
                 <span style={{ fontSize:11, color:'var(--clr-muted)', position:'relative' }}>Tanzania · Ramani ya Shughuli</span>
               </div>
               <div style={{ display:'flex', flexDirection:'column', gap:6 }}>
-                {MOCK_REGIONS.map(r => (
+                {MOCK_REGIONS_STATS.map(r => (
                   <div key={r.name} style={{ display:'flex', alignItems:'center', gap:10 }}>
                     <div style={{ fontSize:11, fontWeight:500, minWidth:90 }}>{r.name}</div>
                     <div style={{ flex:1, background:'var(--clr-dark)', borderRadius:3, height:6, overflow:'hidden' }}>

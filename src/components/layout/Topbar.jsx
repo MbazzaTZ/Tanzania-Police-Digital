@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useApp } from '@context/AppContext'
-import { SCOPE_LABELS } from '@utils/constants'
 
 const PAGE_TITLES = {
   '/': '📊 Dashibodi ya Taifa',

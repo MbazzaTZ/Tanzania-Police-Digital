@@ -164,3 +164,15 @@ export const PRIORITY_LEVELS = ['critical','high','medium','low']
 export const CASE_TYPES = ['Criminal','Fraud','Narcotics','Murder','Assault','Theft','Cyber','Financial','Terrorism']
 export const INCIDENT_TYPES = ['Wizi wa Gari','Wizi wa Nyumba','Mapigano','Ubakaji','Mauaji','Ajali ya Gari','Uvunjaji wa Mali','Ulaghai','Madawa ya Kulevya','Ugaidi']
 export const VEHICLE_TYPES = ['Toyota Noah','Toyota Corolla','Toyota Land Cruiser','Toyota Hilux','Nissan X-Trail','Honda Fit','Mitsubishi Pajero','Suzuki Alto','Toyota Hiace','Bajaj Boxer']
+
+export const AUDIT_ACTIONS = [
+  'LOGIN','LOGOUT',
+  'SEARCH_PERSON','SEARCH_VEHICLE',
+  'CREATE_CITATION','UPDATE_CITATION',
+  'CREATE_ARREST','UPDATE_ARREST',
+  'CREATE_INCIDENT','CREATE_ACCIDENT',
+  'CREATE_CASE','UPDATE_CASE',
+  'UPLOAD_EVIDENCE','VIEW_INTELLIGENCE',
+  'EXPORT_REPORT','CREATE_OFFICER',
+  'UPDATE_OFFICER','MANAGE_RBAC',
+]

@@ -3,7 +3,6 @@ import { Card, CardHeader, CardBody } from '@components/ui/Card'
 import StatCard from '@components/ui/StatCard'
 import Badge from '@components/ui/Badge'
 import Button from '@components/ui/Button'
-import { SEARCH_TYPES } from '@utils/constants'
 const MOCK_VEHICLES=[
   {id:'VEH-001',plate:'T123 DFG',make:'Toyota',model:'Noah',year:2018,color:'Silver',owner:'Juma Ally Khamis',insurance_exp:'30/11/2024',insurance_co:'Jubilee Insurance',stolen:false,violations:3},
   {id:'VEH-002',plate:'T987 ABC',make:'Toyota',model:'Corolla',year:2015,color:'Black',owner:'David John Mallya',insurance_exp:'15/07/2024',insurance_co:'Alliance Insurance',stolen:false,violations:1},

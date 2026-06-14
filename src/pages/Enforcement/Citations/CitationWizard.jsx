@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Breadcrumb from '@components/ui/Breadcrumb'
 import Stepper    from '@components/ui/Stepper'
 import Button     from '@components/ui/Button'
-import { MOCK_PERSON, TRAFFIC_OFFENCES } from '@utils/mockData'
+import { MOCK_PERSON } from '@utils/mockData'
+import { TRAFFIC_OFFENCES } from '@utils/constants'
 
 const STEPS = ['Taarifa za Mtu / Gari','Makosa','Maelezo ya Citation','Kagua na Thibitisha']
 
