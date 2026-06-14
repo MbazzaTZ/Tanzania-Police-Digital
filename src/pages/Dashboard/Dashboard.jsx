@@ -43,7 +43,7 @@ export default function Dashboard() {
         <div style={{ display:'flex', gap:24 }}>
           {[['1,247','Maafisa Hai'],['312','Vituo'],['26','Mikoa'],['99.8%','Upatikanaji']].map(([v,l]) => (
             <div key={l} style={{ textAlign:'center' }}>
-              <div style={{ fontSize:22, fontWeight:800, color:'var(--clr-accent)', fontFamily:'var(--font-mono)' }}>{v}</div>
+              <div style={{ fontSize:22, fontWeight:800, color:'var(--gold)', fontFamily:'var(--font-mono)' }}>{v}</div>
               <div style={{ fontSize:9, color:'rgba(255,255,255,.6)', textTransform:'uppercase', letterSpacing:.5 }}>{l}</div>
             </div>
           ))}
@@ -54,9 +54,9 @@ export default function Dashboard() {
       <div style={{ display:'grid', gridTemplateColumns:'repeat(8,1fr)', gap:8, marginBottom:20 }}>
         {QUICK_ACTIONS.map(qa => (
           <div key={qa.to} onClick={() => navigate(qa.to)}
-            style={{ background:'var(--clr-panel)', border:'1px solid var(--clr-border)', borderRadius:'var(--r)', padding:'10px 8px', textAlign:'center', cursor:'pointer', transition:'var(--transition)' }}
-            onMouseEnter={e => { e.currentTarget.style.background='var(--clr-primary)'; e.currentTarget.style.borderColor='var(--clr-secondary)' }}
-            onMouseLeave={e => { e.currentTarget.style.background='var(--clr-panel)'; e.currentTarget.style.borderColor='var(--clr-border)' }}>
+            style={{ background:'var(--green-700)', border:'1px solid var(--border)', borderRadius:'var(--r)', padding:'10px 8px', textAlign:'center', cursor:'pointer', transition:'var(--t)' }}
+            onMouseEnter={e => { e.currentTarget.style.background='var(--green-600)'; e.currentTarget.style.borderColor='var(--green-500)' }}
+            onMouseLeave={e => { e.currentTarget.style.background='var(--green-700)'; e.currentTarget.style.borderColor='var(--border)' }}>
             <div style={{ fontSize:20, marginBottom:4 }}>{qa.icon}</div>
             <div style={{ fontSize:10, fontWeight:500 }}>{qa.label}</div>
           </div>
@@ -87,9 +87,9 @@ export default function Dashboard() {
                     <div key={alert.id} className={`alert-item ${alert.type}`} style={{ background:cfg.bg }}>
                       <div style={{ width:8, height:8, borderRadius:'50%', background:cfg.dot, flexShrink:0, marginTop:4 }} />
                       <div style={{ flex:1 }}>
-                        <div style={{ fontSize:'11.5px', fontWeight:600, color:'var(--clr-white)' }}>{alert.title}</div>
-                        <div style={{ fontSize:'10.5px', color:'var(--clr-muted)', marginTop:2 }}>{alert.desc}</div>
-                        <div style={{ fontSize:'9px', color:'var(--clr-muted)', marginTop:2, opacity:.7 }}>🕐 {alert.time}</div>
+                        <div style={{ fontSize:'11.5px', fontWeight:600, color:'var(--text-white)' }}>{alert.title}</div>
+                        <div style={{ fontSize:'10.5px', color:'var(--text-muted)', marginTop:2 }}>{alert.desc}</div>
+                        <div style={{ fontSize:'9px', color:'var(--text-muted)', marginTop:2, opacity:.7 }}>🕐 {alert.time}</div>
                       </div>
                       <span style={{ fontSize:9, fontWeight:700, padding:'2px 6px', borderRadius:10, textTransform:'uppercase', background:`${cfg.dot}22`, color:cfg.dot, flexShrink:0 }}>{cfg.label}</span>
                     </div>
@@ -106,18 +106,18 @@ export default function Dashboard() {
             <CardHeader title="🗺️ Ramani ya Uhalifu" subtitle="Makao ya uhalifu kwa mkoa"
               action={<span className="view-all" onClick={() => navigate('/operations/map')}>Ramani →</span>} />
             <CardBody>
-              <div style={{ background:'var(--clr-dark)', borderRadius:'var(--r)', height:120, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12, position:'relative', overflow:'hidden' }}>
+              <div style={{ background:'var(--green-900)', borderRadius:'var(--r)', height:120, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12, position:'relative', overflow:'hidden' }}>
                 <div style={{ position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(46,125,50,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(46,125,50,.1) 1px,transparent 1px)', backgroundSize:'30px 30px' }} />
-                <span style={{ fontSize:11, color:'var(--clr-muted)', position:'relative' }}>Tanzania · Ramani ya Shughuli</span>
+                <span style={{ fontSize:11, color:'var(--text-muted)', position:'relative' }}>Tanzania · Ramani ya Shughuli</span>
               </div>
               <div style={{ display:'flex', flexDirection:'column', gap:6 }}>
                 {MOCK_REGIONS_STATS.map(r => (
                   <div key={r.name} style={{ display:'flex', alignItems:'center', gap:10 }}>
                     <div style={{ fontSize:11, fontWeight:500, minWidth:90 }}>{r.name}</div>
-                    <div style={{ flex:1, background:'var(--clr-dark)', borderRadius:3, height:6, overflow:'hidden' }}>
+                    <div style={{ flex:1, background:'var(--green-900)', borderRadius:3, height:6, overflow:'hidden' }}>
                       <div style={{ height:'100%', background:r.color, borderRadius:3, width:`${r.pct}%` }} />
                     </div>
-                    <div style={{ fontSize:10, fontFamily:'var(--font-mono)', color:'var(--clr-accent)', minWidth:28, textAlign:'right' }}>{r.count}</div>
+                    <div style={{ fontSize:10, fontFamily:'var(--font-mono)', color:'var(--gold)', minWidth:28, textAlign:'right' }}>{r.count}</div>
                   </div>
                 ))}
               </div>
@@ -146,7 +146,7 @@ export default function Dashboard() {
                 {citations.map(c => (
                   <tr key={c.id}>
                     <td className="td-mono">{c.num}</td>
-                    <td className="td-mono" style={{ color:'var(--clr-accent)' }}>{c.id}</td>
+                    <td className="td-mono" style={{ color:'var(--gold)' }}>{c.id}</td>
                     <td><div className="td-name">{c.suspect}</div><div className="td-sub">NIDA: {c.nida}</div></td>
                     <td className="td-mono">{c.vehicle}</td>
                     <td style={{ fontSize:11 }}>{c.offence}</td>
@@ -159,8 +159,8 @@ export default function Dashboard() {
               </tbody>
             </table>
           </div>
-          <div style={{ padding:'12px 16px', display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid var(--clr-border)' }}>
-            <div style={{ fontSize:11, color:'var(--clr-muted)' }}>Inaonyesha 1–6 ya matokeo 4,291</div>
+          <div style={{ padding:'12px 16px', display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid var(--border)' }}>
+            <div style={{ fontSize:11, color:'var(--text-muted)' }}>Inaonyesha 1–6 ya matokeo 4,291</div>
             <button className="btn btn-outline btn-sm" onClick={() => navigate('/enforcement/citations')}>Ona Zote →</button>
           </div>
         </CardBody>

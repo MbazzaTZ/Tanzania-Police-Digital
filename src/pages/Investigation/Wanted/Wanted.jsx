@@ -33,7 +33,7 @@ export default function Wanted() {
                   <tr key={w.id}>
                     <td className="td-mono">{w.id}</td>
                     <td><div className="td-name">{w.name}</div><div className="td-sub">NIDA: {w.nida}</div></td>
-                    <td style={{color:'var(--clr-accent)',fontStyle:'italic',fontSize:11}}>{w.alias}</td>
+                    <td style={{color:'var(--gold)',fontStyle:'italic',fontSize:11}}>{w.alias}</td>
                     <td style={{fontSize:11}}>{w.crime}</td>
                     <td style={{fontSize:11}}>{w.region}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{w.date}</td>

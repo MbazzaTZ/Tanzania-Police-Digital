@@ -22,9 +22,9 @@ export default function Page() {
         <CardHeader title="📉 Takwimu / Analytics" />
         <CardBody>
           <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase backend katika Sprint 2.</div>
-          <div style={{textAlign:'center',padding:'40px',color:'var(--clr-muted)'}}>
+          <div style={{textAlign:'center',padding:'40px',color:'var(--text-muted)'}}>
             <div style={{fontSize:48,marginBottom:12}}>🔧</div>
-            <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Takwimu / Analytics</div>
+            <div style={{fontSize:14,fontWeight:600,color:'var(--text-white)',marginBottom:6}}>Takwimu / Analytics</div>
             <div style={{fontSize:12}}>Sprint 2 – Supabase Integration</div>
           </div>
         </CardBody>

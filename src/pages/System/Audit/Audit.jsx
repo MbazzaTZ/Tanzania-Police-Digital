@@ -34,9 +34,9 @@ export default function Audit() {
                     <td><div className="td-name">{a.officer}</div><div className="td-sub">Badge: {a.badge}</div></td>
                     <td style={{fontSize:10,textTransform:'uppercase'}}>{a.rank}</td>
                     <td style={{fontSize:11}}>{a.station}</td>
-                    <td><span style={{fontSize:10,fontFamily:'var(--font-mono)',color:'var(--clr-accent)'}}>{a.action}</span></td>
+                    <td><span style={{fontSize:10,fontFamily:'var(--font-mono)',color:'var(--gold)'}}>{a.action}</span></td>
                     <td className="td-mono">{a.record}</td>
-                    <td style={{fontSize:10,fontFamily:'var(--font-mono)',color:'var(--clr-muted)'}}>{a.gps}</td>
+                    <td style={{fontSize:10,fontFamily:'var(--font-mono)',color:'var(--text-muted)'}}>{a.gps}</td>
                     <td style={{fontSize:10,fontFamily:'var(--font-mono)'}}>{a.device}</td>
                     <td style={{fontSize:10,fontFamily:'var(--font-mono)'}}>{a.time}</td>
                   </tr>

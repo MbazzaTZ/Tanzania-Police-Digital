@@ -20,7 +20,7 @@ export default function CaseDetail() {
           <CardBody>
             {[['Namba ya Kesi',c.id],['Aina',c.type],['Afisa',c.officer],['Tarehe',c.date],['Kipaumbele',c.priority],['Watuhumiwa',c.suspects],['Ushahidi',c.evidence + ' faili'],['Masasisho',c.updates]].map(([l,v]) => (
               <div key={l} style={{display:'flex',justifyContent:'space-between',padding:'6px 0',fontSize:12,borderBottom:'1px solid rgba(255,255,255,.04)'}}>
-                <span style={{color:'var(--clr-muted)'}}>{l}</span><span style={{fontWeight:600}}>{v}</span>
+                <span style={{color:'var(--text-muted)'}}>{l}</span><span style={{fontWeight:600}}>{v}</span>
               </div>
             ))}
           </CardBody>
@@ -29,12 +29,12 @@ export default function CaseDetail() {
           <CardBody>
             {evidence.length > 0 ? evidence.map(e => (
               <div key={e.id} style={{padding:'8px 0',borderBottom:'1px solid rgba(255,255,255,.04)'}}>
-                <div style={{fontSize:12,fontWeight:600,color:'var(--clr-white)'}}>{e.description}</div>
-                <div style={{fontSize:10,color:'var(--clr-muted)',marginTop:2}}>{e.type} · {e.file} · {e.size}</div>
-                <div style={{fontSize:10,color:'var(--clr-muted)'}}>Ilikusanywa: {e.officer}</div>
+                <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)'}}>{e.description}</div>
+                <div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>{e.type} · {e.file} · {e.size}</div>
+                <div style={{fontSize:10,color:'var(--text-muted)'}}>Ilikusanywa: {e.officer}</div>
               </div>
             )) : (
-              <div style={{textAlign:'center',padding:20,color:'var(--clr-muted)',fontSize:12}}>Hakuna ushahidi bado</div>
+              <div style={{textAlign:'center',padding:20,color:'var(--text-muted)',fontSize:12}}>Hakuna ushahidi bado</div>
             )}
             <Button variant="primary" style={{marginTop:12,width:'100%'}}>+ Ongeza Ushahidi</Button>
           </CardBody>

@@ -35,7 +35,7 @@ export default function Prisoners() {
                     <td style={{fontSize:11}}>{p.reason}</td>
                     <td style={{fontSize:11}}>{p.officer}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{p.checkin}</td>
-                    <td style={{textAlign:'center'}}><span style={{fontFamily:'var(--font-mono)',color:'var(--clr-accent)'}}>{p.maxHours}h</span></td>
+                    <td style={{textAlign:'center'}}><span style={{fontFamily:'var(--font-mono)',color:'var(--gold)'}}>{p.maxHours}h</span></td>
                     <td><Badge status={p.status} /></td>
                     <td className="flex gap-8"><Button variant="success" size="sm">Achia</Button><Button variant="outline" size="sm">🔄 Hamisha</Button></td>
                   </tr>

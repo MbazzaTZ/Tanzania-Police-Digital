@@ -53,8 +53,8 @@ export default function HR() {
           <CardBody>
             {[['Jumla ya Wafanyakazi','38,547'],['Wanafanya Kazi Sasa','37,024'],['Likizoni','234'],['Wagonjwa','89'],['Mafunzo','156'],['Wamesimamishwa','44'],['Walistaafu Mwaka Huu','178'],['Waajiriwa Wapya Mwaka Huu','312']].map(([l,v])=>(
               <div key={l} style={{display:'flex',justifyContent:'space-between',padding:'8px 0',fontSize:12,borderBottom:'1px solid rgba(255,255,255,.04)'}}>
-                <span style={{color:'var(--clr-muted)'}}>{l}</span>
-                <span style={{fontFamily:'var(--font-mono)',color:'var(--clr-accent)',fontWeight:600}}>{v}</span>
+                <span style={{color:'var(--text-muted)'}}>{l}</span>
+                <span style={{fontFamily:'var(--font-mono)',color:'var(--gold)',fontWeight:600}}>{v}</span>
               </div>
             ))}
           </CardBody>

@@ -16,15 +16,15 @@ export default function OpsMap() {
         <Card>
           <CardHeader title="🗺️ Ramani ya Moja kwa Moja" subtitle="Tanzania – GPS Tracking" />
           <CardBody>
-            <div style={{background:'var(--clr-dark)',borderRadius:'var(--r)',height:400,position:'relative',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
+            <div style={{background:'var(--green-900)',borderRadius:'var(--r)',height:400,position:'relative',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
               <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(46,125,50,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(46,125,50,.1) 1px,transparent 1px)',backgroundSize:'30px 30px'}} />
               {MOCK_OFFICERS.filter(o=>o.online).map((o,i) => (
-                <div key={o.id} style={{position:'absolute',width:12,height:12,borderRadius:'50%',background:'var(--clr-accent)',boxShadow:'0 0 0 3px rgba(255,193,7,.3)',top:`${20+i*20}%`,left:`${30+i*15}%`,cursor:'pointer'}} title={o.name} />
+                <div key={o.id} style={{position:'absolute',width:12,height:12,borderRadius:'50%',background:'var(--gold)',boxShadow:'0 0 0 3px rgba(255,193,7,.3)',top:`${20+i*20}%`,left:`${30+i*15}%`,cursor:'pointer'}} title={o.name} />
               ))}
-              <div style={{position:'relative',textAlign:'center',color:'var(--clr-muted)'}}>
+              <div style={{position:'relative',textAlign:'center',color:'var(--text-muted)'}}>
                 <div style={{fontSize:48,marginBottom:8}}>🇹🇿</div>
                 <div style={{fontSize:12}}>Tanzania Police · Live GPS Map</div>
-                <div style={{fontSize:10,marginTop:4,color:'var(--clr-accent)'}}>Mapbox/Google Maps itaunganishwa Sprint 2</div>
+                <div style={{fontSize:10,marginTop:4,color:'var(--gold)'}}>Mapbox/Google Maps itaunganishwa Sprint 2</div>
               </div>
             </div>
           </CardBody>
@@ -35,12 +35,12 @@ export default function OpsMap() {
             {MOCK_PATROLS.map(p => (
               <div key={p.id} style={{padding:'10px 0',borderBottom:'1px solid rgba(255,255,255,.04)'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:4}}>
-                  <div style={{fontSize:12,fontWeight:600,color:'var(--clr-white)'}}>{p.officer}</div>
+                  <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)'}}>{p.officer}</div>
                   <span className="status s-active" style={{fontSize:9}}>Hai</span>
                 </div>
-                <div style={{fontSize:10,color:'var(--clr-muted)'}}>{p.route}</div>
-                <div style={{fontSize:10,color:'var(--clr-muted)',marginTop:2}}>Kituo: {p.station} · Anza: {p.start}</div>
-                <div style={{fontSize:9,fontFamily:'var(--font-mono)',color:'var(--clr-accent)',marginTop:2}}>GPS: {p.gps.lat}, {p.gps.lng}</div>
+                <div style={{fontSize:10,color:'var(--text-muted)'}}>{p.route}</div>
+                <div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Kituo: {p.station} · Anza: {p.start}</div>
+                <div style={{fontSize:9,fontFamily:'var(--font-mono)',color:'var(--gold)',marginTop:2}}>GPS: {p.gps.lat}, {p.gps.lng}</div>
               </div>
             ))}
           </CardBody>

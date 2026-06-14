@@ -18,9 +18,9 @@ export default function Page() {
       </div>
       <Card><CardHeader title="🏛️ Dashibodi ya Wilaya" /><CardBody>
         <div className="info-box" style={{marginBottom:16}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Muundo kamili wa database uko tayari.</div>
-        <div style={{textAlign:'center',padding:40,color:'var(--clr-muted)'}}>
+        <div style={{textAlign:'center',padding:40,color:'var(--text-muted)'}}>
           <div style={{fontSize:48,marginBottom:12}}>🏛️</div>
-          <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>Dashibodi ya Wilaya</div>
+          <div style={{fontSize:14,fontWeight:600,color:'var(--text-white)',marginBottom:6}}>Dashibodi ya Wilaya</div>
           <div style={{fontSize:12,maxWidth:400,margin:'0 auto'}}>Muhtasari wa wilaya – vituo na shughuli zake</div>
         </div>
       </CardBody></Card>

@@ -20,11 +20,11 @@ export default function Page() {
         <CardHeader title="🚧 Vizuizi / Roadblocks" />
         <CardBody>
           <div className="info-box" style={{marginBottom:20}}>ℹ️ Module hii itaunganishwa na Supabase katika Sprint 2. Schema ya database iko tayari (supabaseSchema.sql).</div>
-          <div style={{textAlign:'center',padding:40,color:'var(--clr-muted)'}}>
+          <div style={{textAlign:'center',padding:40,color:'var(--text-muted)'}}>
             <div style={{fontSize:48,marginBottom:12}}>🚧</div>
-            <div style={{fontSize:14,fontWeight:600,color:'var(--clr-white)',marginBottom:6}}>🚧 Vizuizi / Roadblocks</div>
+            <div style={{fontSize:14,fontWeight:600,color:'var(--text-white)',marginBottom:6}}>🚧 Vizuizi / Roadblocks</div>
             <div style={{fontSize:12,maxWidth:360,margin:'0 auto'}}>Vizuizi vilivyowekwa na ripoti zake</div>
-            <div style={{fontSize:10,marginTop:8,color:'var(--clr-accent)'}}>Sprint 2 – Supabase Live Integration</div>
+            <div style={{fontSize:10,marginTop:8,color:'var(--gold)'}}>Sprint 2 – Supabase Live Integration</div>
           </div>
         </CardBody>
       </Card>

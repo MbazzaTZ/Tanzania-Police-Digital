@@ -28,10 +28,10 @@ export default function Evidence() {
                 style={{padding:'10px 14px',borderBottom:'1px solid rgba(255,255,255,.04)',cursor:'pointer',background:selected?.id===e.id?'rgba(46,125,50,.1)':'transparent'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:3}}>
                   <span className="td-mono" style={{fontSize:10}}>{e.id}</span>
-                  <span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'1px 6px',borderRadius:8,color:'var(--clr-muted)'}}>{e.type}</span>
+                  <span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'1px 6px',borderRadius:8,color:'var(--text-muted)'}}>{e.type}</span>
                 </div>
-                <div style={{fontSize:12,fontWeight:600,color:'var(--clr-white)',marginBottom:2}}>{e.description}</div>
-                <div style={{fontSize:10,color:'var(--clr-muted)'}}>{e.case} · {e.officer}</div>
+                <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)',marginBottom:2}}>{e.description}</div>
+                <div style={{fontSize:10,color:'var(--text-muted)'}}>{e.case} · {e.officer}</div>
               </div>
             ))}
           </CardBody>
@@ -42,19 +42,19 @@ export default function Evidence() {
             <CardBody>
               <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:16}}>
                 {[['Aina',selected.type],['Faili',selected.file],['Ukubwa',selected.size],['Afisa',selected.officer],['Kesi',selected.case],['Tarehe',selected.date]].map(([l,v])=>(
-                  <div key={l} style={{background:'var(--clr-dark)',borderRadius:'var(--r)',padding:'8px 10px'}}>
-                    <div style={{fontSize:9,color:'var(--clr-muted)',textTransform:'uppercase'}}>{l}</div>
-                    <div style={{fontSize:12,color:'var(--clr-white)',fontWeight:500,marginTop:2}}>{v}</div>
+                  <div key={l} style={{background:'var(--green-900)',borderRadius:'var(--r)',padding:'8px 10px'}}>
+                    <div style={{fontSize:9,color:'var(--text-muted)',textTransform:'uppercase'}}>{l}</div>
+                    <div style={{fontSize:12,color:'var(--text-white)',fontWeight:500,marginTop:2}}>{v}</div>
                   </div>
                 ))}
               </div>
-              <div style={{fontSize:11,fontWeight:700,color:'var(--clr-muted)',textTransform:'uppercase',marginBottom:10}}>🔗 Chain of Custody</div>
+              <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',marginBottom:10}}>🔗 Chain of Custody</div>
               {selected.chain.map((c,i)=>(
                 <div key={i} className="chain-item">
                   <div className="chain-dot">{i+1}</div>
                   <div style={{flex:1,paddingBottom:12}}>
-                    <div style={{fontSize:12,fontWeight:600,color:'var(--clr-white)'}}>{c.action}</div>
-                    <div style={{fontSize:10,color:'var(--clr-muted)'}}>{c.officer} · {c.date}</div>
+                    <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)'}}>{c.action}</div>
+                    <div style={{fontSize:10,color:'var(--text-muted)'}}>{c.officer} · {c.date}</div>
                   </div>
                 </div>
               ))}
@@ -62,7 +62,7 @@ export default function Evidence() {
             </CardBody>
           </Card>
         ) : (
-          <Card><CardBody><div style={{textAlign:'center',padding:40,color:'var(--clr-muted)'}}>Chagua ushahidi kuona chain of custody</div></CardBody></Card>
+          <Card><CardBody><div style={{textAlign:'center',padding:40,color:'var(--text-muted)'}}>Chagua ushahidi kuona chain of custody</div></CardBody></Card>
         )}
       </div>
     </div>

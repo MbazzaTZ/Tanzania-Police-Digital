@@ -33,7 +33,7 @@ export default function Stations() {
                   <tr key={s.id}>
                     <td className="td-mono">{s.id}</td>
                     <td className="td-name">{s.name}</td>
-                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--clr-muted)'}}>{s.type}</span></td>
+                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{s.type}</span></td>
                     <td style={{fontSize:11}}>{s.region}</td>
                     <td style={{fontSize:11}}>{s.district}</td>
                     <td style={{fontSize:11}}>{s.ward}</td>

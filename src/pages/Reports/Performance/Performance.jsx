@@ -39,10 +39,10 @@ export default function Performance() {
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)'}}>{s.cases_closed}</td>
                     <td>
                       <div style={{display:'flex',alignItems:'center',gap:8}}>
-                        <div style={{flex:1,background:'var(--clr-dark)',borderRadius:4,height:6}}>
-                          <div style={{height:'100%',background:'var(--clr-primary)',borderRadius:4,width:`${s.score}%`}} />
+                        <div style={{flex:1,background:'var(--green-900)',borderRadius:4,height:6}}>
+                          <div style={{height:'100%',background:'var(--green-600)',borderRadius:4,width:`${s.score}%`}} />
                         </div>
-                        <span style={{fontFamily:'var(--font-mono)',color:'var(--clr-accent)',fontSize:11,minWidth:28}}>{s.score}%</span>
+                        <span style={{fontFamily:'var(--font-mono)',color:'var(--gold)',fontSize:11,minWidth:28}}>{s.score}%</span>
                       </div>
                     </td>
                   </tr>

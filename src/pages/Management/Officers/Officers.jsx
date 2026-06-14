@@ -37,7 +37,7 @@ export default function Officers() {
                     <td className="td-mono">{o.badge}</td>
                     <td className="td-name">{o.name}</td>
                     <td style={{fontSize:11,textTransform:'capitalize'}}>{o.rank}</td>
-                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--clr-muted)'}}>{o.role.replace(/_/g,' ')}</span></td>
+                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.07)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{o.role.replace(/_/g,' ')}</span></td>
                     <td style={{fontSize:11}}>{o.station}</td>
                     <td style={{fontSize:11}}>{o.district}</td>
                     <td style={{fontSize:11}}>{o.region}</td>
@@ -49,8 +49,8 @@ export default function Officers() {
               </tbody>
             </table>
           </div>
-          <div style={{padding:'10px 14px',borderTop:'1px solid var(--clr-border)',display:'flex',justifyContent:'space-between'}}>
-            <span style={{fontSize:11,color:'var(--clr-muted)'}}>Inaonyesha {filtered.length} ya 38,547</span>
+          <div style={{padding:'10px 14px',borderTop:'1px solid var(--border)',display:'flex',justifyContent:'space-between'}}>
+            <span style={{fontSize:11,color:'var(--text-muted)'}}>Inaonyesha {filtered.length} ya 38,547</span>
             <div className="flex gap-8"><button className="btn btn-outline btn-sm">‹</button><button className="btn btn-primary btn-sm">1</button><button className="btn btn-outline btn-sm">2</button><button className="btn btn-outline btn-sm">›</button></div>
           </div>
         </CardBody>

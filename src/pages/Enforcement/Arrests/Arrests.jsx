@@ -50,7 +50,7 @@ export default function Arrests() {
                     <td className="td-mono">{a.id}</td>
                     <td><div className="td-name">{a.suspect}</div><div className="td-sub">NIDA: {a.nida}</div></td>
                     <td style={{fontSize:11}}>{a.charges}</td>
-                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.08)',padding:'2px 6px',borderRadius:8,color:'var(--clr-muted)'}}>{a.category}</span></td>
+                    <td><span style={{fontSize:9,background:'rgba(255,255,255,.08)',padding:'2px 6px',borderRadius:8,color:'var(--text-muted)'}}>{a.category}</span></td>
                     <td style={{fontSize:11}}>{a.officer}</td>
                     <td style={{fontSize:11}}>{a.station}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{a.date} {a.time}</td>
@@ -62,9 +62,9 @@ export default function Arrests() {
               </tbody>
             </table>
           </div>
-          <div style={{padding:'10px 14px',display:'flex',justifyContent:'space-between',borderTop:'1px solid var(--clr-border)'}}>
-            <span style={{fontSize:11,color:'var(--clr-muted)'}}>Inaonyesha {filtered.length} ya {MOCK_ARRESTS.length}</span>
-            <span style={{fontSize:11,color:'var(--clr-muted)'}}>Ukurasa 1 ya 1</span>
+          <div style={{padding:'10px 14px',display:'flex',justifyContent:'space-between',borderTop:'1px solid var(--border)'}}>
+            <span style={{fontSize:11,color:'var(--text-muted)'}}>Inaonyesha {filtered.length} ya {MOCK_ARRESTS.length}</span>
+            <span style={{fontSize:11,color:'var(--text-muted)'}}>Ukurasa 1 ya 1</span>
           </div>
         </CardBody>
       </Card>

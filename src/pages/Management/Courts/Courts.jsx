@@ -34,7 +34,7 @@ export default function Courts() {
                     <td style={{fontSize:11}}>{c.court}</td>
                     <td style={{fontSize:11}}>{c.judge}</td>
                     <td style={{fontSize:11}}>{c.prosecutor}</td>
-                    <td style={{fontFamily:'var(--font-mono)',fontSize:10,color:'var(--clr-accent)'}}>{c.next_hearing}</td>
+                    <td style={{fontFamily:'var(--font-mono)',fontSize:10,color:'var(--gold)'}}>{c.next_hearing}</td>
                     <td><Badge status={c.status} /></td>
                     <td><Button variant="outline" size="sm">Angalia</Button></td>
                   </tr>

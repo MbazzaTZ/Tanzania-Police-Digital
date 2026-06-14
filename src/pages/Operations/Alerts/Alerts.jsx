@@ -20,12 +20,12 @@ export default function Alerts() {
             {alerts.map(a => {
               const cfg = ALERT_CONFIG[a.type]
               return (
-                <div key={a.id} style={{display:'flex',alignItems:'flex-start',gap:12,padding:'12px 14px',borderRadius:'var(--r)',borderLeft:`3px solid ${cfg.dot}`,background:a.read?'rgba(255,255,255,.02)':cfg.bg,cursor:'pointer',transition:'var(--transition)'}}>
+                <div key={a.id} style={{display:'flex',alignItems:'flex-start',gap:12,padding:'12px 14px',borderRadius:'var(--r)',borderLeft:`3px solid ${cfg.dot}`,background:a.read?'rgba(255,255,255,.02)':cfg.bg,cursor:'pointer',transition:'var(--t)'}}>
                   <div style={{width:10,height:10,borderRadius:'50%',background:a.read?'#555':cfg.dot,flexShrink:0,marginTop:4}} />
                   <div style={{flex:1}}>
-                    <div style={{fontSize:13,fontWeight:a.read?500:700,color:a.read?'var(--clr-muted)':'var(--clr-white)'}}>{a.title}</div>
-                    <div style={{fontSize:11,color:'var(--clr-muted)',marginTop:3}}>{a.desc}</div>
-                    <div style={{fontSize:10,color:'var(--clr-muted)',marginTop:3,opacity:.7}}>🕐 {a.time}</div>
+                    <div style={{fontSize:13,fontWeight:a.read?500:700,color:a.read?'var(--text-muted)':'var(--text-white)'}}>{a.title}</div>
+                    <div style={{fontSize:11,color:'var(--text-muted)',marginTop:3}}>{a.desc}</div>
+                    <div style={{fontSize:10,color:'var(--text-muted)',marginTop:3,opacity:.7}}>🕐 {a.time}</div>
                   </div>
                   <div style={{display:'flex',flexDirection:'column',gap:6,alignItems:'flex-end'}}>
                     <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:10,background:`${cfg.dot}22`,color:cfg.dot,textTransform:'uppercase'}}>{cfg.label}</span>

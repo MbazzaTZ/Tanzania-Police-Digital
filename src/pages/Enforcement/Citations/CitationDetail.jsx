@@ -22,7 +22,7 @@ export default function CitationDetail() {
           <div className="card-body">
             <div style={{display:'flex',flexDirection:'column',gap:6,fontSize:12}}>
               {[['Jina',c.suspect],['NIDA',c.nida],['Gari',c.vehicle],['Aina',c.vehicleType]].map(([l,v]) => (
-                <div key={l} style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'var(--clr-muted)'}}>{l}</span><span>{v}</span></div>
+                <div key={l} style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'var(--text-muted)'}}>{l}</span><span>{v}</span></div>
               ))}
             </div>
           </div>
@@ -31,7 +31,7 @@ export default function CitationDetail() {
           <div className="card-body">
             <div style={{display:'flex',flexDirection:'column',gap:6,fontSize:12}}>
               {[['Namba',c.id],['Makosa',c.offence],['Sheria',c.law],['Faini',`TZS ${c.fine.toLocaleString()}`],['Mahali',c.location],['Afisa',c.officer]].map(([l,v]) => (
-                <div key={l} style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'var(--clr-muted)'}}>{l}</span><span>{v}</span></div>
+                <div key={l} style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'var(--text-muted)'}}>{l}</span><span>{v}</span></div>
               ))}
             </div>
           </div>

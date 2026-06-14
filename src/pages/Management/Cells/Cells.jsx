@@ -21,18 +21,18 @@ export default function Cells() {
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:12}}>
         {MOCK_CELLS.map(c=>(
-          <div key={c.id} className="card" style={{borderColor:c.status==='full'?'var(--clr-red)':c.status==='empty'?'var(--clr-border)':'var(--clr-secondary)'}}>
+          <div key={c.id} className="card" style={{borderColor:c.status==='full'?'var(--red)':c.status==='empty'?'var(--border)':'var(--green-500)'}}>
             <div className="card-body">
               <div style={{display:'flex',justifyContent:'space-between',marginBottom:8}}>
-                <div style={{fontSize:20,fontWeight:800,fontFamily:'var(--font-mono)',color:'var(--clr-white)'}}>{c.cell_no}</div>
+                <div style={{fontSize:20,fontWeight:800,fontFamily:'var(--font-mono)',color:'var(--text-white)'}}>{c.cell_no}</div>
                 <span className={`status ${c.status==='full'?'s-critical':c.status==='empty'?'s-closed':'s-active'}`}>{c.status==='full'?'Imejaa':c.status==='empty'?'Tupu':'Inatumiwa'}</span>
               </div>
-              <div style={{fontSize:12,color:'var(--clr-muted)',marginBottom:6}}>{c.station} · {c.type}</div>
+              <div style={{fontSize:12,color:'var(--text-muted)',marginBottom:6}}>{c.station} · {c.type}</div>
               <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
-                <div style={{flex:1,background:'var(--clr-dark)',borderRadius:4,height:8,overflow:'hidden'}}>
-                  <div style={{height:'100%',background:c.status==='full'?'var(--clr-red)':'var(--clr-accent)',borderRadius:4,width:`${(c.occupied/c.capacity)*100}%`}} />
+                <div style={{flex:1,background:'var(--green-900)',borderRadius:4,height:8,overflow:'hidden'}}>
+                  <div style={{height:'100%',background:c.status==='full'?'var(--red)':'var(--gold)',borderRadius:4,width:`${(c.occupied/c.capacity)*100}%`}} />
                 </div>
-                <span style={{fontSize:11,fontFamily:'var(--font-mono)',color:'var(--clr-accent)'}}>{c.occupied}/{c.capacity}</span>
+                <span style={{fontSize:11,fontFamily:'var(--font-mono)',color:'var(--gold)'}}>{c.occupied}/{c.capacity}</span>
               </div>
               <Button variant="outline" size="sm" style={{width:'100%'}}>Angalia Wafungwa</Button>
             </div>
