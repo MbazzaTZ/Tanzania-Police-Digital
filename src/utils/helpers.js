@@ -5,21 +5,21 @@ export const cls = (...c) => c.filter(Boolean).join(' ')
 export const newId = (prefix,num) => `${prefix}-${new Date().getFullYear()}-${String(num).padStart(5,'0')}`
 
 export const STATUS_CONFIG = {
-  issued:        {label:'Imetolewa',    cls:'s-issued'},
-  paid:          {label:'Imelipwa',     cls:'s-paid'},
+  issued:        {label:'Imetolewa',    cls:'p-issued'},
+  paid:          {label:'Imelipwa',     cls:'p-paid'},
   unpaid:        {label:'Haijalipwa',   cls:'s-unpaid'},
   cancelled:     {label:'Imeghairiwa',  cls:'s-cancelled'},
-  draft:         {label:'Rasimu',       cls:'s-draft'},
-  pending:       {label:'Inasubiri',    cls:'s-pending'},
-  detained:      {label:'Kizuizini',    cls:'s-detained'},
-  court:         {label:'Mahakamani',   cls:'s-court'},
-  completed:     {label:'Imekamilika',  cls:'s-done'},
-  active:        {label:'Hai',          cls:'s-active'},
-  closed:        {label:'Imefungwa',    cls:'s-closed'},
-  critical:      {label:'Muhimu',       cls:'s-critical'},
+  draft:         {label:'Rasimu',       cls:'p-rasimu'},
+  pending:       {label:'Inasubiri',    cls:'p-pending'},
+  detained:      {label:'Kizuizini',    cls:'p-detained'},
+  court:         {label:'Mahakamani',   cls:'p-court'},
+  completed:     {label:'Imekamilika',  cls:'p-done'},
+  active:        {label:'Hai',          cls:'p-active'},
+  closed:        {label:'Imefungwa',    cls:'p-closed'},
+  critical:      {label:'Muhimu',       cls:'p-critical'},
   high:          {label:'Juu',          cls:'s-high'},
   medium:        {label:'Wastani',      cls:'s-medium'},
-  investigating: {label:'Inachunguzwa', cls:'s-pending'},
+  investigating: {label:'Inachunguzwa', cls:'p-pending'},
 }
 
 export const ALERT_CONFIG = {

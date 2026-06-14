@@ -1198,3 +1198,129 @@ tbody tr { cursor: pointer; }
 .safety-t  { font-size: 12px; font-weight: 700; color: var(--tw); margin-bottom: 2px; }
 .safety-d  { font-size: 10.5px; color: var(--tm); line-height: 1.4; }
 
+
+/* ── MISSING UTILITY CLASSES (added fix) ── */
+
+/* Gap utilities (g4..g20) */
+.g4  { gap: 4px; }
+.g6  { gap: 6px; }
+.g8  { gap: 8px; }
+.g10 { gap: 10px; }
+.g12 { gap: 12px; }
+.g14 { gap: 14px; }
+.g16 { gap: 16px; }
+.g20 { gap: 20px; }
+
+/* Margin utilities */
+.mb4  { margin-bottom: 4px; }
+.mb6  { margin-bottom: 6px; }
+.mb8  { margin-bottom: 8px; }
+.mb10 { margin-bottom: 10px; }
+.mb12 { margin-bottom: 12px; }
+.mb14 { margin-bottom: 14px; }
+.mb16 { margin-bottom: 16px; }
+.mb20 { margin-bottom: 20px; }
+.mb-sec { margin-bottom: 16px; }
+
+.mt4  { margin-top: 4px; }
+.mt6  { margin-top: 6px; }
+.mt8  { margin-top: 8px; }
+.mt10 { margin-top: 10px; }
+.mt12 { margin-top: 12px; }
+
+/* Padding utilities */
+.p8  { padding: 8px; }
+.p12 { padding: 12px; }
+.p14 { padding: 14px; }
+.p16 { padding: 16px; }
+
+/* stat-grid aliases for old names */
+.stats-row.s5 { grid-template-columns: repeat(5,1fr); }
+.stats-row.s4 { grid-template-columns: repeat(4,1fr); }
+.stats-row.s3 { grid-template-columns: repeat(3,1fr); }
+.stats-row.s2 { grid-template-columns: repeat(2,1fr); }
+
+/* Extra flex utilities */
+.fwrap { flex-wrap: wrap; }
+.fshrink { flex-shrink: 0; }
+.fstart { align-items: flex-start; }
+.fend   { align-items: flex-end; }
+
+/* Width/height */
+.wf  { width: 100%; }
+.hf  { height: 100%; }
+.mw0 { min-width: 0; }
+
+/* Border utilities */
+.bt { border-top: 1px solid var(--b); }
+.bb { border-bottom: 1px solid var(--b); }
+
+/* Text sizes */
+.t8  { font-size: 8px; }
+.t9  { font-size: 9px; }
+.t10 { font-size: 10px; }
+.t11 { font-size: 11px; }
+.t12 { font-size: 12px; }
+.t13 { font-size: 13px; }
+.t14 { font-size: 14px; }
+
+/* Old .status class - keep as alias to .pill for any remaining usage */
+.status { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 10px; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .25px; white-space: nowrap; }
+.status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+
+/* Old p-X classes were pill p-X - make .status p-X work too */
+.status.p-active,    .status.p-active::before    { background: rgba(76,175,80,.15); color: #66BB6A; }
+.status.p-paid,      .status.p-paid::before      { background: rgba(76,175,80,.15); color: #66BB6A; }
+.status.p-issued,    .status.p-issued::before    { background: rgba(255,193,7,.15); color: #FFC107; }
+.status.p-pending,   .status.p-pending::before   { background: rgba(255,193,7,.15); color: #FFC107; }
+.status.p-critical,  .status.p-critical::before  { background: rgba(198,40,40,.15); color: #EF5350; }
+.status.p-closed,    .status.p-closed::before    { background: rgba(150,150,150,.12); color: #9E9E9E; }
+
+/* SearchInput / search-wrap */
+.search-wrap { position: relative; }
+.search-wrap input {
+  width: 100%;
+  background: var(--g700);
+  border: 1px solid var(--bl);
+  border-radius: 22px;
+  padding: 7px 14px 7px 34px;
+  color: var(--tl);
+  font-size: 12px;
+  outline: none;
+  transition: var(--t);
+}
+.search-wrap input:focus { border-color: var(--g400); }
+.search-wrap input::placeholder { color: var(--td); }
+
+/* .tw for table-wrap (different from .tw color class!) */
+/* Use div.tw for table wrap, span.tw for text color */
+div.tw { overflow-x: auto; }
+
+/* Officer / profile avatar */
+.prof-av {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.3);
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0;
+}
+
+/* QR code placeholder */
+.qr-box {
+  width: 70px; height: 70px;
+  background: white;
+  border-radius: var(--r8);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+}
+
+/* Pagination */
+.pag { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; border-top: 1px solid var(--b); }
+.pag-info { font-size: 10.5px; color: var(--tm); }
+.pag-btns { display: flex; gap: 3px; }
+.pag-btn { width: 26px; height: 26px; border-radius: var(--r6); border: 1px solid var(--bl); background: transparent; color: var(--tm); font-size: 11px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--t); font-family: var(--fu); }
+.pag-btn:hover:not(.on) { background: rgba(255,255,255,.06); color: var(--tw); }
+.pag-btn.on { background: var(--g600); color: #fff; border-color: var(--g500); }
+.pag-btn:disabled { opacity: .3; cursor: not-allowed; }
+

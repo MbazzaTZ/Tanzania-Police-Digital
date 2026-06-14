@@ -14,9 +14,9 @@ export default function Cases() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Kesi</div>
       <div className="ph">
         <div><h1>📁 Kesi / Cases</h1><p>Usimamizi wa kesi za uhalifu – CID</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Kesi Mpya</Button></div>
+        <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Kesi Mpya</Button></div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="📁" value={MOCK_CASES.length} label="Kesi Zote"       color="blue" />
         <StatCard icon="⚡" value={3} label="Muhimu Sana"  color="red" />
         <StatCard icon="⏳" value={4} label="Zinachunguzwa" color="amber" />
@@ -41,7 +41,7 @@ export default function Cases() {
                     <td style={{textAlign:'center'}}>{c.evidence}</td>
                     <td><Badge status={c.priority==='critical'?'critical':c.priority==='high'?'critical':'pending'} /></td>
                     <td><Badge status={c.status} /></td>
-                    <td><Button variant="outline" size="sm" onClick={() => navigate(`/investigation/cases/${c.id}`)}>Angalia</Button></td>
+                    <td><Button variant="o" size="sm" onClick={() => navigate(`/investigation/cases/${c.id}`)}>Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

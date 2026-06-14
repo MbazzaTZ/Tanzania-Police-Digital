@@ -8,9 +8,9 @@ export default function Page() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Dashibodi ya Wilaya</div>
       <div className="ph">
         <div><h1>🏛️ Dashibodi ya Wilaya</h1><p>Muhtasari wa wilaya – vituo na shughuli zake</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Mpya</Button></div>
+        <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Mpya</Button></div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="📊" value={0} label="Jumla" delta="5%" color="green" />
         <StatCard icon="⏳" value={0} label="Hai" delta="3%" color="amber" />
         <StatCard icon="🚨" value={0} label="Muhimu" color="red" />

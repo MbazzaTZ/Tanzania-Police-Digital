@@ -12,9 +12,9 @@ export default function Missing() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watu Waliopotea</div>
       <div className="ph">
         <div><h1>👤 Watu Waliopotea / Missing Persons</h1><p>Orodha ya watu waliopotea na hali ya uchunguzi</p></div>
-        <Button variant="accent">+ Ongeza Mpya</Button>
+        <Button variant="g">+ Ongeza Mpya</Button>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="👤" value={MOCK_MISSING.length} label="Wanaotafutwa"  color="red" />
         <StatCard icon="👶" value={1} label="Watoto"    color="red" />
         <StatCard icon="✅" value={0} label="Walioopatikana Leo" color="green" />
@@ -39,7 +39,7 @@ export default function Missing() {
                     <td style={{fontSize:11}}>{m.reporter}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{m.phone}</td>
                     <td><Badge status={m.status} /></td>
-                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

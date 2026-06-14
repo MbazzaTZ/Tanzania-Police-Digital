@@ -13,9 +13,9 @@ export default function Performance() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Utendaji</div>
       <div className="ph">
         <div><h1>📈 Utendaji / Performance</h1><p>Tathmini ya utendaji wa maafisa, vituo na mikoa</p></div>
-        <div className="flex gap-8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mei 2024</option></select><Button variant="outline">⬇ Ripoti PDF</Button></div>
+        <div className="flex g8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mei 2024</option></select><Button variant="o">⬇ Ripoti PDF</Button></div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="⭐" value={94}  label="Wastani wa Utendaji (%)"   color="green" />
         <StatCard icon="🏆" value={12}  label="Vituo Bora"                 color="amber" />
         <StatCard icon="👮" value={234} label="Maafisa wa Mwaka"            color="blue" />

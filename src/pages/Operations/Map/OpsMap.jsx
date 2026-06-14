@@ -6,7 +6,7 @@ export default function OpsMap() {
     <div className="afd">
       <div className="bc"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Ramani</div>
       <div className="ph"><div><h1>🗺️ Ramani ya Operesheni</h1><p>GPS tracking ya maafisa na operesheni zote hai</p></div></div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="👮" value={1247} label="Maafisa Hai"    delta="5%" color="green" />
         <StatCard icon="🚔" value={89}   label="Doria Zinazoendelea" delta="3%" color="amber" />
         <StatCard icon="🚧" value={12}   label="Vizuizi Hai"   color="red" />
@@ -36,7 +36,7 @@ export default function OpsMap() {
               <div key={p.id} style={{padding:'10px 0',borderBottom:'1px solid rgba(255,255,255,.04)'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:4}}>
                   <div style={{fontSize:12,fontWeight:600,color:'var(--text-white)'}}>{p.officer}</div>
-                  <span className="status s-active" style={{fontSize:9}}>Hai</span>
+                  <span className="pill p-active" style={{fontSize:9}}>Hai</span>
                 </div>
                 <div style={{fontSize:10,color:'var(--text-muted)'}}>{p.route}</div>
                 <div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Kituo: {p.station} · Anza: {p.start}</div>

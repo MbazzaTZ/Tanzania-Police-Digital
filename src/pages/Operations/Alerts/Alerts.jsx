@@ -12,7 +12,7 @@ export default function Alerts() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Operesheni<span>›</span>Taarifa za Haraka</div>
       <div className="ph">
         <div><h1>🚨 Taarifa za Haraka</h1><p>Taarifa {alerts.filter(a=>!a.read).length} za kusomwa · Jumla {alerts.length}</p></div>
-        <div className="flex gap-8"><Button variant="outline">Soma Zote</Button><Button variant="accent">+ Taarifa Mpya</Button></div>
+        <div className="flex g8"><Button variant="o">Soma Zote</Button><Button variant="g">+ Taarifa Mpya</Button></div>
       </div>
       <Card>
         <CardBody>
@@ -29,7 +29,7 @@ export default function Alerts() {
                   </div>
                   <div style={{display:'flex',flexDirection:'column',gap:6,alignItems:'flex-end'}}>
                     <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:10,background:`${cfg.dot}22`,color:cfg.dot,textTransform:'uppercase'}}>{cfg.label}</span>
-                    {!a.read && <Button variant="outline" size="sm" onClick={() => markRead(a.id)}>Soma</Button>}
+                    {!a.read && <Button variant="o" size="sm" onClick={() => markRead(a.id)}>Soma</Button>}
                   </div>
                 </div>
               )

@@ -13,7 +13,7 @@ export default function CaseDetail() {
       <div className="bc"><a href="/">🏠</a><span>›</span><a href="/investigation/cases">Kesi</a><span>›</span>{c.id}</div>
       <div className="ph">
         <div><h1>📁 {c.id}</h1><p>{c.title} · {c.type} · {c.officer}</p></div>
-        <div className="flex gap-8"><Badge status={c.status} /><Button variant="outline" onClick={() => navigate('/investigation/cases')}>← Nyuma</Button></div>
+        <div className="flex g8"><Badge status={c.status} /><Button variant="o" onClick={() => navigate('/investigation/cases')}>← Nyuma</Button></div>
       </div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
         <Card><CardHeader title="📋 Maelezo ya Kesi" />
@@ -36,7 +36,7 @@ export default function CaseDetail() {
             )) : (
               <div style={{textAlign:'center',padding:20,color:'var(--text-muted)',fontSize:12}}>Hakuna ushahidi bado</div>
             )}
-            <Button variant="primary" style={{marginTop:12,width:'100%'}}>+ Ongeza Ushahidi</Button>
+            <Button variant="p" style={{marginTop:12,width:'100%'}}>+ Ongeza Ushahidi</Button>
           </CardBody>
         </Card>
       </div>

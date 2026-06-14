@@ -14,16 +14,16 @@ export default function Stations() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Vituo</div>
       <div className="ph">
         <div><h1>🏢 Vituo / Stations</h1><p>Vituo 312 vya polisi nchini Tanzania</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Kituo Kipya</Button></div>
+        <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Kituo Kipya</Button></div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🏢" value={312}  label="Vituo Jumla"       color="blue" />
         <StatCard icon="✅" value={308}  label="Vinavyofanya Kazi" delta="2%"  color="green" />
         <StatCard icon="👮" value={38547}label="Maafisa Jumla"      delta="5%"  color="amber" />
         <StatCard icon="🌍" value={26}   label="Mikoa"                          color="blue" />
       </div>
       <Card>
-        <CardHeader title="🏢 Orodha ya Vituo" action={<div className="flex gap-8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option>{REGIONS.map(r=><option key={r}>{r}</option>)}</select><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
+        <CardHeader title="🏢 Orodha ya Vituo" action={<div className="flex g8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mikoa yote</option>{REGIONS.map(r=><option key={r}>{r}</option>)}</select><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
         <CardBody noPadding>
           <div className="tw">
             <table>
@@ -40,8 +40,8 @@ export default function Stations() {
                     <td style={{fontSize:11}}>{s.ocs}</td>
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)'}}>{s.officers}</td>
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)'}}>{s.cells}</td>
-                    <td><span className="status s-active">Hai</span></td>
-                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td><span className="pill p-active">Hai</span></td>
+                    <td><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

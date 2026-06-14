@@ -27,7 +27,7 @@ export default function CitationWizard() {
       <Breadcrumb items={[{label:'🏠',href:'/'},{label:'Citations',href:'/enforcement/citations'},{label:'Toa Citation Mpya'}]} />
       <div className="ph">
         <div><h1>📋 Toa Citation Mpya</h1><p>Jaza hatua zote kwa usahihi kabla ya kuthibitisha</p></div>
-        <Button variant="outline" onClick={() => navigate('/enforcement/citations')}>✕ Ghairi</Button>
+        <Button variant="o" onClick={() => navigate('/enforcement/citations')}>✕ Ghairi</Button>
       </div>
 
       <div style={{ maxWidth:860, margin:'0 auto 24px' }}>
@@ -45,7 +45,7 @@ export default function CitationWizard() {
               <div style={{ display:'flex', gap:8, marginBottom:12 }}>
                 <select className="fs" style={{ width:140 }}><option>NIDA</option><option>Jina</option><option>Simu</option></select>
                 <input className="fi" defaultValue="1234567890123" style={{ flex:1 }} placeholder="Weka namba ya utambulisho..." />
-                <Button variant="primary">🔍 Tafuta</Button>
+                <Button variant="p">🔍 Tafuta</Button>
               </div>
               {/* Person found */}
               <div style={{ background:'var(--green-900)', border:'1px solid var(--green-500)', borderRadius:'var(--r)', padding:'12px 14px', display:'flex', alignItems:'center', gap:12, marginBottom:16 }}>
@@ -55,7 +55,7 @@ export default function CitationWizard() {
                   <div style={{ fontSize:11, color:'var(--text-muted)', marginTop:2 }}>NIDA: {p.nida} · DOB: {p.dob} ({p.age} yrs) · {p.gender}</div>
                   <div style={{ fontSize:11, color:'var(--text-muted)' }}>{p.phone} · {p.address}, {p.district}</div>
                 </div>
-                <span className="status s-active">Hakuna Tahadhari</span>
+                <span className="pill p-active">Hakuna Tahadhari</span>
               </div>
               <div className="fg2" style={{ marginBottom:16 }}>
                 <div className="fg"><label className="fl">Leseni ya Udereva *</label><input className="fi" defaultValue="DL12345678TZ" /></div>
@@ -172,12 +172,12 @@ export default function CitationWizard() {
         {/* Nav */}
         <div style={{ padding:16, borderTop:'1px solid var(--border)', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
           {step > 1
-            ? <Button variant="outline" onClick={() => setStep(s => s - 1)}>← Nyuma</Button>
+            ? <Button variant="o" onClick={() => setStep(s => s - 1)}>← Nyuma</Button>
             : <div />}
           <div style={{ fontSize:11, color:'var(--text-muted)' }}>Hatua ya {step} ya {STEPS.length}: {STEPS[step-1]}</div>
           {step < STEPS.length
-            ? <Button variant="accent" onClick={() => setStep(s => s + 1)}>Inayofuata →</Button>
-            : <Button variant="accent" disabled={saving} onClick={handleFinish}>
+            ? <Button variant="g" onClick={() => setStep(s => s + 1)}>Inayofuata →</Button>
+            : <Button variant="g" disabled={saving} onClick={handleFinish}>
                 {saving ? '⏳ Inahifadhi...' : '✓ Thibitisha na Hifadhi Citation'}
               </Button>
           }

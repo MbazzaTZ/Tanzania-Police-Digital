@@ -15,12 +15,12 @@ export default function Intelligence() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Ujasusi<span>›</span>Intelligence</div>
       <div className="ph">
         <div><h1>🧠 Ujasusi / Intelligence</h1><p>Faili za siri – Ufikiaji kwa RPC, DIGP na IGP tu</p></div>
-        <div className="flex gap-8"><Button variant="danger">🔒 SIRI KABISA</Button><Button variant="accent">+ Faili Mpya</Button></div>
+        <div className="flex g8"><Button variant="r">🔒 SIRI KABISA</Button><Button variant="g">+ Faili Mpya</Button></div>
       </div>
       <div style={{background:'rgba(198,40,40,.1)',border:'1px solid rgba(198,40,40,.3)',borderRadius:'var(--r)',padding:'10px 14px',marginBottom:16,fontSize:12,color:'#EF9A9A',display:'flex',gap:8,alignItems:'center'}}>
         🔒 <strong>TAHADHARI:</strong> Faili hizi ni za siri. Ufikiaji wowote unarekodi katika mfumo wa ukaguzi (audit trail). Mtu asiye na ruhusa anayejaribu kufikia ataripotiwa.
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🧠" value={47}  label="Faili Amilifu"      color="red" />
         <StatCard icon="👁️" value={12}  label="Zinafuatiliwa"      color="amber" />
         <StatCard icon="⚠️" value={4}   label="Vitisho Vya Juu"    color="red" />
@@ -41,8 +41,8 @@ export default function Intelligence() {
                     <td style={{fontSize:11}}>{i.region}</td>
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)',color:i.threats>0?'#EF5350':'#66BB6A'}}>{i.threats}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{i.date}</td>
-                    <td><span className={`status ${i.status==='active'?'s-critical':i.status==='monitoring'?'s-pending':'s-closed'}`}>{i.status==='active'?'Amilifu':i.status==='monitoring'?'Inafuatiliwa':'Imefungwa'}</span></td>
-                    <td><Button variant="danger" size="sm">🔒 Angalia</Button></td>
+                    <td><span className={`status ${i.status==='active'?'p-critical':i.status==='monitoring'?'p-pending':'p-closed'}`}>{i.status==='active'?'Amilifu':i.status==='monitoring'?'Inafuatiliwa':'Imefungwa'}</span></td>
+                    <td><Button variant="r" size="sm">🔒 Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

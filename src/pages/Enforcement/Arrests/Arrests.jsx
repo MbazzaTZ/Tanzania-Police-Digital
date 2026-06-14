@@ -20,12 +20,12 @@ export default function Arrests() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kukamatwa</div>
       <div className="ph">
         <div><h1>⛓️ Kukamatwa / Arrests</h1><p>Rekodi za kukamatwa zote · Leo: 47 · Mwezi huu: 1,284</p></div>
-        <div className="flex gap-8">
-          <Button variant="outline">⬇ Pakua PDF</Button>
-          <Button variant="accent" onClick={() => navigate('/enforcement/arrests/new')}>+ Rekodi ya Kukamata</Button>
+        <div className="flex g8">
+          <Button variant="o">⬇ Pakua PDF</Button>
+          <Button variant="g" onClick={() => navigate('/enforcement/arrests/new')}>+ Rekodi ya Kukamata</Button>
         </div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="⛓️" value={47}   label="Kukamata Leo"     delta="8%" color="amber" />
         <StatCard icon="🔒" value={23}   label="Kizuizini Sasa"   color="red" />
         <StatCard icon="⚖️" value={18}   label="Mahakamani"       color="blue" />
@@ -34,7 +34,7 @@ export default function Arrests() {
       <Card>
         <CardHeader
           action={
-            <div className="flex gap-8" style={{flexWrap:'wrap'}}>
+            <div className="flex g8" style={{flexWrap:'wrap'}}>
               <Tabs tabs={TABS} active={tab} onChange={setTab} />
               <input className="fi" style={{width:200,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." value={query} onChange={e=>setQuery(e.target.value)} />
             </div>
@@ -56,7 +56,7 @@ export default function Arrests() {
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{a.date} {a.time}</td>
                     <td style={{textAlign:'center'}}>{a.rights_read ? <span style={{color:'#66BB6A',fontSize:12}}>✓</span> : <span style={{color:'#EF5350'}}>✗</span>}</td>
                     <td><Badge status={a.status} /></td>
-                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

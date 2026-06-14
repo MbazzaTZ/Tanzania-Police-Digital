@@ -10,15 +10,15 @@ export default function HR() {
     {id:'HR-003',officer:'ASP F.R. Kimaro',type:'Transfer',desc:'Uhamisho kutoka Arusha hadi Dar es Salaam',date:'01/04/2024',by:'IGP Office'},
     {id:'HR-004',officer:'Cpl. H.A. Mwinyi',type:'Commendation',desc:'Tuzo ya utendaji bora mwaka 2023',date:'15/12/2023',by:'Commissioner DSM'},
   ]
-  const types={Promotion:'s-active',Training:'s-issued',Transfer:'s-pending',Commendation:'s-paid',Suspension:'s-critical'}
+  const types={Promotion:'p-active',Training:'p-issued',Transfer:'p-pending',Commendation:'p-paid',Suspension:'p-critical'}
   return (
     <div className="afd">
       <div className="bc"><a href="/">🏠</a><span>›</span>HR<span>›</span>Rasilimali Watu</div>
       <div className="ph">
         <div><h1>👥 Rasilimali Watu / Human Resources</h1><p>Usimamizi wa wafanyakazi · Tanzania Police Force</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Ripoti ya HR</Button><Button variant="accent">+ Rekodi Mpya</Button></div>
+        <div className="flex g8"><Button variant="o">⬇ Ripoti ya HR</Button><Button variant="g">+ Rekodi Mpya</Button></div>
       </div>
-      <div className="stats-row stat-grid-5 section-gap">
+      <div className="stats-row s5 mb-sec">
         <StatCard icon="👮" value={38547} label="Wafanyakazi Jumla"  delta="2%"  color="blue" />
         <StatCard icon="⬆️" value={234}   label="Waliопandishwa Mwaka Huu" color="green" />
         <StatCard icon="🎓" value={1247}  label="Wanaofunzwa"        delta="5%"  color="amber" />
@@ -37,10 +37,10 @@ export default function HR() {
                     <tr key={r.id}>
                       <td className="td-mo">{r.id}</td>
                       <td className="td-nm">{r.officer}</td>
-                      <td><span className={`status ${types[r.type]||'s-draft'}`}>{r.type}</span></td>
+                      <td><span className={`status ${types[r.type]||'p-rasimu'}`}>{r.type}</span></td>
                       <td style={{fontSize:11}}>{r.desc}</td>
                       <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{r.date}</td>
-                      <td><Button variant="outline" size="sm">Angalia</Button></td>
+                      <td><Button variant="o" size="sm">Angalia</Button></td>
                     </tr>
                   ))}
                 </tbody>

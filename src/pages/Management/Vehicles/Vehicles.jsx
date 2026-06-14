@@ -27,16 +27,16 @@ export default function Vehicles() {
   return (
     <div className="afd">
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:14}}>
-        <button className="btn btn-ghost btn-sm" onClick={() => navigate(-1)}>← Nyuma</button>
+        <button className="btn btn-gh btn-sm" onClick={() => navigate(-1)}>← Nyuma</button>
         <div style={{flex:1}}>
           <div style={{fontSize:11,color:'var(--text-muted)'}}>Maelezo ya Gari · Tazama taarifa kamili ya gari</div>
         </div>
-        <Button variant="ghost" size="sm">🔗 Shiriki</Button>
-        <Button variant="ghost" size="sm">⋮</Button>
+        <Button variant="gh" size="sm">🔗 Shiriki</Button>
+        <Button variant="gh" size="sm">⋮</Button>
       </div>
 
       {/* Vehicle header card */}
-      <div className="card section-gap" style={{overflow:'hidden'}}>
+      <div className="card mb-sec" style={{overflow:'hidden'}}>
         <div style={{background:'var(--green-800)',padding:'16px 20px',display:'flex',gap:16,alignItems:'flex-start'}}>
           {/* Vehicle image placeholder */}
           <div style={{width:120,height:80,background:'rgba(0,0,0,.4)',borderRadius:'var(--r)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:36,flexShrink:0}}>🚗</div>
@@ -44,7 +44,7 @@ export default function Vehicles() {
             <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:4}}>
               <div style={{fontSize:10,color:'var(--text-muted)'}}>🇹🇿</div>
               <div style={{fontSize:20,fontWeight:900,color:'var(--text-white)',fontFamily:"'JetBrains Mono',monospace",letterSpacing:1}}>T 123 DRS</div>
-              <span className="status s-halali" style={{fontSize:'9px'}}>HALALI</span>
+              <span className="pill p-halali" style={{fontSize:'9px'}}>HALALI</span>
             </div>
             <div style={{fontSize:12,color:'var(--text-muted)',marginBottom:10}}>{v.make} {v.model}</div>
             <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:12}}>
@@ -71,10 +71,10 @@ export default function Vehicles() {
       </div>
 
       {/* Owner section */}
-      <div className="card section-gap">
+      <div className="card mb-sec">
         <div className="card-h">
           <div className="card-t">👤 MMILIKI WA GARI</div>
-          <Button variant="ghost" size="sm" onClick={() => navigate('/management/persons')}>👤 Tazama Wasifu</Button>
+          <Button variant="gh" size="sm" onClick={() => navigate('/management/persons')}>👤 Tazama Wasifu</Button>
         </div>
         <div className="card-bd">
           <div style={{display:'grid',gridTemplateColumns:'auto 1fr 1fr 1fr',gap:16,alignItems:'center'}}>
@@ -87,7 +87,7 @@ export default function Vehicles() {
       </div>
 
       {/* Tabs */}
-      <div className="card section-gap">
+      <div className="card mb-sec">
         <div className="vehicle-tabs">
           {['usajili','bima','historia','matengenezo','ukaguzi','historia-umiliki'].map(t => (
             <div key={t} className={`vehicle-tab ${activeTab===t?'active':''}`} onClick={() => setActiveTab(t)}>
@@ -110,7 +110,7 @@ export default function Vehicles() {
               <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:10}}>
                 <div style={{width:80,height:80,background:'rgba(0,0,0,.4)',borderRadius:'var(--r)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:32}}>QR</div>
                 <div style={{fontSize:9,color:'var(--text-muted)'}}>Scan kwa uhakiki</div>
-                <Button variant="outline" size="sm">⬇ Pakua Usajili</Button>
+                <Button variant="o" size="sm">⬇ Pakua Usajili</Button>
               </div>
               <div style={{display:'flex',flexDirection:'column',gap:10}}>
                 {[{icon:'✅',label:'Usajili Halali',sub:`Unamaliza: ${v.registration.expiry}`,ok:true},{icon:'✅',label:'Bima Halali',sub:`Unamaliza: ${v.insurance.to}`,ok:true},{icon:'⚠️',label:'Safety Inspection',sub:'Imekwisha muda',note:`Ilipaswa kuwa: ${v.inspection.expired}`,ok:false}].map(item => (
@@ -138,7 +138,7 @@ export default function Vehicles() {
                   <span style={{color:'var(--text-muted)'}}>{l}</span><span style={{fontWeight:600}}>{val}</span>
                 </div>
               ))}
-              <Button variant="outline" size="sm" style={{marginTop:10,width:'100%'}}>👁️ Tazama Bima</Button>
+              <Button variant="o" size="sm" style={{marginTop:10,width:'100%'}}>👁️ Tazama Bima</Button>
             </div>
             <div className="card-bd">
               <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>📝 HISTORIA YA UKIUKAJI</div>
@@ -155,7 +155,7 @@ export default function Vehicles() {
                   </div>
                 </div>
               ))}
-              <Button variant="outline" size="sm" style={{marginTop:10,width:'100%'}}>☰ Tazama Zote</Button>
+              <Button variant="o" size="sm" style={{marginTop:10,width:'100%'}}>☰ Tazama Zote</Button>
             </div>
             <div className="card-bd">
               <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>🛡️ HISTORIA YA WIZI</div>
@@ -164,7 +164,7 @@ export default function Vehicles() {
                 <div style={{fontSize:12,fontWeight:600}}>Hakuna taarifa ya wizi</div>
                 <div style={{fontSize:10,color:'var(--text-muted)',marginTop:4}}>Gari hili halijaripoliwa kama limeibiwa</div>
               </div>
-              <Button variant="outline" size="sm" style={{width:'100%'}}>🔍 Angalia Taarifa Nyingine</Button>
+              <Button variant="o" size="sm" style={{width:'100%'}}>🔍 Angalia Taarifa Nyingine</Button>
             </div>
           </div>
         )}
@@ -172,11 +172,11 @@ export default function Vehicles() {
 
       {/* Bottom actions */}
       <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-        <Button variant="primary">📋 Orodha Citation</Button>
-        <Button variant="danger" size="sm">⚠️ Ripoti Wizi</Button>
-        <Button variant="ghost" size="sm">👤 Tazama Mmiliki</Button>
-        <Button variant="ghost" size="sm">🔍 Gari Kagua</Button>
-        <Button variant="ghost" size="sm">⋯ Zaidi</Button>
+        <Button variant="p">📋 Orodha Citation</Button>
+        <Button variant="r" size="sm">⚠️ Ripoti Wizi</Button>
+        <Button variant="gh" size="sm">👤 Tazama Mmiliki</Button>
+        <Button variant="gh" size="sm">🔍 Gari Kagua</Button>
+        <Button variant="gh" size="sm">⋯ Zaidi</Button>
       </div>
     </div>
   )

@@ -1,8 +1,9 @@
 export default function Toast({ toast }) {
   if (!toast) return null
+  const cls = toast.type === 'success' ? 't-ok' : toast.type === 'error' ? 't-err' : 't-wrn'
   return (
-    <div className={`toast ${toast.type==='success'?'toast-success':toast.type==='error'?'toast-error':'toast-warning'}`}>
-      <span>{toast.type==='success'?'✓':'⚠️'}</span>
+    <div className={`toast ${cls}`}>
+      <span>{toast.type === 'success' ? '✓' : '⚠️'}</span>
       <span>{toast.msg}</span>
     </div>
   )

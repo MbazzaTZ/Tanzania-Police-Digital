@@ -10,9 +10,9 @@ export default function CrimeReports() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Ripoti<span>›</span>Takwimu za Uhalifu</div>
       <div className="ph">
         <div><h1>📊 Takwimu za Uhalifu / Crime Reports</h1><p>Takwimu za uhalifu kwa mkoa, wilaya na aina</p></div>
-        <div className="flex gap-8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mwaka 2024</option><option>Mwaka 2023</option></select><Button variant="outline">⬇ Pakua PDF</Button><Button variant="accent">📧 Tuma Ripoti</Button></div>
+        <div className="flex g8"><select className="fs" style={{width:'auto',fontSize:11,padding:'5px 10px'}}><option>Mwaka 2024</option><option>Mwaka 2023</option></select><Button variant="o">⬇ Pakua PDF</Button><Button variant="g">📧 Tuma Ripoti</Button></div>
       </div>
-      <div className="stats-row stat-grid-5 section-gap">
+      <div className="stats-row s5 mb-sec">
         <StatCard icon="🚨" value={4291}  label="Matukio Mwaka Huu"  delta="8%"   color="red" />
         <StatCard icon="⛓️" value={1847}  label="Wakamatwa"           delta="12%"  color="amber" />
         <StatCard icon="⚖️" value={892}   label="Waliofungwa"         delta="5%"   color="blue" />

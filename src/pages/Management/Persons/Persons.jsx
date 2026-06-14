@@ -60,7 +60,7 @@ export default function Persons() {
       </div>
 
       {/* Search bar */}
-      <div className="card section-gap">
+      <div className="card mb-sec">
         <div className="card-bd">
           <div style={{fontSize:11,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:8}}>
             Ingiza Namba ya {type}
@@ -70,10 +70,10 @@ export default function Persons() {
               placeholder={`Weka namba ya ${type}...`}
               value={query} onChange={e => setQuery(e.target.value)}
               onKeyDown={e => e.key==='Enter' && doSearch()} />
-            <Button variant="primary" size="lg" onClick={doSearch}>
+            <Button variant="p" size="lg" onClick={doSearch}>
               {loading ? '⏳' : '🔍'} TAFUTA
             </Button>
-            <Button variant="outline" size="lg">📷 Scan QR</Button>
+            <Button variant="o" size="lg">📷 Scan QR</Button>
           </div>
 
           <div style={{display:'flex',alignItems:'center',gap:12,margin:'14px 0'}}>
@@ -97,7 +97,7 @@ export default function Persons() {
 
       {/* Recent searches */}
       {!result && (
-        <div className="card section-gap">
+        <div className="card mb-sec">
           <div className="card-h">
             <div className="card-t">🕐 Utafutaji wa Hivi Karibuni</div>
             <span className="view-all">Ona Zote</span>
@@ -123,7 +123,7 @@ export default function Persons() {
 
       {/* Person result - matching screenshot exactly */}
       {result && (
-        <div className="card animate-fade-in section-gap" style={{overflow:'hidden'}}>
+        <div className="card afd mb-sec" style={{overflow:'hidden'}}>
           {/* Profile header */}
           <div className="profile-header">
             <div className="profile-photo">👤</div>
@@ -132,8 +132,8 @@ export default function Persons() {
                 <div style={{fontSize:18,fontWeight:800,color:'white'}}>{p.fullName.toUpperCase()}</div>
               </div>
               <div style={{display:'flex',gap:8,marginBottom:8,flexWrap:'wrap'}}>
-                <span className="status s-active">✓ Hakuna Tahadhari</span>
-                <span className="status s-paid">Amilifu</span>
+                <span className="pill p-active">✓ Hakuna Tahadhari</span>
+                <span className="pill p-paid">Amilifu</span>
               </div>
               <div style={{fontSize:10,fontFamily:"'JetBrains Mono',monospace",color:'rgba(255,255,255,.6)',marginBottom:6}}>
                 ID: PRS-2024-0517-000123
@@ -151,7 +151,7 @@ export default function Persons() {
             <div style={{textAlign:'center',flexShrink:0}}>
               <div style={{width:70,height:70,background:'white',borderRadius:'var(--r)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:32,marginBottom:4}}>⊞</div>
               <div style={{fontSize:9,color:'rgba(255,255,255,.5)'}}>Scan kwa uthibitisho</div>
-              <Button variant="outline" size="sm" style={{marginTop:6,fontSize:10}}>⏱ Ona Historia</Button>
+              <Button variant="o" size="sm" style={{marginTop:6,fontSize:10}}>⏱ Ona Historia</Button>
             </div>
           </div>
 
@@ -176,7 +176,7 @@ export default function Persons() {
                 <div key={d.type} className="doc-card">
                   <div className="doc-label">{d.type}</div>
                   <div className="doc-value">{d.num}</div>
-                  <span className="status s-paid" style={{fontSize:'8.5px',padding:'1px 6px'}}>Ndio</span>
+                  <span className="pill p-paid" style={{fontSize:'8.5px',padding:'1px 6px'}}>Ndio</span>
                   <div className="doc-sub">{d.sub}</div>
                 </div>
               ))}
@@ -220,12 +220,12 @@ export default function Persons() {
           <div style={{padding:'14px 16px'}}>
             <div style={{fontSize:10,fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>⚡ Kitendo cha Haraka</div>
             <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              <Button variant="primary" size="sm" onClick={() => navigate('/enforcement/citations/new')}>📋 Toa Citation</Button>
-              <Button variant="gold" size="sm" onClick={() => navigate('/enforcement/arrests/new')}>⛓️ Kamata</Button>
-              <Button variant="outline" size="sm">🔒 Detain (Shikilia)</Button>
-              <Button variant="outline" size="sm" onClick={() => navigate('/enforcement/incidents')}>📝 Ripoti ya Tukio</Button>
-              <Button variant="danger" size="sm">🚨 Escalate</Button>
-              <Button variant="ghost" size="sm">⋯ Zaidi</Button>
+              <Button variant="p" size="sm" onClick={() => navigate('/enforcement/citations/new')}>📋 Toa Citation</Button>
+              <Button variant="g" size="sm" onClick={() => navigate('/enforcement/arrests/new')}>⛓️ Kamata</Button>
+              <Button variant="o" size="sm">🔒 Detain (Shikilia)</Button>
+              <Button variant="o" size="sm" onClick={() => navigate('/enforcement/incidents')}>📝 Ripoti ya Tukio</Button>
+              <Button variant="r" size="sm">🚨 Escalate</Button>
+              <Button variant="gh" size="sm">⋯ Zaidi</Button>
             </div>
           </div>
         </div>

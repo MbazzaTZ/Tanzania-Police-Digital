@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stat Cards */}
-      <div className="stats-row stat-grid-5 section-gap">
+      <div className="stats-row s5 mb-sec">
         <StatCard icon="📋" value={s.citationsToday} label="Citations Leo" delta={s.citationsDelta} color="green" />
         <StatCard icon="⛓️" value={s.arrestsToday}   label="Kukamatwa Leo" delta={s.arrestsDelta} color="amber" />
         <StatCard icon="🚨" value={s.criticalAlerts}  label="Matukio Muhimu" delta={s.alertsDelta} deltaUp={false} color="red" />
@@ -131,8 +131,8 @@ export default function Dashboard() {
         <CardHeader title="📋 Citations za Hivi Karibuni" subtitle={`Leo: ${s.citationsToday} citations`}
           action={
             <div style={{ display:'flex', gap:8 }}>
-              <button className="btn btn-outline btn-sm">⬇ Pakua</button>
-              <button className="btn btn-accent btn-sm" onClick={() => navigate('/enforcement/citations/new')}>+ Toa Citation Mpya</button>
+              <button className="btn btn-o btn-sm">⬇ Pakua</button>
+              <button className="btn btn-g btn-sm" onClick={() => navigate('/enforcement/citations/new')}>+ Toa Citation Mpya</button>
             </div>
           } />
         <CardBody noPadding>
@@ -153,7 +153,7 @@ export default function Dashboard() {
                     <td style={{ fontFamily:'var(--font-mono)', fontSize:10 }}>{c.date} {c.time}</td>
                     <td className="td-mo">{c.fine.toLocaleString()}</td>
                     <td><Badge status={c.status} /></td>
-                    <td><button className="btn btn-outline btn-sm" onClick={() => navigate(`/enforcement/citations/${c.id}`)}>Angalia</button></td>
+                    <td><button className="btn btn-o btn-sm" onClick={() => navigate(`/enforcement/citations/${c.id}`)}>Angalia</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -161,7 +161,7 @@ export default function Dashboard() {
           </div>
           <div style={{ padding:'12px 16px', display:'flex', justifyContent:'space-between', alignItems:'center', borderTop:'1px solid var(--border)' }}>
             <div style={{ fontSize:11, color:'var(--text-muted)' }}>Inaonyesha 1–6 ya matokeo 4,291</div>
-            <button className="btn btn-outline btn-sm" onClick={() => navigate('/enforcement/citations')}>Ona Zote →</button>
+            <button className="btn btn-o btn-sm" onClick={() => navigate('/enforcement/citations')}>Ona Zote →</button>
           </div>
         </CardBody>
       </Card>

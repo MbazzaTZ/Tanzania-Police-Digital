@@ -8,7 +8,7 @@ export default function Communications() {
   return (
     <div className="afd">
       <div className="bc"><a href="/">🏠</a><span>›</span>Mawasiliano</div>
-      <div className="ph"><div><h1>💬 Mawasiliano</h1><p>Ujumbe, Taarifa za Haraka na Escalations</p></div><Button variant="accent">+ Ujumbe Mpya</Button></div>
+      <div className="ph"><div><h1>💬 Mawasiliano</h1><p>Ujumbe, Taarifa za Haraka na Escalations</p></div><Button variant="g">+ Ujumbe Mpya</Button></div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 2fr',gap:16,height:500}}>
         <Card style={{overflow:'hidden',display:'flex',flexDirection:'column'}}>
           <CardHeader title="📬 Inbox" subtitle={`${MOCK_MESSAGES.filter(m=>!m.read).length} mpya`} />
@@ -35,7 +35,7 @@ export default function Communications() {
               </div>
               <div style={{padding:16,borderTop:'1px solid var(--border)',display:'flex',gap:8}}>
                 <input className="fi" style={{flex:1}} placeholder="Andika jibu..." value={newMsg} onChange={e=>setNewMsg(e.target.value)} />
-                <Button variant="primary">Tuma ↗</Button>
+                <Button variant="p">Tuma ↗</Button>
               </div>
             </>
           ) : (

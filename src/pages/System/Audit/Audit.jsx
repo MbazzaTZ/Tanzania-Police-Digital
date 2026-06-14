@@ -11,7 +11,7 @@ export default function Audit() {
     <div className="afd">
       <div className="bc"><a href="/">🏠</a><span>›</span>Mfumo<span>›</span>Rekodi ya Ukaguzi</div>
       <div className="ph"><div><h1>🗂️ Rekodi ya Ukaguzi / Audit Trail</h1><p>Kila hatua iliyofanywa na afisa imehifadhiwa hapa</p></div></div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🗂️" value={15420} label="Vitendo Jumla"   delta="5%" color="blue" />
         <StatCard icon="👮" value={1247} label="Maafisa Wanaofanya Kazi" color="green" />
         <StatCard icon="⚠️" value={3}   label="Vitendo vya Tashwishi"  color="red" />

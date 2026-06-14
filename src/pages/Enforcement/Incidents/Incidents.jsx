@@ -16,16 +16,16 @@ export default function Incidents() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Matukio</div>
       <div className="ph">
         <div><h1>📝 Matukio / Incidents</h1><p>Ripoti za matukio yaliyoripotiwa leo na wiki hii</p></div>
-        <div className="flex gap-8"><Button variant="outline">⬇ Pakua</Button><Button variant="accent">+ Ripoti ya Tukio</Button></div>
+        <div className="flex g8"><Button variant="o">⬇ Pakua</Button><Button variant="g">+ Ripoti ya Tukio</Button></div>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="📝" value={312}  label="Matukio Leo"       delta="8%"   color="amber" />
         <StatCard icon="🚨" value={47}   label="Muhimu / Critical"              color="red" />
         <StatCard icon="🔍" value={189}  label="Yanachunguzwa"     delta="5%"   color="blue" />
         <StatCard icon="✅" value={76}   label="Yaliyofungwa Leo"               color="green" />
       </div>
       <Card>
-        <CardHeader action={<div className="flex gap-8"><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
+        <CardHeader action={<div className="flex g8"><Tabs tabs={TABS} active={tab} onChange={setTab} /><input className="fi" style={{width:180,fontSize:11,padding:'5px 10px'}} placeholder="🔍 Tafuta..." /></div>} />
         <CardBody noPadding>
           <div className="tw">
             <table>
@@ -41,7 +41,7 @@ export default function Incidents() {
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{i.date} {i.time}</td>
                     <td><Badge status={i.priority} /></td>
                     <td><Badge status={i.status} /></td>
-                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

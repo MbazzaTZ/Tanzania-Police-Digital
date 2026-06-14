@@ -13,7 +13,7 @@ export default function Cells() {
     <div className="afd">
       <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Seli</div>
       <div className="ph"><div><h1>🔐 Seli / Cells</h1><p>Hali ya seli zote katika vituo vya polisi</p></div></div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🔐" value={MOCK_CELLS.length} label="Seli Jumla"      color="blue" />
         <StatCard icon="🔴" value={1}                  label="Zimejaa (Full)"  color="red" />
         <StatCard icon="🟡" value={3}                  label="Zinatumiwa"      color="amber" />
@@ -25,7 +25,7 @@ export default function Cells() {
             <div className="card-bd">
               <div style={{display:'flex',justifyContent:'space-between',marginBottom:8}}>
                 <div style={{fontSize:20,fontWeight:800,fontFamily:'var(--font-mono)',color:'var(--text-white)'}}>{c.cell_no}</div>
-                <span className={`status ${c.status==='full'?'s-critical':c.status==='empty'?'s-closed':'s-active'}`}>{c.status==='full'?'Imejaa':c.status==='empty'?'Tupu':'Inatumiwa'}</span>
+                <span className={`status ${c.status==='full'?'p-critical':c.status==='empty'?'p-closed':'p-active'}`}>{c.status==='full'?'Imejaa':c.status==='empty'?'Tupu':'Inatumiwa'}</span>
               </div>
               <div style={{fontSize:12,color:'var(--text-muted)',marginBottom:6}}>{c.station} · {c.type}</div>
               <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
@@ -34,7 +34,7 @@ export default function Cells() {
                 </div>
                 <span style={{fontSize:11,fontFamily:'var(--font-mono)',color:'var(--gold)'}}>{c.occupied}/{c.capacity}</span>
               </div>
-              <Button variant="outline" size="sm" style={{width:'100%'}}>Angalia Wafungwa</Button>
+              <Button variant="o" size="sm" style={{width:'100%'}}>Angalia Wafungwa</Button>
             </div>
           </div>
         ))}

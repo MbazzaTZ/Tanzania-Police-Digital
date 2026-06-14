@@ -10,15 +10,15 @@ export default function Evidence() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Ushahidi</div>
       <div className="ph">
         <div><h1>🔬 Ushahidi / Evidence</h1><p>Usimamizi wa ushahidi na chain of custody</p></div>
-        <Button variant="accent">+ Ongeza Ushahidi</Button>
+        <Button variant="g">+ Ongeza Ushahidi</Button>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🔬" value={2847}  label="Ushahidi Jumla"        color="blue" />
         <StatCard icon="✅" value={2612}  label="Unaotunzwa Vizuri"      delta="5%"  color="green" />
         <StatCard icon="⚠️" value={23}    label="Unaohitaji Umakini"                 color="amber" />
         <StatCard icon="🚨" value={12}    label="Tamper Imegunduliwa"               color="red" />
       </div>
-      <div className="info-box section-gap">🔒 Kila ushahidi una chain of custody inayorekodi: Aliyekusanya → Aliyehifadhi → Aliyechunguza → Mahakamani. Mfumo unagunduwa mabadiliko yoyote ya haramu.</div>
+      <div className="ibox mb-sec">🔒 Kila ushahidi una chain of custody inayorekodi: Aliyekusanya → Aliyehifadhi → Aliyechunguza → Mahakamani. Mfumo unagunduwa mabadiliko yoyote ya haramu.</div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:16}}>
         <Card>
           <CardHeader title="🔬 Ushahidi Wote" />
@@ -58,7 +58,7 @@ export default function Evidence() {
                   </div>
                 </div>
               ))}
-              <Button variant="primary" style={{marginTop:8,width:'100%'}}>+ Ongeza Hatua ya Custody</Button>
+              <Button variant="p" style={{marginTop:8,width:'100%'}}>+ Ongeza Hatua ya Custody</Button>
             </CardBody>
           </Card>
         ) : (

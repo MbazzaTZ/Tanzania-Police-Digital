@@ -12,9 +12,9 @@ export default function CitationDetail() {
       <Breadcrumb items={[{label:'🏠',href:'/'},{label:'Citations',href:'/enforcement/citations'},{label:c.id}]} />
       <div className="ph">
         <div><h1>📋 {c.id}</h1><p>{c.offence} · {c.date} {c.time}</p></div>
-        <div className="flex gap-8">
+        <div className="flex g8">
           <Badge status={c.status} />
-          <Button variant="outline" onClick={() => navigate('/enforcement/citations')}>← Nyuma</Button>
+          <Button variant="o" onClick={() => navigate('/enforcement/citations')}>← Nyuma</Button>
         </div>
       </div>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>

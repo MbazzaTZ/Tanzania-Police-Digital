@@ -11,15 +11,15 @@ export default function Detentions() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Utekelezaji<span>›</span>Kizuizini</div>
       <div className="ph">
         <div><h1>🔒 Kizuizini / Detentions</h1><p>Watu walioko kizuizini sasa · Upeo: Masaa 48</p></div>
-        <Button variant="accent">+ Weka Kizuizini</Button>
+        <Button variant="g">+ Weka Kizuizini</Button>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🔒" value={data.length} label="Wako Kizuizini" color="red" />
         <StatCard icon="⏰" value={0}            label="Wanaokaribia Muda (12h)" color="amber" />
         <StatCard icon="✅" value={0}            label="Walioachiwa Leo" color="green" />
         <StatCard icon="🏢" value={2}            label="Vituo vya Kizuizini" color="blue" />
       </div>
-      <div className="info-box section-gap">⚠️ Mtu hawezi kushikiliwa zaidi ya masaa 48 bila amri ya mahakama. Mfumo unaonyesha onyo moja kwa moja.</div>
+      <div className="ibox mb-sec">⚠️ Mtu hawezi kushikiliwa zaidi ya masaa 48 bila amri ya mahakama. Mfumo unaonyesha onyo moja kwa moja.</div>
       <Card>
         <CardHeader title="🔒 Watu Walioko Kizuizini" />
         <CardBody noPadding>
@@ -39,7 +39,7 @@ export default function Detentions() {
                     <td style={{textAlign:'center',fontFamily:'var(--font-mono)'}}>{d.max_hours}h</td>
                     <td><span style={{color:'#66BB6A',fontFamily:'var(--font-mono)',fontSize:11}}>~36h</span></td>
                     <td><Badge status={d.status} /></td>
-                    <td className="flex gap-8"><Button variant="success" size="sm">Achia</Button><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td className="flex g8"><Button variant="success" size="sm">Achia</Button><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>

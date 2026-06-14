@@ -13,9 +13,9 @@ export default function Wanted() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Uchunguzi<span>›</span>Watuhumiwa Wanaotafutwa</div>
       <div className="ph">
         <div><h1>🎯 Watuhumiwa Wanaotafutwa</h1><p>Orodha ya watu wanaotafutwa kitaifa</p></div>
-        <Button variant="accent">+ Ongeza Mtarajiwa</Button>
+        <Button variant="g">+ Ongeza Mtarajiwa</Button>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🎯" value={MOCK_WANTED.length} label="Wanaotafutwa"    color="red" />
         <StatCard icon="⚠️" value={1}  label="Hatari / Dangerous"  color="red" />
         <StatCard icon="✅" value={0}  label="Waliokamatwa Leo"     color="green" />
@@ -38,8 +38,8 @@ export default function Wanted() {
                     <td style={{fontSize:11}}>{w.region}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10}}>{w.date}</td>
                     <td className="td-mo">{w.reward.toLocaleString()}</td>
-                    <td>{w.dangerous ? <span className="status s-critical">⚠️ Ndiyo</span> : <span className="status s-closed">Hapana</span>}</td>
-                    <td><Button variant="danger" size="sm">Kamata</Button></td>
+                    <td>{w.dangerous ? <span className="pill p-critical">⚠️ Ndiyo</span> : <span className="pill p-closed">Hapana</span>}</td>
+                    <td><Button variant="r" size="sm">Kamata</Button></td>
                   </tr>
                 ))}
               </tbody>

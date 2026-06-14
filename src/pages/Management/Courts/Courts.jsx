@@ -12,9 +12,9 @@ export default function Courts() {
       <div className="bc"><a href="/">🏠</a><span>›</span>Usimamizi<span>›</span>Mahakama</div>
       <div className="ph">
         <div><h1>🏛️ Mahakama / Court Management</h1><p>Kesi zinazoendelea mahakamani na ratiba ya vikao</p></div>
-        <Button variant="accent">+ Ongeza Kesi ya Mahakama</Button>
+        <Button variant="g">+ Ongeza Kesi ya Mahakama</Button>
       </div>
-      <div className="stats-row stat-grid-4 section-gap">
+      <div className="stats-row s4 mb-sec">
         <StatCard icon="🏛️" value={234}  label="Kesi Mahakamani"   color="blue" />
         <StatCard icon="📅" value={12}   label="Vikao Wiki Hii"     color="amber" />
         <StatCard icon="✅" value={56}   label="Zilizofungwa Mwezi" delta="8%"  color="green" />
@@ -36,7 +36,7 @@ export default function Courts() {
                     <td style={{fontSize:11}}>{c.prosecutor}</td>
                     <td style={{fontFamily:'var(--font-mono)',fontSize:10,color:'var(--gold)'}}>{c.next_hearing}</td>
                     <td><Badge status={c.status} /></td>
-                    <td><Button variant="outline" size="sm">Angalia</Button></td>
+                    <td><Button variant="o" size="sm">Angalia</Button></td>
                   </tr>
                 ))}
               </tbody>
