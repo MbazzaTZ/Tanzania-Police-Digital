@@ -1,0 +1,103 @@
+/* =========================================================
+   TPDOP Design System – Global Styles
+   Tanzania Police Force · #1B5E20 · #FFC107
+   ========================================================= */
+
+:root {
+  /* ── Colours ── */
+  --clr-primary:    #1B5E20;
+  --clr-secondary:  #2E7D32;
+  --clr-dark:       #0D1B0F;
+  --clr-surface:    #122115;
+  --clr-panel:      #1A2E1D;
+  --clr-border:     #2A3F2D;
+  --clr-accent:     #FFC107;
+  --clr-accent2:    #FFD54F;
+  --clr-red:        #C62828;
+  --clr-orange:     #E65100;
+  --clr-blue:       #1565C0;
+  --clr-text:       #E8F5E9;
+  --clr-muted:      #81C784;
+  --clr-white:      #FFFFFF;
+
+  /* ── Typography ── */
+  --font-ui:        'Inter', system-ui, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Spacing ── */
+  --r:              6px;
+  --r-lg:           10px;
+  --r-xl:           14px;
+
+  /* ── Layout ── */
+  --sidebar-w:      240px;
+  --topbar-h:       60px;
+
+  /* ── Transitions ── */
+  --transition:     all 0.15s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-ui);
+  background: var(--clr-dark);
+  color: var(--clr-text);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-ui); }
+input, select, textarea { font-family: var(--font-ui); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-secondary); }
+
+/* ── Utility Classes ── */
+.font-mono { font-family: var(--font-mono) !important; }
+.text-accent { color: var(--clr-accent); }
+.text-muted  { color: var(--clr-muted); }
+.text-white  { color: var(--clr-white); }
+.text-red    { color: #EF5350; }
+.text-green  { color: #66BB6A; }
+.text-blue   { color: #64B5F6; }
+
+.flex        { display: flex; }
+.flex-col    { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.gap-20 { gap: 20px; }
+
+.mb-8  { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-20 { margin-bottom: 20px; }
+
+.w-full { width: 100%; }
+.truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { transform: translateX(-10px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.animate-fade-in  { animation: fadeIn 0.25s ease forwards; }
+.animate-slide-in { animation: slideIn 0.2s ease forwards; }
+.animate-pulse    { animation: pulse 2s infinite; }
