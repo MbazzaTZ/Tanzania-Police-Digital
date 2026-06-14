@@ -21,7 +21,7 @@ export default function RegionalDashboard() {
   return (
     <div className="afd">
       {/* Header */}
-      <div style={{background:'linear-gradient(135deg,#080C1A,#1a237e)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
+      <div style={{background:'linear-gradient(135deg,#080C1A,#1E3A6E)',borderRadius:'var(--r16)',padding:'18px 22px',marginBottom:16,display:'flex',gap:16,alignItems:'center'}}>
         <PoliceBadge size={50} />
         <div style={{flex:1}}>
           <div style={{fontSize:9,color:'rgba(255,255,255,.5)',textTransform:'uppercase',letterSpacing:1,marginBottom:2}}>DASHIBODI YA MKOA</div>

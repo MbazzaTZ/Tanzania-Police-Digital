@@ -91,7 +91,7 @@ export default function LoginPage() {
               <button key={l} onClick={() => setLang(l.toLowerCase())} style={{
                 padding: '5px 14px', borderRadius: 18, border: 'none', cursor: 'pointer',
                 fontFamily: 'Inter,sans-serif', fontSize: 11, fontWeight: 700,
-                background: lang === l.toLowerCase() ? '#1a237e' : 'transparent',
+                background: lang === l.toLowerCase() ? '#1E3A6E' : 'transparent',
                 color: lang === l.toLowerCase() ? '#fff' : 'rgba(255,255,255,.5)',
                 transition: 'all .14s',
               }}>{l}</button>
@@ -206,7 +206,7 @@ export default function LoginPage() {
                 outline: 'none', background: '#FAFAFA', color: '#111',
                 boxSizing: 'border-box', transition: 'border-color .14s, background .14s',
               }}
-              onFocus={e => { e.target.style.borderColor = '#1a237e'; e.target.style.background = '#fff' }}
+              onFocus={e => { e.target.style.borderColor = '#1E3A6E'; e.target.style.background = '#fff' }}
               onBlur={e => { e.target.style.borderColor = '#E0E0E0'; e.target.style.background = '#FAFAFA' }}
             />
           </div>
@@ -232,7 +232,7 @@ export default function LoginPage() {
                 outline: 'none', background: '#FAFAFA', color: '#111',
                 boxSizing: 'border-box', transition: 'border-color .14s, background .14s',
               }}
-              onFocus={e => { e.target.style.borderColor = '#1a237e'; e.target.style.background = '#fff' }}
+              onFocus={e => { e.target.style.borderColor = '#1E3A6E'; e.target.style.background = '#fff' }}
               onBlur={e => { e.target.style.borderColor = '#E0E0E0'; e.target.style.background = '#FAFAFA' }}
             />
             <button onClick={() => setShow(!showPass)} style={{
@@ -249,8 +249,8 @@ export default function LoginPage() {
           <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
             <div onClick={() => setRem(!remember)} style={{
               width: 18, height: 18, borderRadius: 5,
-              border: `2px solid ${remember ? '#1a237e' : '#CCC'}`,
-              background: remember ? '#1a237e' : '#fff',
+              border: `2px solid ${remember ? '#1E3A6E' : '#CCC'}`,
+              background: remember ? '#1E3A6E' : '#fff',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'all .14s', flexShrink: 0,
             }}>
@@ -258,7 +258,7 @@ export default function LoginPage() {
             </div>
             <span style={{ fontSize: 13, color: '#555' }}>{sw ? 'Kumbuka mimi' : 'Remember me'}</span>
           </label>
-          <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: '#1a237e', fontWeight: 600, fontFamily: 'Inter,sans-serif' }}>
+          <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: '#1E3A6E', fontWeight: 600, fontFamily: 'Inter,sans-serif' }}>
             {sw ? 'Umesahau nenosiri?' : 'Forgot password?'}
           </button>
         </div>
@@ -266,7 +266,7 @@ export default function LoginPage() {
         {/* INGIA button */}
         <button onClick={login} disabled={loading} style={{
           width: '100%', padding: '14px',
-          background: loading ? '#283593' : '#1a237e',
+          background: loading ? '#234086' : '#1E3A6E',
           color: '#fff', border: 'none', borderRadius: 12,
           fontSize: 15, fontWeight: 700, fontFamily: 'Inter,sans-serif',
           cursor: loading ? 'not-allowed' : 'pointer',
@@ -274,8 +274,8 @@ export default function LoginPage() {
           marginBottom: 18, transition: 'all .14s',
           boxShadow: '0 4px 20px rgba(26,35,126,.35)',
         }}
-          onMouseEnter={e => { if (!loading) e.currentTarget.style.background = '#283593' }}
-          onMouseLeave={e => { if (!loading) e.currentTarget.style.background = '#1a237e' }}>
+          onMouseEnter={e => { if (!loading) e.currentTarget.style.background = '#234086' }}
+          onMouseLeave={e => { if (!loading) e.currentTarget.style.background = '#1E3A6E' }}>
           {loading ? '⏳ Inaingia...' : <><span style={{ fontSize: 18 }}>🔒</span> {sw ? 'INGIA' : 'LOGIN'}</>}
         </button>
 
@@ -294,7 +294,7 @@ export default function LoginPage() {
           cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
           gap: 8, color: '#444', marginBottom: 32, transition: 'border-color .14s',
         }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = '#1a237e'}
+          onMouseEnter={e => e.currentTarget.style.borderColor = '#1E3A6E'}
           onMouseLeave={e => e.currentTarget.style.borderColor = '#E0E0E0'}>
           <span style={{ fontSize: 20 }}>👆</span>
           {sw ? 'Tumia Alama ya Kidole' : 'Use Fingerprint'}
